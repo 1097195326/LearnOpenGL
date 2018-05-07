@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113C7F1A20A03C0600BB5CE7 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 113C7F1920A03C0600BB5CE7 /* glad.c */; };
 		A57B70602084EB4600404802 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */; };
 		A57B70622084EB5E00404802 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B70612084EB5E00404802 /* libglfw.3.2.dylib */; };
 		A5A3653F2084E70C00246646 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A3653E2084E70C00246646 /* main.cpp */; };
@@ -26,6 +27,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		113C7F1720A03C0600BB5CE7 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
+		113C7F1820A03C0600BB5CE7 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
+		113C7F1920A03C0600BB5CE7 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		A57B70612084EB5E00404802 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		A5A3653B2084E70C00246646 /* LearnOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +71,9 @@
 		A5A3653D2084E70C00246646 /* LearnOpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				113C7F1920A03C0600BB5CE7 /* glad.c */,
+				113C7F1820A03C0600BB5CE7 /* glad.h */,
+				113C7F1720A03C0600BB5CE7 /* khrplatform.h */,
 				A5A3653E2084E70C00246646 /* main.cpp */,
 			);
 			path = LearnOpenGL;
@@ -139,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5A3653F2084E70C00246646 /* main.cpp in Sources */,
+				113C7F1A20A03C0600BB5CE7 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,8 +273,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(glew_lib)",
 					"$(glfw_lib)",
-					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -283,8 +289,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(glew_lib)",
 					"$(glfw_lib)",
-					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
