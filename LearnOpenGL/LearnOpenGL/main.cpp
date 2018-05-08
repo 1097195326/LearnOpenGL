@@ -7,10 +7,15 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
+
 //#include "glad.h"
 #include <GLFW/glfw3.h>
-#include "math3d.h"
+//#include "math3d.h"
 
+
+using namespace std;
 
 const char *vertexShaderSource =
 "attribute vec3 aPos;\n"
@@ -78,8 +83,23 @@ GLuint GetShaderProgram(const char * _VertexShaderSource, const char * _Fragment
     
     return ShaderProgram;
 }
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
+{
+    ifstream inputFile;
+    stringstream strContent;
+    string content;
+    printf("zhx : log \n");
+    inputFile.open("Shaders/FragmentShader.strings");
     
+//    while (inputFile>>content)
+    {
+        strContent<<inputFile.rdbuf();
+        content = strContent.str();
+        printf("zhx: %s\n",content.c_str());
+    }
+    inputFile.close();
+    return 0;
+    //--------------
     if(!glfwInit())
     {
         printf("glfw init fail \n");

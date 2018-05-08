@@ -19,7 +19,7 @@
 		A5A365392084E70C00246646 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = "";
 			dstSubfolderSpec = 0;
 			files = (
 			);
@@ -28,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1102BDE520A198F80061B7D5 /* VertexShader.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertexShader.txt; sourceTree = "<group>"; };
+		1102BDE620A199170061B7D5 /* FragmentShader.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = FragmentShader.strings; sourceTree = "<group>"; };
 		113C7F1720A03C0600BB5CE7 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
 		113C7F1820A03C0600BB5CE7 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
 		113C7F1920A03C0600BB5CE7 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
@@ -54,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1102BDE420A198F80061B7D5 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				1102BDE520A198F80061B7D5 /* VertexShader.txt */,
+				1102BDE620A199170061B7D5 /* FragmentShader.strings */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 		A5A365322084E70C00246646 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +85,7 @@
 		A5A3653D2084E70C00246646 /* LearnOpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				1102BDE420A198F80061B7D5 /* Shaders */,
 				113C7FA320A07FE900BB5CE7 /* math3d.cpp */,
 				113C7FA420A07FE900BB5CE7 /* math3d.h */,
 				113C7F1920A03C0600BB5CE7 /* glad.c */,
