@@ -7,14 +7,13 @@
 //
 
 #include <iostream>
-#include "glad.h"
+//#include "glad.h"
 #include <GLFW/glfw3.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "math3d.h"
 
 
 const char *vertexShaderSource =
-"layout (location = 0) in vec3 aPos;\n"
+"attribute vec3 aPos;\n"
 "void main()\n"
 "{\n"
 "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
@@ -32,6 +31,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     {
         glfwSetWindowShouldClose(window, GLFW_TRUE);
     }
+    
 }
 GLuint GetShaderProgram(const char * _VertexShaderSource, const char * _FragmentShaderSource)
 {
@@ -86,7 +86,6 @@ int main(int argc, const char * argv[]) {
         return 0;
     }
     
-    
     GLFWwindow * window = glfwCreateWindow(800, 600, "HelloWindow", NULL, NULL);
     if (window == NULL)
     {
@@ -96,19 +95,19 @@ int main(int argc, const char * argv[]) {
     glfwSetKeyCallback(window, &key_callback);
     glfwMakeContextCurrent(window);
     
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+//    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+//    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+//    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+//
+//#ifdef __APPLE__
+//    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
+//#endif
     
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
-#endif
-    
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
-    }
+//    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+//    {
+//        std::cout << "Failed to initialize GLAD" << std::endl;
+//        return -1;
+//    }
     
     int width,height;
     glfwGetFramebufferSize(window, &width, &height);
@@ -137,15 +136,15 @@ int main(int argc, const char * argv[]) {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
     
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, (GLvoid*)0);
-    glEnableVertexAttribArray(0);
+//    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, (GLvoid*)0);
+//    glEnableVertexAttribArray(0);
     
     GLuint ShaderProgram = GetShaderProgram(vertexShaderSource,fragmentShaderSource);
     
-//    glGetAttribLocation
-    
-    
-    
+    GLuint aPos;
+    aPos = glGetAttribLocation(ShaderProgram, "aPos");
+    glEnableVertexAttribArray(aPos);
+    glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (GLvoid*)0);
     
     while (!glfwWindowShouldClose(window))
     {
@@ -164,7 +163,6 @@ int main(int argc, const char * argv[]) {
     
     glDeleteBuffers(1, &VBO);
     glDeleteBuffers(1, &EBO);
-    
     
     glfwTerminate();
     exit(EXIT_SUCCESS);
