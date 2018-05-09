@@ -9,7 +9,6 @@
 #include "GameHeader.h"
 
 #include "ShaderProgram.h"
-#include "FileHelper.h"
 #include <GLFW/glfw3.h>
 
 
@@ -19,52 +18,6 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     {
         glfwSetWindowShouldClose(window, GLFW_TRUE);
     }
-    
-}
-GLuint GetShaderProgram(const char * _VertexShaderSource, const char * _FragmentShaderSource)
-{
-    GLuint VertexShader,FragmentShader,ShaderProgram;
-    // create vertex shader
-    VertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(VertexShader, 1, &_VertexShaderSource, NULL);
-    glCompileShader(VertexShader);
-    
-    int Success;
-    char InfoLog[512];
-    glGetShaderiv(VertexShader, GL_COMPILE_STATUS, &Success);
-    if(!Success)
-    {
-        glGetShaderInfoLog(VertexShader, 512, NULL, InfoLog);
-        printf("ERROR::SHADER::VERTEX::COMPILE_FAILED : %s",InfoLog);
-    }
-    // create fragment shader
-    FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(FragmentShader, 1, &_FragmentShaderSource, NULL);
-    glCompileShader(FragmentShader);
-    
-    glGetShaderiv(FragmentShader, GL_COMPILE_STATUS, &Success);
-    if(!Success)
-    {
-        glGetShaderInfoLog(FragmentShader, 512, NULL, InfoLog);
-        printf("ERROR::SHADER::FRAGMENT::COMPILE_FAILED : %s",InfoLog);
-    }
-    // create shader program
-    ShaderProgram = glCreateProgram();
-    glAttachShader(ShaderProgram, VertexShader);
-    glAttachShader(ShaderProgram, FragmentShader);
-    glLinkProgram(ShaderProgram);
-    
-    glGetProgramiv(ShaderProgram, GL_LINK_STATUS, &Success);
-    if(!Success)
-    {
-        glGetProgramInfoLog(ShaderProgram, 512, NULL, InfoLog);
-        printf("ERROT::SHADER::PROGRAM::LINK_FAILED : %s",InfoLog);
-    }
-    // delete vertexShader, fragmentShader
-    glDeleteShader(VertexShader);
-    glDeleteShader(FragmentShader);
-    
-    return ShaderProgram;
 }
 int main(int argc, const char * argv[])
 {
