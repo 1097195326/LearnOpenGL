@@ -6,29 +6,12 @@
 //  Copyright © 2018年 hongxing zhang. All rights reserved.
 //
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
+#include "GameHeader.h"
 
-//#include "glad.h"
+#include "ShaderProgram.h"
+#include "FileHelper.h"
 #include <GLFW/glfw3.h>
-//#include "math3d.h"
 
-
-using namespace std;
-
-const char *vertexShaderSource =
-"attribute vec3 aPos;\n"
-"void main()\n"
-"{\n"
-"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-"}\0";
-
-const  char * fragmentShaderSource =
-"void main () \n"
-"{\n"
-"   gl_FragColor = vec4(1.0, 0.5,0.2,1.0);\n"
-"}\n\0";
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -85,27 +68,11 @@ GLuint GetShaderProgram(const char * _VertexShaderSource, const char * _Fragment
 }
 int main(int argc, const char * argv[])
 {
-    ifstream inputFile;
-    stringstream strContent;
-    string content;
-    printf("zhx : log \n");
-    inputFile.open("Shaders/FragmentShader.strings");
-    
-//    while (inputFile>>content)
-    {
-        strContent<<inputFile.rdbuf();
-        content = strContent.str();
-        printf("zhx: %s\n",content.c_str());
-    }
-    inputFile.close();
-    return 0;
-    //--------------
     if(!glfwInit())
     {
         printf("glfw init fail \n");
         return 0;
     }
-    
     GLFWwindow * window = glfwCreateWindow(800, 600, "HelloWindow", NULL, NULL);
     if (window == NULL)
     {
@@ -114,20 +81,6 @@ int main(int argc, const char * argv[])
     }
     glfwSetKeyCallback(window, &key_callback);
     glfwMakeContextCurrent(window);
-    
-//    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-//    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-//    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-//
-//#ifdef __APPLE__
-//    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
-//#endif
-    
-//    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-//    {
-//        std::cout << "Failed to initialize GLAD" << std::endl;
-//        return -1;
-//    }
     
     int width,height;
     glfwGetFramebufferSize(window, &width, &height);
@@ -156,13 +109,10 @@ int main(int argc, const char * argv[])
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
     
-//    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, (GLvoid*)0);
-//    glEnableVertexAttribArray(0);
-    
-    GLuint ShaderProgram = GetShaderProgram(vertexShaderSource,fragmentShaderSource);
+    ShaderProgram * mShaderProgram = new ShaderProgram("Shaders/VertexShader.strings","Shaders/FragmentShader.strings");
     
     GLuint aPos;
-    aPos = glGetAttribLocation(ShaderProgram, "aPos");
+    aPos = glGetAttribLocation(mShaderProgram->GetShaderProgramId(), "aPos");
     glEnableVertexAttribArray(aPos);
     glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (GLvoid*)0);
     
@@ -172,8 +122,7 @@ int main(int argc, const char * argv[])
         glClearColor(0, 1, 0, 1);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        // render
-        glUseProgram(ShaderProgram);
+        mShaderProgram->UseShader();
 //        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         
