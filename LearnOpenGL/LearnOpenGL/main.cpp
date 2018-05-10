@@ -41,10 +41,10 @@ int main(int argc, const char * argv[])
     
     //
     float vertices[] = {
-        0.5f,  0.5f, 0.0f,  // top right
-        0.5f, -0.5f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f,  // bottom left
-        -0.5f,  0.5f, 0.0f   // top left
+        0.5f,  0.5f, 0.0f, 1.f,0.f,0.f, // top right
+        0.5f, -0.5f, 0.0f, 0.f,1.f,0.f, // bottom right
+        -0.5f, -0.5f, 0.0f,0.f,0.f,1.f,  // bottom left
+        -0.5f,  0.5f, 0.0f,0.f,0.f,0.f   // top left
     };
     unsigned int indices[] = {  // note that we start from 0!
         0, 1, 3,  // first Triangle
@@ -67,7 +67,12 @@ int main(int argc, const char * argv[])
     GLuint aPos;
     aPos = glGetAttribLocation(mShaderProgram->GetShaderProgramId(), "aPos");
     glEnableVertexAttribArray(aPos);
-    glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (GLvoid*)0);
+    glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GL_FLOAT), (GLvoid*)0);
+    
+    GLuint aColor;
+    aColor = glGetAttribLocation(mShaderProgram->GetShaderProgramId(), "aColor");
+    glEnableVertexAttribArray(aColor);
+    glVertexAttribPointer(aColor, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GL_FLOAT), (GLvoid*)(3 * sizeof(GL_FLOAT)));
     
     while (!glfwWindowShouldClose(window))
     {
