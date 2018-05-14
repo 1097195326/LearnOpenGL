@@ -1,9 +1,13 @@
 attribute   vec3 aPos;
 attribute   vec3 aColor;
+attribute   vec2 aCooPos;
+
+varying     vec2 outCooPos;
 varying     vec3 outColor;
 
 void main()
 {
     outColor = aColor;
+    outCooPos = aCooPos;
     gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
 }

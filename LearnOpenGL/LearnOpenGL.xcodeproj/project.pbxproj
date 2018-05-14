@@ -44,6 +44,10 @@
 		113C7FA420A07FE900BB5CE7 /* math3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math3d.h; sourceTree = "<group>"; };
 		A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		A57B70612084EB5E00404802 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
+		A57BB41B20A9C94E0040AEBC /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		A57BB41C20A9C94E0040AEBC /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
+		A57BB41D20A9C94E0040AEBC /* wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall.jpg; sourceTree = "<group>"; };
+		A57BB41F20A9CA490040AEBC /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		A5A3653B2084E70C00246646 /* LearnOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A3653E2084E70C00246646 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A5A365462084E86C00246646 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -94,6 +98,7 @@
 		1102BDEC20A2F9200061B7D5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				A57BB41E20A9C98D0040AEBC /* ImageTool */,
 				1102BDED20A2F9600061B7D5 /* FileHelper.cpp */,
 				1102BDEE20A2F9600061B7D5 /* FileHelper.h */,
 			);
@@ -126,6 +131,32 @@
 			path = IncludeHeader;
 			sourceTree = "<group>";
 		};
+		A57BB41920A9C8E60040AEBC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A57BB41A20A9C9110040AEBC /* Image */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		A57BB41A20A9C9110040AEBC /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				A57BB41B20A9C94E0040AEBC /* awesomeface.png */,
+				A57BB41C20A9C94E0040AEBC /* container.jpg */,
+				A57BB41D20A9C94E0040AEBC /* wall.jpg */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		A57BB41E20A9C98D0040AEBC /* ImageTool */ = {
+			isa = PBXGroup;
+			children = (
+				A57BB41F20A9CA490040AEBC /* stb_image.h */,
+			);
+			path = ImageTool;
+			sourceTree = "<group>";
+		};
 		A5A365322084E70C00246646 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +177,7 @@
 		A5A3653D2084E70C00246646 /* LearnOpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				A57BB41920A9C8E60040AEBC /* Resource */,
 				1102BDF020A3007C0061B7D5 /* GameFrame */,
 				1102BDEC20A2F9200061B7D5 /* Tools */,
 				1102BDEB20A2F90E0061B7D5 /* Glad */,
