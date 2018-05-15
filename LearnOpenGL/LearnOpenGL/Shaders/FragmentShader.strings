@@ -9,6 +9,6 @@ uniform     sampler2D texture2;
 
 void main ()
 {
-    gl_FragColor = texture2D(texture2,outCooPos);
-    //gl_FragColor = mix(texture2D(texture1,outCooPos),texture2D(texture2,outCooPos),0.3);
+    //gl_FragColor = texture2D(texture2,outCooPos);
+    gl_FragColor = mix(texture2D(texture1,outCooPos),texture2D(texture2,outCooPos),0.8);
 }

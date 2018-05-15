@@ -67,40 +67,42 @@ int main(int argc, const char * argv[])
     
     // load image
     GLuint texture1,texture2;
-//    glGenTextures(1, &texture1);
-//    glBindTexture(GL_TEXTURE_2D, texture1);
-//
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    
-    int image_width,image_height,image_nrchannel;
-//    unsigned char * data = stbi_load("Resource/Image/container.jpg", &image_width, &image_height, &image_nrchannel, 0);
-//    if(data)
-//    {
-//        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-//        //glGenerateMipmap(GL_TEXTURE_2D);
-//    }
-//    stbi_image_free(data);
-    
-    glGenTextures(1, &texture2);
-    glBindTexture(GL_TEXTURE_2D, texture2);
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    
-    
-    unsigned char * data = stbi_load("Resource/Image/awesomeface.png", &image_width, &image_height, &image_nrchannel, 0);
-    if(data)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-        //glGenerateMipmap(GL_TEXTURE_2D);
+        glGenTextures(1, &texture1);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        
+        int image_width,image_height,image_nrchannel;
+        unsigned char * data = stbi_load("Resource/Image/container.jpg", &image_width, &image_height, &image_nrchannel, 0);
+        if(data)
+        {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            //glGenerateMipmap(GL_TEXTURE_2D);
+        }
+        stbi_image_free(data);
     }
-    stbi_image_free(data);
-    
+    {
+        glGenTextures(1, &texture2);
+        glBindTexture(GL_TEXTURE_2D, texture2);
+        
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        
+        int image_width,image_height,image_nrchannel;
+        unsigned char * data = stbi_load("Resource/Image/wall.jpg", &image_width, &image_height, &image_nrchannel, 0);
+        if(data)
+        {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            //glGenerateMipmap(GL_TEXTURE_2D);
+        }
+        stbi_image_free(data);
+    }
     
     
     // build shader
@@ -121,10 +123,10 @@ int main(int argc, const char * argv[])
     glEnableVertexAttribArray(aCooPos);
     glVertexAttribPointer(aCooPos, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (GLvoid*)(6 * sizeof(GL_FLOAT)));
     
-//    mShaderProgram->UseShader();
+    mShaderProgram->UseShader();
     
-    glUniform1f(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture1"), 0);
-    glUniform1f(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture2"), 1);
+    glUniform1i(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture1"), 0);
+    glUniform1i(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture2"), 1);
     
     while (!glfwWindowShouldClose(window))
     {
