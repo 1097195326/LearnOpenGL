@@ -10,7 +10,6 @@
 		1102BDEF20A2F9600061B7D5 /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1102BDED20A2F9600061B7D5 /* FileHelper.cpp */; };
 		1102BDF420A300F80061B7D5 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1102BDF220A300F80061B7D5 /* ShaderProgram.cpp */; };
 		113C7F1A20A03C0600BB5CE7 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 113C7F1920A03C0600BB5CE7 /* glad.c */; };
-		113C7FA520A07FE900BB5CE7 /* math3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 113C7FA320A07FE900BB5CE7 /* math3d.cpp */; };
 		A57B70602084EB4600404802 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */; };
 		A57B70622084EB5E00404802 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B70612084EB5E00404802 /* libglfw.3.2.dylib */; };
 		A5A3653F2084E70C00246646 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A3653E2084E70C00246646 /* main.cpp */; };
@@ -37,11 +36,10 @@
 		1102BDF220A300F80061B7D5 /* ShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
 		1102BDF320A300F80061B7D5 /* ShaderProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
 		1102BDF620A303A70061B7D5 /* GameHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameHeader.h; sourceTree = "<group>"; };
+		1115255520AD5EE500D9B83D /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
 		113C7F1720A03C0600BB5CE7 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
 		113C7F1820A03C0600BB5CE7 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
 		113C7F1920A03C0600BB5CE7 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
-		113C7FA320A07FE900BB5CE7 /* math3d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = math3d.cpp; sourceTree = "<group>"; };
-		113C7FA420A07FE900BB5CE7 /* math3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math3d.h; sourceTree = "<group>"; };
 		11AE24EE20AA888A0060B7DB /* awesomeface.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = awesomeface.jpg; sourceTree = "<group>"; };
 		A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		A57B70612084EB5E00404802 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
@@ -74,15 +72,6 @@
 				1102BDE620A199170061B7D5 /* FragmentShader.strings */,
 			);
 			path = Shaders;
-			sourceTree = "<group>";
-		};
-		1102BDEA20A2F8EF0061B7D5 /* Math */ = {
-			isa = PBXGroup;
-			children = (
-				113C7FA320A07FE900BB5CE7 /* math3d.cpp */,
-				113C7FA420A07FE900BB5CE7 /* math3d.h */,
-			);
-			path = Math;
 			sourceTree = "<group>";
 		};
 		1102BDEB20A2F90E0061B7D5 /* Glad */ = {
@@ -177,11 +166,11 @@
 		A5A3653D2084E70C00246646 /* LearnOpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				1115255520AD5EE500D9B83D /* glm */,
 				A57BB41920A9C8E60040AEBC /* Resource */,
 				1102BDF020A3007C0061B7D5 /* GameFrame */,
 				1102BDEC20A2F9200061B7D5 /* Tools */,
 				1102BDEB20A2F90E0061B7D5 /* Glad */,
-				1102BDEA20A2F8EF0061B7D5 /* Math */,
 				1102BDE420A198F80061B7D5 /* Shaders */,
 				A5A3653E2084E70C00246646 /* main.cpp */,
 			);
@@ -256,7 +245,6 @@
 			files = (
 				A5A3653F2084E70C00246646 /* main.cpp in Sources */,
 				1102BDF420A300F80061B7D5 /* ShaderProgram.cpp in Sources */,
-				113C7FA520A07FE900BB5CE7 /* math3d.cpp in Sources */,
 				113C7F1A20A03C0600BB5CE7 /* glad.c in Sources */,
 				1102BDEF20A2F9600061B7D5 /* FileHelper.cpp in Sources */,
 			);

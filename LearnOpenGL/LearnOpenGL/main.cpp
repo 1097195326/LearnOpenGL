@@ -14,6 +14,9 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -38,9 +41,9 @@ int main(int argc, const char * argv[])
     glfwSetKeyCallback(window, &key_callback);
     glfwMakeContextCurrent(window);
     
-    int width,height;
-    glfwGetFramebufferSize(window, &width, &height);
-    glViewport(0, 0, width, height);
+    int screen_width,screen_height;
+    glfwGetFramebufferSize(window, &screen_width, &screen_height);
+    glViewport(0, 0, screen_width, screen_height);
     
     //
     float vertices[] = {
@@ -128,6 +131,19 @@ int main(int argc, const char * argv[])
     glUniform1i(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture1"), 0);
     glUniform1i(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture2"), 1);
     
+    
+    glm::mat4 model(1.f);
+    model = glm::rotate(model, glm::radians(-45.f), glm::vec3(1,0,0));
+    glUniformMatrix4fv(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "model"), 1, GL_FALSE, glm::value_ptr(model));
+    
+    glm::mat4 view(1.f);
+    view = glm::translate(view, glm::vec3(0,0,-3));
+    glUniformMatrix4fv(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "view"), 1, GL_FALSE, glm::value_ptr(view));
+    
+    glm::mat4 projection = glm::perspective(glm::radians(45.f), (float)screen_width/(float)screen_height, 0.1f, 100.f);
+    glUniformMatrix4fv(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+    
+    
     while (!glfwWindowShouldClose(window))
     {
         // rendering
@@ -135,6 +151,8 @@ int main(int argc, const char * argv[])
         glClear(GL_COLOR_BUFFER_BIT);
         
         mShaderProgram->UseShader();
+        
+        
         
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture1);
