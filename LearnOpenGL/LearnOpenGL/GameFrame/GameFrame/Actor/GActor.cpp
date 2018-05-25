@@ -71,7 +71,13 @@ void GActor::SetScale(float scale)
 {
     m_Scale = scale;
 }
-
+mat4 GActor::GetModelMat()
+{
+    mat4 model(1);
+    model = glm::translate(model, m_Position);
+    model = glm::scale(model, vec3(m_Scale));
+    return model;
+}
 void GActor::Draw()
 {
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);

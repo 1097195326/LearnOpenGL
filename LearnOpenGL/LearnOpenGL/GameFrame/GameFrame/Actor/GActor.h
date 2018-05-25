@@ -41,6 +41,8 @@ private:
     float       m_Scale;
     vec3 *      m_Data;
     int         m_VertexCount;
+private:
+    mat4        GetModelMat();
 public:
     
     void SetData(glm::vec3 * vertex, int count,bool useColor = false);
