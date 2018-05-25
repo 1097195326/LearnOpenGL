@@ -10,6 +10,7 @@
 #define GameHeader_h
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 

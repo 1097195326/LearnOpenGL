@@ -11,12 +11,14 @@
 #include "ShaderProgram.h"
 #include <GLFW/glfw3.h>
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+//#define STB_IMAGE_IMPLEMENTATION
+//#include "stb_image.h"
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
+
+
 
 
 glm::vec3 CameraPos(0,0,3);
@@ -104,8 +106,14 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
     if (fov >= 45.0f)
         fov = 45.0f;
 }
+
+
 int main(int argc, const char * argv[])
 {
+    
+    
+    return 0;
+    // ----
     if(!glfwInit())
     {
         printf("glfw init fail \n");
@@ -207,13 +215,13 @@ int main(int argc, const char * argv[])
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         
         int image_width,image_height,image_nrchannel;
-        unsigned char * data = stbi_load("Resource/Image/container.jpg", &image_width, &image_height, &image_nrchannel, 0);
-        if(data)
-        {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-            //glGenerateMipmap(GL_TEXTURE_2D);
-        }
-        stbi_image_free(data);
+//        unsigned char * data = stbi_load("Resource/Image/container.jpg", &image_width, &image_height, &image_nrchannel, 0);
+//        if(data)
+//        {
+//            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+//            //glGenerateMipmap(GL_TEXTURE_2D);
+//        }
+//        stbi_image_free(data);
     }
     {
         glGenTextures(1, &texture2);
@@ -225,13 +233,13 @@ int main(int argc, const char * argv[])
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         
         int image_width,image_height,image_nrchannel;
-        unsigned char * data = stbi_load("Resource/Image/wall.jpg", &image_width, &image_height, &image_nrchannel, 0);
-        if(data)
-        {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-            //glGenerateMipmap(GL_TEXTURE_2D);
-        }
-        stbi_image_free(data);
+//        unsigned char * data = stbi_load("Resource/Image/wall.jpg", &image_width, &image_height, &image_nrchannel, 0);
+//        if(data)
+//        {
+//            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+//            //glGenerateMipmap(GL_TEXTURE_2D);
+//        }
+//        stbi_image_free(data);
     }
     
     
