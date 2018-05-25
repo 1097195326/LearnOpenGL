@@ -62,6 +62,7 @@ void GActor::SetTexture(std::string imagePath, int index)
     }
     glBindTexture(GL_TEXTURE_2D, 0);
     
+    
 }
 void GActor::SetPosition(vec3 pos)
 {
