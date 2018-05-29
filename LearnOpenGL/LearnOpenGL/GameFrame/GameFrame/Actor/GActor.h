@@ -25,7 +25,7 @@
 using namespace glm;
 
 
-class GActor :  public GameObject
+class GActor //:  public GameObject
 {
 private:
     GLuint      m_Shader;
@@ -45,7 +45,7 @@ private:
     mat4        GetModelMat();
 public:
     
-    void SetData(glm::vec3 * vertex, int count,bool useColor = false);
+    void SetData(float vertex[],int size, int count,bool useColor = false);
     
     void SetShader(GLuint _shader);
     void SetTexture(string imagePath, int index = 0);

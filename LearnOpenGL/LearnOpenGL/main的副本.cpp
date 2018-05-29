@@ -19,7 +19,6 @@
 #include "glm/gtc/type_ptr.hpp"
 
 
-#include "GActor.h"
 
 
 glm::vec3 CameraPos(0,0,3);
@@ -59,8 +58,8 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     }
 }
 bool firstMouse = true;
-float v_yaw   = -90.0f;
-float v_pitch =  0.0f;
+float yaw   = -90.0f;
+float pitch =  0.0f;
 float lastX = 400.f;
 float lastY = 300.f;
 float fov = 45.f;
@@ -83,19 +82,19 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     xoffset *= sensitivity;
     yoffset *= sensitivity;
     
-    v_yaw += xoffset;
-    v_pitch += yoffset;
+    yaw += xoffset;
+    pitch += yoffset;
     
     // make sure that when pitch is out of bounds, screen doesn't get flipped
-    if (v_pitch > 89.0f)
-        v_pitch = 89.0f;
-    if (v_pitch < -89.0f)
-        v_pitch = -89.0f;
+    if (pitch > 89.0f)
+        pitch = 89.0f;
+    if (pitch < -89.0f)
+        pitch = -89.0f;
     
     glm::vec3 front;
-    front.x = cos(glm::radians(v_yaw)) * cos(glm::radians(v_pitch));
-    front.y = sin(glm::radians(v_pitch));
-    front.z = sin(glm::radians(v_yaw)) * cos(glm::radians(v_pitch));
+    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    front.y = sin(glm::radians(pitch));
+    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
     CameraFront = glm::normalize(front);
 }
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
@@ -113,7 +112,7 @@ int main(int argc, const char * argv[])
 {
     
     
-//    return 0;
+    return 0;
     // ----
     if(!glfwInit())
     {
@@ -181,10 +180,68 @@ int main(int argc, const char * argv[])
         -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
         -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
     };
+    //
+//    float vertices[] = {
+//        0.5f,  0.5f,    0.0f, 1.f,0.f,0.f,  1.f,1.f,// top right
+//        0.5f, -0.5f,    0.0f, 0.f,1.f,0.f,  1.f,0.f,// bottom right
+//        -0.5f, -0.5f,   0.0f,0.f,0.f,1.f,   0.f,0.f,// bottom left
+//        -0.5f,  0.5f,   0.0f,0.f,0.f,0.f,   0.f,1.f// top left
+//    };
+    unsigned int indices[] = {  // note that we start from 0!
+        0, 1, 3,  // first Triangle
+        1, 2, 3   // second Triangle
+    };
     
-    GActor * actor = new GActor();
-    actor->SetData(vertices,sizeof(vertices), 36);
-    actor->SetTexture("Resource/Image/wall.jpg",0);
+    GLuint VBO,EBO;
+    
+    glGenBuffers(1, &VBO);
+    glGenBuffers(1, &EBO);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    
+    // load image
+    GLuint texture1,texture2;
+    {
+        glGenTextures(1, &texture1);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        
+        int image_width,image_height,image_nrchannel;
+//        unsigned char * data = stbi_load("Resource/Image/container.jpg", &image_width, &image_height, &image_nrchannel, 0);
+//        if(data)
+//        {
+//            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+//            //glGenerateMipmap(GL_TEXTURE_2D);
+//        }
+//        stbi_image_free(data);
+    }
+    {
+        glGenTextures(1, &texture2);
+        glBindTexture(GL_TEXTURE_2D, texture2);
+        
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        
+        int image_width,image_height,image_nrchannel;
+//        unsigned char * data = stbi_load("Resource/Image/wall.jpg", &image_width, &image_height, &image_nrchannel, 0);
+//        if(data)
+//        {
+//            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image_width, image_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+//            //glGenerateMipmap(GL_TEXTURE_2D);
+//        }
+//        stbi_image_free(data);
+    }
+    
     
     // build shader
     ShaderProgram * mShaderProgram = new ShaderProgram("Shaders/VertexShader.strings","Shaders/FragmentShader.strings");
@@ -194,18 +251,22 @@ int main(int argc, const char * argv[])
     glEnableVertexAttribArray(aPos);
     glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (GLvoid*)0);
     
+//    GLuint aColor;
+//    aColor = glGetAttribLocation(mShaderProgram->GetShaderProgramId(), "aColor");
+//    glEnableVertexAttribArray(aColor);
+//    glVertexAttribPointer(aColor, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (GLvoid*)(3 * sizeof(GL_FLOAT)));
+    
     GLuint aCooPos;
     aCooPos = glGetAttribLocation(mShaderProgram->GetShaderProgramId(), "aCooPos");
     glEnableVertexAttribArray(aCooPos);
     glVertexAttribPointer(aCooPos, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (GLvoid*)(3 * sizeof(GL_FLOAT)));
     
+    
     mShaderProgram->UseShader();
     
     glUniform1i(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture1"), 0);
     glUniform1i(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture2"), 1);
-    // -------
     
-    actor->SetShader(mShaderProgram->GetShaderProgramId());
     
     glEnable(GL_DEPTH_TEST);
     
@@ -220,19 +281,32 @@ int main(int argc, const char * argv[])
         glm::mat4 model(1.f);
         model = glm::rotate(model, (float)glfwGetTime() * glm::radians(55.f), glm::vec3(0.5,1,0));
         glUniformMatrix4fv(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "model"), 1, GL_FALSE, glm::value_ptr(model));
-
+        
+//        glm::mat4 view(1.f);
+//        view = glm::translate(view, glm::vec3(0,0,-3));
+        
         glm::mat4 view = glm::lookAt(CameraPos, CameraPos + CameraFront, CameraUp);
         glUniformMatrix4fv(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "view"), 1, GL_FALSE, glm::value_ptr(view));
-
+        
+        
         glm::mat4 projection = glm::perspective(glm::radians(fov), (float)screen_width/(float)screen_height, 0.1f, 100.f);
         glUniformMatrix4fv(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "projection"), 1, GL_FALSE, glm::value_ptr(projection));
         
-        actor->Draw();
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, texture2);
+        
+//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+//        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
         
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
     
+    glDeleteBuffers(1, &VBO);
+    glDeleteBuffers(1, &EBO);
     
     glfwTerminate();
     exit(EXIT_SUCCESS);

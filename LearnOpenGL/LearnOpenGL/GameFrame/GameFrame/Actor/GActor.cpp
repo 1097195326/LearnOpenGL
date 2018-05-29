@@ -11,18 +11,21 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-void GActor::SetData(glm::vec3 * vertex, int count,bool useColor)
+void GActor::SetData(float vertex[],int size, int count,bool useColor)
 {
+    m_VertexCount = count;
+    
     glGenBuffers(1, &m_VBO);
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, size, vertex, GL_STATIC_DRAW);
     
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    printf("vertex size : %d\n",size);
+//    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 void GActor::SetShader(GLuint shader)
 {
-    
+    m_Shader = shader;
 }
 void GActor::SetTexture(std::string imagePath, int index)
 {
