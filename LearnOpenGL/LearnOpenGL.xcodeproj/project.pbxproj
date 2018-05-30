@@ -10,6 +10,7 @@
 		1102BDEF20A2F9600061B7D5 /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1102BDED20A2F9600061B7D5 /* FileHelper.cpp */; };
 		1102BDF420A300F80061B7D5 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1102BDF220A300F80061B7D5 /* ShaderProgram.cpp */; };
 		113C7F1A20A03C0600BB5CE7 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 113C7F1920A03C0600BB5CE7 /* glad.c */; };
+		119D19A020BEB1F00026AB5D /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 119D199E20BEB1F00026AB5D /* Camera.cpp */; };
 		11DE55DE20B7B7BA00A399D7 /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DE55DC20B7B7BA00A399D7 /* BaseObject.cpp */; };
 		11DE55E120B7DF6800A399D7 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DE55DF20B7DF6800A399D7 /* GameObject.cpp */; };
 		11DE55E420B7E12500A399D7 /* GActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DE55E220B7E12500A399D7 /* GActor.cpp */; };
@@ -43,6 +44,8 @@
 		113C7F1720A03C0600BB5CE7 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
 		113C7F1820A03C0600BB5CE7 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
 		113C7F1920A03C0600BB5CE7 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
+		119D199E20BEB1F00026AB5D /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		119D199F20BEB1F00026AB5D /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		11AE24EE20AA888A0060B7DB /* awesomeface.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = awesomeface.jpg; sourceTree = "<group>"; };
 		11DE55DB20B7B60800A399D7 /* IObjectInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IObjectInterface.h; sourceTree = "<group>"; };
 		11DE55DC20B7B7BA00A399D7 /* BaseObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseObject.cpp; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 		11DE55D820B7B47D00A399D7 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				119D199E20BEB1F00026AB5D /* Camera.cpp */,
+				119D199F20BEB1F00026AB5D /* Camera.h */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				1102BDF420A300F80061B7D5 /* ShaderProgram.cpp in Sources */,
 				11DE55E420B7E12500A399D7 /* GActor.cpp in Sources */,
 				11DE55E120B7DF6800A399D7 /* GameObject.cpp in Sources */,
+				119D19A020BEB1F00026AB5D /* Camera.cpp in Sources */,
 				11DE55EB20B7F28A00A399D7 /* ObjectManager.cpp in Sources */,
 				11DE55DE20B7B7BA00A399D7 /* BaseObject.cpp in Sources */,
 				113C7F1A20A03C0600BB5CE7 /* glad.c in Sources */,

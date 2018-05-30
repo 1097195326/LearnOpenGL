@@ -185,27 +185,8 @@ int main(int argc, const char * argv[])
     GActor * actor = new GActor();
     actor->SetData(vertices,sizeof(vertices), 36);
     actor->SetTexture("Resource/Image/wall.jpg",0);
-    
-    // build shader
-    ShaderProgram * mShaderProgram = new ShaderProgram("Shaders/VertexShader.strings","Shaders/FragmentShader.strings");
-    
-    GLuint aPos;
-    aPos = glGetAttribLocation(mShaderProgram->GetShaderProgramId(), "aPos");
-    glEnableVertexAttribArray(aPos);
-    glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (GLvoid*)0);
-    
-    GLuint aCooPos;
-    aCooPos = glGetAttribLocation(mShaderProgram->GetShaderProgramId(), "aCooPos");
-    glEnableVertexAttribArray(aCooPos);
-    glVertexAttribPointer(aCooPos, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (GLvoid*)(3 * sizeof(GL_FLOAT)));
-    
-    mShaderProgram->UseShader();
-    
-    glUniform1i(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture1"), 0);
-    glUniform1i(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "texture2"), 1);
-    // -------
-    
-    actor->SetShader(mShaderProgram->GetShaderProgramId());
+    actor->SetShader("Shaders/VertexShader.strings","Shaders/FragmentShader.strings");
+
     
     glEnable(GL_DEPTH_TEST);
     
@@ -215,17 +196,17 @@ int main(int argc, const char * argv[])
         glClearColor(0, 1, 0, 1);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        mShaderProgram->UseShader();
+        glUseProgram(actor->GetShader());
         
         glm::mat4 model(1.f);
         model = glm::rotate(model, (float)glfwGetTime() * glm::radians(55.f), glm::vec3(0.5,1,0));
-        glUniformMatrix4fv(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glUniformMatrix4fv(glGetUniformLocation(actor->GetShader(), "model"), 1, GL_FALSE, glm::value_ptr(model));
 
         glm::mat4 view = glm::lookAt(CameraPos, CameraPos + CameraFront, CameraUp);
-        glUniformMatrix4fv(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "view"), 1, GL_FALSE, glm::value_ptr(view));
+        glUniformMatrix4fv(glGetUniformLocation(actor->GetShader(), "view"), 1, GL_FALSE, glm::value_ptr(view));
 
         glm::mat4 projection = glm::perspective(glm::radians(fov), (float)screen_width/(float)screen_height, 0.1f, 100.f);
-        glUniformMatrix4fv(glGetUniformLocation(mShaderProgram->GetShaderProgramId(), "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+        glUniformMatrix4fv(glGetUniformLocation(actor->GetShader(), "projection"), 1, GL_FALSE, glm::value_ptr(projection));
         
         actor->Draw();
         

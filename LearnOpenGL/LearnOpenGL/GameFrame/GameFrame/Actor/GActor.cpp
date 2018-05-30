@@ -7,6 +7,7 @@
 //
 
 #include "GActor.h"
+#include "ShaderProgram.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -19,13 +20,36 @@ void GActor::SetData(float vertex[],int size, int count,bool useColor)
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     glBufferData(GL_ARRAY_BUFFER, size, vertex, GL_STATIC_DRAW);
     
-    printf("vertex size : %d\n",size);
 //    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 void GActor::SetShader(GLuint shader)
 {
     m_Shader = shader;
+}
+void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader)
+{
+    glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
+    
+    ShaderProgram mShaderProgram("Shaders/VertexShader.strings","Shaders/FragmentShader.strings");
+    
+    m_Shader = mShaderProgram.GetShaderProgramId();
+    
+    GLuint aPos;
+    aPos = glGetAttribLocation(m_Shader, "aPos");
+    glEnableVertexAttribArray(aPos);
+    glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (GLvoid*)0);
+    
+    GLuint aCooPos;
+    aCooPos = glGetAttribLocation(m_Shader, "aCooPos");
+    glEnableVertexAttribArray(aCooPos);
+    glVertexAttribPointer(aCooPos, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (GLvoid*)(3 * sizeof(GL_FLOAT)));
+    
+    glUseProgram(m_Shader);
+    
+    glUniform1i(glGetUniformLocation(m_Shader, "texture1"), 0);
+    glUniform1i(glGetUniformLocation(m_Shader, "texture2"), 1);
+    
 }
 void GActor::SetTexture(std::string imagePath, int index)
 {

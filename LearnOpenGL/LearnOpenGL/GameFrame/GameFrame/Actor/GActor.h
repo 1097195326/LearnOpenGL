@@ -48,6 +48,9 @@ public:
     void SetData(float vertex[],int size, int count,bool useColor = false);
     
     void SetShader(GLuint _shader);
+    void SetShader(string _vertexShader, string _fragmentShader);
+    GLuint      GetShader(){return m_Shader;}
+    
     void SetTexture(string imagePath, int index = 0);
     
     void SetPosition(vec3 pos);
