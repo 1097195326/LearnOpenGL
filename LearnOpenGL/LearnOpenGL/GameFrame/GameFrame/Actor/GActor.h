@@ -36,7 +36,9 @@ private:
     GLuint      m_Texture_1;
     GLuint      m_Texture_2;
     GLuint      m_Texture_3;
-    
+    //
+    bool        m_IsUseColor;
+    bool        m_IsUseTexture;
     //----class
     vec3        m_Position;
     float       m_Scale;
@@ -48,10 +50,9 @@ public:
     GActor();
     ~GActor();
     
-    void SetData(float vertex[],int size, int count,bool useColor = false);
+    void SetData(float vertex[],int size, int count);
     
-    void SetShader(GLuint _shader);
-    void SetShader(string _vertexShader, string _fragmentShader);
+    void SetShader(string _vertexShader, string _fragmentShader,bool useColor = false,bool userTexture = false);
     GLuint      GetShader(){return m_Shader;}
     GLuint      GetVBO_Id(){return m_VBO;}
     void SetTexture(string imagePath, int index = 0);

@@ -23,7 +23,7 @@ GActor::~GActor()
     delete m_ShaderProgram;
     glDeleteBuffers(1, &m_VBO);
 }
-void GActor::SetData(float vertex[],int size, int count,bool useColor)
+void GActor::SetData(float vertex[],int size, int count)
 {
     m_VertexCount = count;
     
@@ -35,35 +35,53 @@ void GActor::SetData(float vertex[],int size, int count,bool useColor)
     
     printf("zhx : veo id : %d\n",m_VBO);
 }
-
-void GActor::SetShader(GLuint shader)
-{
-    m_Shader = shader;
-}
-void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader)
+void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bool useColor, bool userTexture)
 {
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     
-    m_ShaderProgram = new ShaderProgram("Shaders/VertexShader.strings","Shaders/FragmentShader.strings");
+    m_ShaderProgram = new ShaderProgram(_vertexShader.c_str(),_fragmentShader.c_str());
     
     m_Shader = m_ShaderProgram->GetShaderProgramId();
     
+    glUseProgram(m_Shader);
+    
     printf("zhx : shader id : %d\n",m_Shader);
+    int strip = 3;
+    if (useColor)
+    {
+        strip += 3;
+    }
+    if (userTexture)
+    {
+        strip += 2;
+    }
     
     GLuint aPos;
     aPos = glGetAttribLocation(m_Shader, "aPos");
+    
+    glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLOAT), (GLvoid*)0);
     glEnableVertexAttribArray(aPos);
-    glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (GLvoid*)0);
     
-    GLuint aCooPos;
-    aCooPos = glGetAttribLocation(m_Shader, "aCooPos");
-    glEnableVertexAttribArray(aCooPos);
-    glVertexAttribPointer(aCooPos, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GL_FLOAT), (GLvoid*)(3 * sizeof(GL_FLOAT)));
-    
-    glUseProgram(m_Shader);
-    
-    glUniform1i(glGetUniformLocation(m_Shader, "texture1"), 0);
-    glUniform1i(glGetUniformLocation(m_Shader, "texture2"), 1);
+    if (useColor)
+    {
+        GLuint aColor;
+        aColor = glGetAttribLocation(m_Shader, "aColor");
+        
+        glVertexAttribPointer(aColor, 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLOAT), (GLvoid*)(3 * sizeof(GL_FLOAT)));
+        glEnableVertexAttribArray(aColor);
+    }
+    if(userTexture)
+    {
+        int offset = useColor ? 5 : 3;
+        GLuint aCooPos;
+        aCooPos = glGetAttribLocation(m_Shader, "aCooPos");
+        
+        glVertexAttribPointer(aCooPos, 2, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLOAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
+        glEnableVertexAttribArray(aCooPos);
+        
+        glUniform1i(glGetUniformLocation(m_Shader, "texture1"), 0);
+        glUniform1i(glGetUniformLocation(m_Shader, "texture2"), 1);
+    }
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
@@ -72,10 +90,12 @@ void GActor::SetTexture(std::string imagePath, int index)
     
     switch (index) {
         case 0:
+            glActiveTexture(GL_TEXTURE0);
             glGenTextures(1, &m_Texture_0);
             glBindTexture(GL_TEXTURE_2D, m_Texture_0);
             break;
         case 1:
+            glActiveTexture(GL_TEXTURE1);
             glGenTextures(1, &m_Texture_1);
             glBindTexture(GL_TEXTURE_2D, m_Texture_1);
             break;
@@ -160,6 +180,8 @@ void GActor::Draw()
     
     glDrawArrays(GL_TRIANGLES, 0, m_VertexCount);
     
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
     glBindTexture(GL_TEXTURE_2D, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
 }

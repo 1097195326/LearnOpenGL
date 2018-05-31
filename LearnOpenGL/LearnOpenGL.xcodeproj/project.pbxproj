@@ -61,8 +61,8 @@
 		11DE581220B807AF00A399D7 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
 		11F7C2AD20BFD478008835E7 /* CameraManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CameraManager.cpp; sourceTree = "<group>"; };
 		11F7C2AE20BFD478008835E7 /* CameraManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraManager.h; sourceTree = "<group>"; };
-		11F7C2B020BFE987008835E7 /* FragmentShader_2.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FragmentShader_2.strings; sourceTree = "<group>"; };
-		11F7C2B120BFE987008835E7 /* VertexShader_2.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = VertexShader_2.strings; sourceTree = "<group>"; };
+		11F7C2B020BFE987008835E7 /* LightFrag.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightFrag.strings; sourceTree = "<group>"; };
+		11F7C2B120BFE987008835E7 /* LightVertex.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightVertex.strings; sourceTree = "<group>"; };
 		A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		A57B70612084EB5E00404802 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		A57BB41C20A9C94E0040AEBC /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 		1102BDE420A198F80061B7D5 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				11F7C2B020BFE987008835E7 /* FragmentShader_2.strings */,
-				11F7C2B120BFE987008835E7 /* VertexShader_2.strings */,
+				11F7C2B020BFE987008835E7 /* LightFrag.strings */,
+				11F7C2B120BFE987008835E7 /* LightVertex.strings */,
 				1102BDE520A198F80061B7D5 /* VertexShader.strings */,
 				1102BDE620A199170061B7D5 /* FragmentShader.strings */,
 			);
