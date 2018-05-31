@@ -28,6 +28,7 @@ using namespace glm;
 class GActor //:  public GameObject
 {
 private:
+    ShaderProgram *         m_ShaderProgram;
     GLuint      m_Shader;
     GLuint      m_VBO;
     
@@ -44,13 +45,15 @@ private:
 private:
     mat4        GetModelMat();
 public:
+    GActor();
+    ~GActor();
     
     void SetData(float vertex[],int size, int count,bool useColor = false);
     
     void SetShader(GLuint _shader);
     void SetShader(string _vertexShader, string _fragmentShader);
     GLuint      GetShader(){return m_Shader;}
-    
+    GLuint      GetVBO_Id(){return m_VBO;}
     void SetTexture(string imagePath, int index = 0);
     
     void SetPosition(vec3 pos);

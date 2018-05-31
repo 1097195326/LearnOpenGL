@@ -12,7 +12,7 @@
 #include "IObjectInterface.h"
 
 
-class BaseObject : public IObjectInterface
+class BaseObject 
 {
 private:
     unsigned int    m_ObjectId;

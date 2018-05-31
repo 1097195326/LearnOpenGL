@@ -15,6 +15,7 @@
 		11DE55E120B7DF6800A399D7 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DE55DF20B7DF6800A399D7 /* GameObject.cpp */; };
 		11DE55E420B7E12500A399D7 /* GActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DE55E220B7E12500A399D7 /* GActor.cpp */; };
 		11DE55EB20B7F28A00A399D7 /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DE55E920B7F28A00A399D7 /* ObjectManager.cpp */; };
+		11F7C2AF20BFD478008835E7 /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11F7C2AD20BFD478008835E7 /* CameraManager.cpp */; };
 		A57B70602084EB4600404802 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */; };
 		A57B70622084EB5E00404802 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B70612084EB5E00404802 /* libglfw.3.2.dylib */; };
 		A5A3653F2084E70C00246646 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A3653E2084E70C00246646 /* main.cpp */; };
@@ -58,6 +59,10 @@
 		11DE55E920B7F28A00A399D7 /* ObjectManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectManager.cpp; sourceTree = "<group>"; };
 		11DE55EA20B7F28A00A399D7 /* ObjectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectManager.h; sourceTree = "<group>"; };
 		11DE581220B807AF00A399D7 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
+		11F7C2AD20BFD478008835E7 /* CameraManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CameraManager.cpp; sourceTree = "<group>"; };
+		11F7C2AE20BFD478008835E7 /* CameraManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraManager.h; sourceTree = "<group>"; };
+		11F7C2B020BFE987008835E7 /* FragmentShader_2.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FragmentShader_2.strings; sourceTree = "<group>"; };
+		11F7C2B120BFE987008835E7 /* VertexShader_2.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = VertexShader_2.strings; sourceTree = "<group>"; };
 		A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		A57B70612084EB5E00404802 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		A57BB41C20A9C94E0040AEBC /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
@@ -85,6 +90,8 @@
 		1102BDE420A198F80061B7D5 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				11F7C2B020BFE987008835E7 /* FragmentShader_2.strings */,
+				11F7C2B120BFE987008835E7 /* VertexShader_2.strings */,
 				1102BDE520A198F80061B7D5 /* VertexShader.strings */,
 				1102BDE620A199170061B7D5 /* FragmentShader.strings */,
 			);
@@ -164,6 +171,8 @@
 			children = (
 				119D199E20BEB1F00026AB5D /* Camera.cpp */,
 				119D199F20BEB1F00026AB5D /* Camera.h */,
+				11F7C2AD20BFD478008835E7 /* CameraManager.cpp */,
+				11F7C2AE20BFD478008835E7 /* CameraManager.h */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -326,6 +335,7 @@
 				11DE55E120B7DF6800A399D7 /* GameObject.cpp in Sources */,
 				119D19A020BEB1F00026AB5D /* Camera.cpp in Sources */,
 				11DE55EB20B7F28A00A399D7 /* ObjectManager.cpp in Sources */,
+				11F7C2AF20BFD478008835E7 /* CameraManager.cpp in Sources */,
 				11DE55DE20B7B7BA00A399D7 /* BaseObject.cpp in Sources */,
 				113C7F1A20A03C0600BB5CE7 /* glad.c in Sources */,
 				1102BDEF20A2F9600061B7D5 /* FileHelper.cpp in Sources */,

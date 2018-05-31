@@ -11,7 +11,7 @@
 
 #include "BaseObject.h"
 
-class GameObject : public BaseObject
+class GameObject : public BaseObject, public IObjectInterface
 {
 private:
     

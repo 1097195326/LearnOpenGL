@@ -12,6 +12,9 @@
 #include <iostream>
 #include <string>
 
+const  float SCR_WIDTH = 800;
+const  float SCR_HEIGHT = 600;
+
 using namespace std;
 
 #endif /* GameHeader_h */

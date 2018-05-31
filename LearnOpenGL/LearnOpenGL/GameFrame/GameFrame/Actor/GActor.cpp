@@ -8,10 +8,21 @@
 
 #include "GActor.h"
 #include "ShaderProgram.h"
+#include "CameraManager.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
+GActor::GActor()
+{
+    m_Position = vec3(0);
+    m_Scale = 1.f;
+}
+GActor::~GActor()
+{
+    delete m_ShaderProgram;
+    glDeleteBuffers(1, &m_VBO);
+}
 void GActor::SetData(float vertex[],int size, int count,bool useColor)
 {
     m_VertexCount = count;
@@ -20,7 +31,9 @@ void GActor::SetData(float vertex[],int size, int count,bool useColor)
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     glBufferData(GL_ARRAY_BUFFER, size, vertex, GL_STATIC_DRAW);
     
-//    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
+    printf("zhx : veo id : %d\n",m_VBO);
 }
 
 void GActor::SetShader(GLuint shader)
@@ -31,9 +44,11 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader)
 {
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     
-    ShaderProgram mShaderProgram("Shaders/VertexShader.strings","Shaders/FragmentShader.strings");
+    m_ShaderProgram = new ShaderProgram("Shaders/VertexShader.strings","Shaders/FragmentShader.strings");
     
-    m_Shader = mShaderProgram.GetShaderProgramId();
+    m_Shader = m_ShaderProgram->GetShaderProgramId();
+    
+    printf("zhx : shader id : %d\n",m_Shader);
     
     GLuint aPos;
     aPos = glGetAttribLocation(m_Shader, "aPos");
@@ -50,6 +65,7 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader)
     glUniform1i(glGetUniformLocation(m_Shader, "texture1"), 0);
     glUniform1i(glGetUniformLocation(m_Shader, "texture2"), 1);
     
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 void GActor::SetTexture(std::string imagePath, int index)
 {
@@ -104,11 +120,24 @@ mat4 GActor::GetModelMat()
     mat4 model(1);
     model = glm::translate(model, m_Position);
     model = glm::scale(model, vec3(m_Scale));
+    model = glm::rotate(model, (float)glfwGetTime() * glm::radians(55.f), glm::vec3(0.5,1,0));
     return model;
 }
 void GActor::Draw()
 {
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
+    
+    glUseProgram(m_Shader);
+    
+    glm::mat4 model = GetModelMat();
+    glUniformMatrix4fv(glGetUniformLocation(m_Shader, "model"), 1, GL_FALSE, glm::value_ptr(model));
+    
+    glm::mat4 view = CameraManager::Get()->GetCamera()->GetViewMatrix();
+    glUniformMatrix4fv(glGetUniformLocation(m_Shader, "view"), 1, GL_FALSE, glm::value_ptr(view));
+    
+    glm::mat4 projection = glm::perspective(glm::radians(CameraManager::Get()->GetCamera()->Zoom), (float)SCR_WIDTH/(float)SCR_HEIGHT, 0.1f, 100.f);
+    glUniformMatrix4fv(glGetUniformLocation(m_Shader, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+    
     
     if (m_Texture_0)
     {
