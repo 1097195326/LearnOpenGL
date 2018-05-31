@@ -29,7 +29,7 @@ class GActor //:  public GameObject
 {
 private:
     ShaderProgram *         m_ShaderProgram;
-    GLuint      m_Shader;
+//    GLuint      m_Shader;
     GLuint      m_VBO;
     
     GLuint      m_Texture_0;
@@ -53,7 +53,7 @@ public:
     void SetData(float vertex[],int size, int count);
     
     void SetShader(string _vertexShader, string _fragmentShader,bool useColor = false,bool userTexture = false);
-    GLuint      GetShader(){return m_Shader;}
+//    GLuint      GetShader(){return m_Shader;}
     GLuint      GetVBO_Id(){return m_VBO;}
     void SetTexture(string imagePath, int index = 0);
     

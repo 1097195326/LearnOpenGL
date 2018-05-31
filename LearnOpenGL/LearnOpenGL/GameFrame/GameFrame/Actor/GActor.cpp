@@ -41,11 +41,11 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bo
     
     m_ShaderProgram = new ShaderProgram(_vertexShader.c_str(),_fragmentShader.c_str());
     
-    m_Shader = m_ShaderProgram->GetShaderProgramId();
+//    m_Shader = m_ShaderProgram->GetShaderProgramId();
     
-    glUseProgram(m_Shader);
+    glUseProgram(m_ShaderProgram->GetShaderProgramId());
     
-    printf("zhx : shader id : %d\n",m_Shader);
+    printf("zhx : shader id : %d\n",m_ShaderProgram->GetShaderProgramId());
     int strip = 3;
     if (useColor)
     {
@@ -57,7 +57,7 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bo
     }
     
     GLuint aPos;
-    aPos = glGetAttribLocation(m_Shader, "aPos");
+    aPos = glGetAttribLocation(m_ShaderProgram->GetShaderProgramId(), "aPos");
     
     glVertexAttribPointer(aPos, 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLOAT), (GLvoid*)0);
     glEnableVertexAttribArray(aPos);
@@ -65,7 +65,7 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bo
     if (useColor)
     {
         GLuint aColor;
-        aColor = glGetAttribLocation(m_Shader, "aColor");
+        aColor = glGetAttribLocation(m_ShaderProgram->GetShaderProgramId(), "aColor");
         
         glVertexAttribPointer(aColor, 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLOAT), (GLvoid*)(3 * sizeof(GL_FLOAT)));
         glEnableVertexAttribArray(aColor);
@@ -74,13 +74,13 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bo
     {
         int offset = useColor ? 5 : 3;
         GLuint aCooPos;
-        aCooPos = glGetAttribLocation(m_Shader, "aCooPos");
+        aCooPos = glGetAttribLocation(m_ShaderProgram->GetShaderProgramId(), "aCooPos");
         
         glVertexAttribPointer(aCooPos, 2, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLOAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
         glEnableVertexAttribArray(aCooPos);
         
-        glUniform1i(glGetUniformLocation(m_Shader, "texture1"), 0);
-        glUniform1i(glGetUniformLocation(m_Shader, "texture2"), 1);
+        glUniform1i(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "texture1"), 0);
+        glUniform1i(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "texture2"), 1);
     }
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -147,16 +147,16 @@ void GActor::Draw()
 {
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     
-    glUseProgram(m_Shader);
+    glUseProgram(m_ShaderProgram->GetShaderProgramId());
     
     glm::mat4 model = GetModelMat();
-    glUniformMatrix4fv(glGetUniformLocation(m_Shader, "model"), 1, GL_FALSE, glm::value_ptr(model));
+    glUniformMatrix4fv(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "model"), 1, GL_FALSE, glm::value_ptr(model));
     
     glm::mat4 view = CameraManager::Get()->GetCamera()->GetViewMatrix();
-    glUniformMatrix4fv(glGetUniformLocation(m_Shader, "view"), 1, GL_FALSE, glm::value_ptr(view));
+    glUniformMatrix4fv(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "view"), 1, GL_FALSE, glm::value_ptr(view));
     
     glm::mat4 projection = glm::perspective(glm::radians(CameraManager::Get()->GetCamera()->Zoom), (float)SCR_WIDTH/(float)SCR_HEIGHT, 0.1f, 100.f);
-    glUniformMatrix4fv(glGetUniformLocation(m_Shader, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+    glUniformMatrix4fv(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "projection"), 1, GL_FALSE, glm::value_ptr(projection));
     
     
     if (m_Texture_0)

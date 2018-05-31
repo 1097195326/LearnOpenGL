@@ -194,12 +194,6 @@ int main(int argc, const char * argv[])
     
     CameraManager::Get()->SetCamera(&camera);
     
-    GActor * actor2 = new GActor();
-    actor2->SetPosition(vec3(1.2f, 1.0f, 2.0f));
-    //    actor2->SetScale(0.2);
-    actor2->SetData(vertices2,sizeof(vertices2), 36);
-    //    actor2->SetTexture("Resource/Image/container.jpg",0);
-    actor2->SetShader("Shaders/LightVertex.strings","Shaders/LightFrag.strings",false,false);
     
     
     GActor * actor = new GActor();
@@ -209,6 +203,12 @@ int main(int argc, const char * argv[])
 //    actor->SetTexture("Resource/Image/container.jpg",1);
     actor->SetShader("Shaders/VertexShader.strings","Shaders/FragmentShader.strings",false,true);
     
+    GActor * actor2 = new GActor();
+    actor2->SetPosition(vec3(1.2f, 1.0f, 2.0f));
+    //    actor2->SetScale(0.2);
+    actor2->SetData(vertices2,sizeof(vertices2), 36);
+    //    actor2->SetTexture("Resource/Image/container.jpg",0);
+    actor2->SetShader("Shaders/LightVertex.strings","Shaders/LightFrag.strings",false,false);
     
     
     glEnable(GL_DEPTH_TEST);
@@ -219,8 +219,9 @@ int main(int argc, const char * argv[])
         glClearColor(0.3, 0.3, 0.3, 1);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        actor->Draw();
         actor2->Draw();
+        actor->Draw();
+        
         
         glfwSwapBuffers(window);
         glfwPollEvents();
