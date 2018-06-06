@@ -41,6 +41,7 @@ private:
     bool        m_IsUseTexture;
     //----class
     vec3        m_Position;
+    float        m_Color;
     float       m_Scale;
     vec3 *      m_Data;
     int         m_VertexCount;
@@ -59,6 +60,7 @@ public:
     
     void SetPosition(vec3 pos);
     void SetScale(float scale);
+    void SetColor(float color);
     
     virtual void Draw();
 };

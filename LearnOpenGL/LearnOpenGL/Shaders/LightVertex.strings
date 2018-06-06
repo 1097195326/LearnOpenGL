@@ -1,5 +1,5 @@
 attribute   vec3 aPos;
-//attribute   vec3 aColor;
+attribute   float aColor;
 //attribute   vec2 aCooPos;
 
 uniform     mat4 model;
@@ -11,7 +11,7 @@ varying     vec3 outColor;
 
 void main()
 {
-    outColor = vec3(0.5, 0.0, 0.0);
+    outColor = vec3(aColor);
 //    outCooPos = aCooPos;
     //gl_Position = vec4(aPos, 1.0);
     gl_Position = projection * view * model * vec4(aPos, 1.0);
