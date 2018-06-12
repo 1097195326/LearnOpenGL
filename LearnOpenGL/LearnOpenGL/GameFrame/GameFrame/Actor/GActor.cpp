@@ -31,13 +31,13 @@ void GActor::SetData(float vertex[],int size, int count)
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     glBufferData(GL_ARRAY_BUFFER, size, vertex, GL_STATIC_DRAW);
     
-//    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
     
     printf("zhx : veo id : %d\n",m_VBO);
 }
 void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bool useColor, bool userTexture)
 {
-//    glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     
     m_ShaderProgram = new ShaderProgram(_vertexShader.c_str(),_fragmentShader.c_str());
     
@@ -83,7 +83,7 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bo
         glUniform1i(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "texture2"), 1);
     }
     
-//    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 void GActor::SetTexture(std::string imagePath, int index)
 {
@@ -185,9 +185,5 @@ void GActor::Draw()
     }
     
     glDrawArrays(GL_TRIANGLES, 0, m_VertexCount);
-    
-    
-//    glBindTexture(GL_TEXTURE_2D, 0);
-//    glBindBuffer(GL_ARRAY_BUFFER, 0);
     
 }
