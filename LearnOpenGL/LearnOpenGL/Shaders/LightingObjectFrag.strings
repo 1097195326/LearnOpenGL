@@ -1,0 +1,27 @@
+
+varying     vec2    FragUVPosition;
+varying     vec3    FragColor;
+
+varying     vec3    FragNormal;
+varying     vec3    FragPosition;
+varying     vec3    FrageLightPosition;
+
+
+//uniform     sampler2D texture1;
+//uniform     sampler2D texture2;
+
+uniform     vec3    LightColor;
+
+void main ()
+{
+    //ambient
+    float ambientStrength = 0.1;
+    vec3 ambient = ambientStrength * LightColor;
+    
+    vec3 ResultColor = ambient * FragColor;
+    gl_FragColor = vec4(ResultColor,1);
+    
+    
+//    gl_FragColor = texture2D(texture1,outCooPos);
+//    gl_FragColor = mix(texture2D(texture1,outCooPos),texture2D(texture2,outCooPos),0.8);
+}
