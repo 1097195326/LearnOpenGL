@@ -1,18 +1,14 @@
-attribute   vec3 aPos;
-attribute   float aColor;
-//attribute   vec2 aCooPos;
+attribute   vec3    ObjectPosition;
+attribute   vec3    ObjectColor;
 
 uniform     mat4 model;
 uniform     mat4 view;
 uniform     mat4 projection;
 
-//varying     vec2 outCooPos;
-varying     vec3 outColor;
+varying     vec3    outColor;
 
 void main()
 {
-    outColor = vec3(aColor);
-//    outCooPos = aCooPos;
-    //gl_Position = vec4(aPos, 1.0);
-    gl_Position = projection * view * model * vec4(aPos, 1.0);
+    outColor = ObjectColor;
+    gl_Position = projection * view * model * vec4(ObjectPosition, 1.0);
 }

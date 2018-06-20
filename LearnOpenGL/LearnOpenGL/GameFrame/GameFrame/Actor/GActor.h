@@ -29,7 +29,7 @@ class GActor //:  public GameObject
 {
 private:
     ShaderProgram *         m_ShaderProgram;
-//    GLuint      m_Shader;
+    
     GLuint      m_VBO;
     
     GLuint      m_Texture_0;
@@ -41,9 +41,9 @@ private:
     bool        m_IsUseTexture;
     //----class
     vec3        m_Position;
-    float        m_Color;
-    float       m_Scale;
+    vec3        m_Scale;
     vec3 *      m_Data;
+    
     int         m_VertexCount;
 private:
     mat4        GetModelMat();
@@ -51,16 +51,19 @@ public:
     GActor();
     ~GActor();
     
-    void SetData(float vertex[],int size, int count);
+    void        SetData(float vertex[],int size, int count);
     
-    void SetShader(string _vertexShader, string _fragmentShader,bool useColor = false,bool userTexture = false);
-//    GLuint      GetShader(){return m_Shader;}
+    void        SetShader(string _vertexShader, string _fragmentShader, bool _haveNormal = false, bool _haveColor = false, bool _haveTexture = false);
+    
     GLuint      GetVBO_Id(){return m_VBO;}
-    void SetTexture(string imagePath, int index = 0);
     
-    void SetPosition(vec3 pos);
-    void SetScale(float scale);
-    void SetColor(float color);
+    void        SetTexture(string imagePath, int index = 0);
+    
+    void        SetPosition(vec3 pos);
+    vec3        GetPosition();
+    
+    void        SetScale(float scale);
+    void        SetScele(vec3 scale);
     
     virtual void Draw();
 };

@@ -60,6 +60,10 @@ ShaderProgram::ShaderProgram(string VertexPath, string FragmentPath)
     glDeleteShader(FragmentShader);
     
 }
+ShaderProgram::~ShaderProgram()
+{
+    glDeleteProgram(m_shaderProgramId);
+}
 void ShaderProgram::Init()
 {
     
@@ -72,7 +76,34 @@ GLuint ShaderProgram::GetShaderProgramId()
 {
     return m_shaderProgramId;
 }
-ShaderProgram::~ShaderProgram()
+
+void ShaderProgram::SetAttribute1f(string _name, float _parm)
 {
-    glDeleteProgram(m_shaderProgramId);
+    glVertexAttrib1f(glGetAttribLocation(m_shaderProgramId, _name.c_str()), _parm);
+}
+void ShaderProgram::SetAttribute1fv(string _name, vec3 _parm)
+{
+    glVertexAttrib1fv(glGetAttribLocation(m_shaderProgramId, _name.c_str()), glm::value_ptr(_parm));
+}
+void ShaderProgram::SetUniform1i(std::string _name, int _parm)
+{
+    glUniform1i(glGetUniformLocation(m_shaderProgramId, _name.c_str()), _parm);
+}
+void ShaderProgram::SetUniform1f(string _name, float _parm)
+{
+    glUniform1f(glGetUniformLocation(m_shaderProgramId, _name.c_str()), _parm);
+}
+void ShaderProgram::SetUniform1fv(string _name, vec3 _parm)
+{
+    glUniform1fv(glGetUniformLocation(m_shaderProgramId, _name.c_str()), 1, glm::value_ptr(_parm));
+}
+void ShaderProgram::SetUniformMatrix4fv(string _name, mat4 _parm)
+{
+    glUniformMatrix4fv(glGetUniformLocation(m_shaderProgramId, _name.c_str()), 1, false, glm::value_ptr(_parm));
+}
+void ShaderProgram::SetVertexAttribPointer(string _name, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *pointer)
+{
+    GLuint index = glGetAttribLocation(m_shaderProgramId, _name.c_str());
+    glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+    glEnableVertexAttribArray(index);
 }

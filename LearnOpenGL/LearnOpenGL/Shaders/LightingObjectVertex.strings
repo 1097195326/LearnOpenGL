@@ -1,6 +1,6 @@
 attribute   vec3    ObjectPosition;
-attribute   vec3    ObjectColor;
 attribute   vec3    ObjectNormal;
+attribute   vec3    ObjectColor;
 attribute   vec2    ObjectUVPos;
 
 uniform     mat4    model;
