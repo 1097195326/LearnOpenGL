@@ -122,27 +122,12 @@ void GActor::SetTexture(std::string imagePath, int index)
     
     
 }
-void GActor::SetPosition(vec3 pos)
-{
-    m_Position = pos;
-}
-vec3 GActor::GetPosition()
-{
-    return m_Position;
-}
-mat4 GActor::GetModelMat()
-{
-    mat4 model(1);
-    model = glm::translate(model, m_Position);
-    model = glm::scale(model, vec3(m_Scale));
-    model = glm::rotate(model, (float)glfwGetTime() * glm::radians(55.f), glm::vec3(0.5,1,0));
-    return model;
-}
 void GActor::Draw()
 {
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     
     m_ShaderProgram->UseShader();
+    
     
     glm::mat4 model = GetModelMat();
     m_ShaderProgram->SetUniformMatrix4fv("model", model);
@@ -173,4 +158,51 @@ void GActor::Draw()
     
     glDrawArrays(GL_TRIANGLES, 0, m_VertexCount);
     
+}
+mat4 GActor::GetModelMat()
+{
+    mat4 model(1);
+    model = glm::translate(model, m_Position);
+    model = glm::scale(model, vec3(m_Scale));
+    model = glm::rotate(model, (float)glfwGetTime() * glm::radians(55.f), glm::vec3(0.5,1,0));
+    return model;
+}
+void GActor::SetPosition(vec3 pos)
+{
+    m_Position = pos;
+}
+vec3 GActor::GetPosition()
+{
+    return m_Position;
+}
+void GActor::SetScale(float scale)
+{
+    m_Scale = vec3(scale);
+}
+void GActor::SetScele(glm::vec3 scale)
+{
+    m_Scale = scale;
+}
+void GActor::SetColor(float color)
+{
+    m_Color = vec3(color);
+    m_ShaderProgram->SetUniform3fv("ObjectUniformColor", vec3(color));
+}
+void GActor::SetColor(glm::vec3 color)
+{
+    m_Color = color;
+    
+    m_ShaderProgram->SetUniform3fv("ObjectUniformColor", vec3(color));
+}
+void GActor::SetLightColor(float color)
+{
+    m_ShaderProgram->SetUniform3fv("LightColor", vec3(color));
+}
+void GActor::SetLightColor(glm::vec3 color)
+{
+    m_ShaderProgram->SetUniform3fv("LightColor", color);
+}
+void GActor::SetLightPosition(vec3 position)
+{
+    m_ShaderProgram->SetUniform3fv("LightPosition", position);
 }

@@ -81,7 +81,7 @@ void ShaderProgram::SetAttribute1f(string _name, float _parm)
 {
     glVertexAttrib1f(glGetAttribLocation(m_shaderProgramId, _name.c_str()), _parm);
 }
-void ShaderProgram::SetAttribute1fv(string _name, vec3 _parm)
+void ShaderProgram::SetAttribute3fv(string _name, vec3 _parm)
 {
     glVertexAttrib1fv(glGetAttribLocation(m_shaderProgramId, _name.c_str()), glm::value_ptr(_parm));
 }
@@ -93,9 +93,9 @@ void ShaderProgram::SetUniform1f(string _name, float _parm)
 {
     glUniform1f(glGetUniformLocation(m_shaderProgramId, _name.c_str()), _parm);
 }
-void ShaderProgram::SetUniform1fv(string _name, vec3 _parm)
+void ShaderProgram::SetUniform3fv(string _name, vec3 _parm)
 {
-    glUniform1fv(glGetUniformLocation(m_shaderProgramId, _name.c_str()), 1, glm::value_ptr(_parm));
+    glUniform3fv(glGetUniformLocation(m_shaderProgramId, _name.c_str()), 1, glm::value_ptr(_parm));
 }
 void ShaderProgram::SetUniformMatrix4fv(string _name, mat4 _parm)
 {

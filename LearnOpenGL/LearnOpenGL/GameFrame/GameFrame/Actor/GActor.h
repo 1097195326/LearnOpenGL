@@ -42,6 +42,7 @@ private:
     //----class
     vec3        m_Position;
     vec3        m_Scale;
+    vec3        m_Color;
     vec3 *      m_Data;
     
     int         m_VertexCount;
@@ -64,6 +65,15 @@ public:
     
     void        SetScale(float scale);
     void        SetScele(vec3 scale);
+    
+    void        SetColor(float color);
+    void        SetColor(vec3 color);
+    
+    
+    void        SetLightColor(float color);
+    void        SetLightColor(vec3 color);
+    
+    void        SetLightPosition(vec3 position);
     
     virtual void Draw();
 };

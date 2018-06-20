@@ -1,14 +1,11 @@
 attribute   vec3    ObjectPosition;
-attribute   vec3    ObjectColor;
 
 uniform     mat4 model;
 uniform     mat4 view;
 uniform     mat4 projection;
 
-varying     vec3    outColor;
 
 void main()
 {
-    outColor = ObjectColor;
     gl_Position = projection * view * model * vec4(ObjectPosition, 1.0);
 }

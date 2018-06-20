@@ -1,6 +1,6 @@
-varying     vec3 outColor;
+uniform     vec3 LightColor;
 
 void main ()
 {
-    gl_FragColor = vec4(outColor,1);
+    gl_FragColor = vec4(LightColor,1);
 }

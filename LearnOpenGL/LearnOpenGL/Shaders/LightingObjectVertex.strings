@@ -26,7 +26,8 @@ void main()
     FragColor = ObjectColor;
     
     FragPosition = vec3(view * model * vec4(ObjectPosition, 1.0));
-    FragNormal = mat3(transpose(inverse(view * model))) * ObjectNormal;
+//    FragNormal = mat3(transpose(inverse(view * model))) * ObjectNormal;
+    FragNormal = ObjectNormal;
     FragLightPosition = vec3(view * vec4(LightPosition,1.0));
     
 }

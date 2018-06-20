@@ -11,14 +11,15 @@ varying     vec3    FrageLightPosition;
 //uniform     sampler2D texture2;
 
 uniform     vec3    LightColor;
+uniform     vec3    ObjectUniformColor;
 
 void main ()
 {
     //ambient
-    float ambientStrength = 0.1;
+    float ambientStrength = 0.5;
     vec3 ambient = ambientStrength * LightColor;
     
-    vec3 ResultColor = ambient * FragColor;
+    vec3 ResultColor = ambient * ObjectUniformColor;
     gl_FragColor = vec4(ResultColor,1);
     
     

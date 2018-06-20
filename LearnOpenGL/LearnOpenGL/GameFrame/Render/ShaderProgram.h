@@ -36,13 +36,13 @@ public:
     
     void                SetAttribute1f(string _name, float _parm);
     
-    void                SetAttribute1fv(string _name, vec3 _parm);
+    void                SetAttribute3fv(string _name, vec3 _parm);
     
     void                SetUniform1i(string _name, int _parm);
     
     void                SetUniform1f(string _name, float _parm);
     
-    void                SetUniform1fv(string _name, vec3 _parm);
+    void                SetUniform3fv(string _name, vec3 _parm);
     
     void                SetUniformMatrix4fv(string _name, mat4 _parm);
     
