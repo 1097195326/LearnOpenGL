@@ -1,7 +1,14 @@
-attribute   vec3    ObjectPosition;
-attribute   vec3    ObjectNormal;
-attribute   vec3    ObjectColor;
-attribute   vec2    ObjectUVPos;
+#version 330 core
+
+//attribute   vec3    ObjectPosition;
+//attribute   vec3    ObjectNormal;
+//attribute   vec3    ObjectColor;
+//attribute   vec2    ObjectUVPos;
+
+layout (location = 1) in   vec3    ObjectPosition;
+layout (location = 2) in   vec3    ObjectNormal;
+layout (location = 3) in    vec3    ObjectColor;
+layout (location = 4) in    vec2    ObjectUVPos;
 
 uniform     mat4    model;
 uniform     mat4    view;
@@ -10,24 +17,22 @@ uniform     mat4    projection;
 uniform     vec3    LightPosition;
 
 //-------- out for fragment ----------
-varying     vec2    FragUVPosition;
-varying     vec3    FragColor;
+out     vec2    FragUVPosition;
+out     vec3    vertexColor;
 
-varying     vec3    FragPosition;
-varying     vec3    FragNormal;
-varying     vec3    FragLightPosition;
-
+out     vec3    FragPosition;
+out     vec3    FragNormal;
+out     vec3    FragLightPosition;
 
 void main()
 {
     gl_Position = projection * view * model * vec4(ObjectPosition, 1.0);
-    
+//        gl_Position = vec4(ObjectPosition, 1.0);
     FragUVPosition = ObjectUVPos;
-    FragColor = ObjectColor;
+    vertexColor = ObjectColor;
     
     FragPosition = vec3(view * model * vec4(ObjectPosition, 1.0));
-//    FragNormal = mat3(transpose(inverse(view * model))) * ObjectNormal;
-    FragNormal = ObjectNormal;
+    FragNormal = mat3(transpose(inverse(view * model))) * ObjectNormal;
     FragLightPosition = vec3(view * vec4(LightPosition,1.0));
-    
+
 }

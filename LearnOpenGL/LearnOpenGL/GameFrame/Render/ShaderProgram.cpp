@@ -107,3 +107,9 @@ void ShaderProgram::SetVertexAttribPointer(string _name, GLint size, GLenum type
     glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     glEnableVertexAttribArray(index);
 }
+void ShaderProgram::SetVertexAttribPointer(int index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *pointer)
+{
+//    GLuint index = glGetAttribLocation(m_shaderProgramId, _name.c_str());
+    glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+    glEnableVertexAttribArray(index);
+}

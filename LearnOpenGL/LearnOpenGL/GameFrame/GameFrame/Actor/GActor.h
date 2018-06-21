@@ -31,6 +31,7 @@ private:
     ShaderProgram *         m_ShaderProgram;
     
     GLuint      m_VBO;
+    unsigned int m_VAO;
     
     GLuint      m_Texture_0;
     GLuint      m_Texture_1;

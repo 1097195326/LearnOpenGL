@@ -48,6 +48,8 @@ public:
     
     void                SetVertexAttribPointer(string _name, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *pointer);
     
+    void                SetVertexAttribPointer(int index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *pointer);
+    
 };
 
 #endif /* ShaderProgram_hpp */

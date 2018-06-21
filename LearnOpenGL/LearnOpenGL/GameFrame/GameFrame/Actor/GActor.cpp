@@ -10,6 +10,7 @@
 #include "ShaderProgram.h"
 #include "CameraManager.h"
 
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
@@ -28,10 +29,11 @@ void GActor::SetData(float vertex[],int size, int count)
     m_VertexCount = count;
     
     glGenBuffers(1, &m_VBO);
+    
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     glBufferData(GL_ARRAY_BUFFER, size, vertex, GL_STATIC_DRAW);
     
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+//    glBindBuffer(GL_ARRAY_BUFFER, 0);
     
 }
 void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bool _haveNormal, bool _haveColor, bool _haveTexture)
@@ -58,27 +60,31 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bo
         strip += 2;
     }
     
-    m_ShaderProgram->SetVertexAttribPointer("ObjectPosition", 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)0);
+//    m_ShaderProgram->SetVertexAttribPointer("ObjectPosition", 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)0);
+    m_ShaderProgram->SetVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLOAT), (GLvoid*)0);
     if (_haveNormal)
     {
         offset += 3;
-        m_ShaderProgram->SetVertexAttribPointer("ObjectNormal", 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
+//        m_ShaderProgram->SetVertexAttribPointer("ObjectNormal", 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
+        m_ShaderProgram->SetVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
     }
     if (_haveColor)
     {
         offset += 3;
-        m_ShaderProgram->SetVertexAttribPointer("ObjectColor", 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
+//        m_ShaderProgram->SetVertexAttribPointer("ObjectColor", 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
+//        m_ShaderProgram->SetVertexAttribPointer("ObjectColor", 3, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
     }
     if(_haveTexture)
     {
         offset += 3;
-        m_ShaderProgram->SetVertexAttribPointer("ObjectUVPos", 2, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
+//        m_ShaderProgram->SetVertexAttribPointer("ObjectUVPos", 2, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
+//        m_ShaderProgram->SetVertexAttribPointer("ObjectUVPos", 2, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
         
 //        glUniform1i(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "texture1"), 0);
 //        glUniform1i(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "texture2"), 1);
     }
     
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+//    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 void GActor::SetTexture(std::string imagePath, int index)
 {
@@ -135,26 +141,26 @@ void GActor::Draw()
     m_ShaderProgram->SetUniformMatrix4fv("view", view);
     glm::mat4 projection = glm::perspective(glm::radians(CameraManager::Get()->GetCamera()->Zoom), (float)SCR_WIDTH/(float)SCR_HEIGHT, 0.1f, 100.f);
     m_ShaderProgram->SetUniformMatrix4fv("projection", projection);
-    
-    
-    if (m_Texture_0)
-    {
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, m_Texture_0);
-    }
-    if (m_Texture_1)
-    {
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, m_Texture_1);
-    }if (m_Texture_2)
-    {
-        glActiveTexture(GL_TEXTURE2);
-        glBindTexture(GL_TEXTURE_2D, m_Texture_2);
-    }if (m_Texture_3)
-    {
-        glActiveTexture(GL_TEXTURE3);
-        glBindTexture(GL_TEXTURE_2D, m_Texture_3);
-    }
+//
+//
+//    if (m_Texture_0)
+//    {
+//        glActiveTexture(GL_TEXTURE0);
+//        glBindTexture(GL_TEXTURE_2D, m_Texture_0);
+//    }
+//    if (m_Texture_1)
+//    {
+//        glActiveTexture(GL_TEXTURE1);
+//        glBindTexture(GL_TEXTURE_2D, m_Texture_1);
+//    }if (m_Texture_2)
+//    {
+//        glActiveTexture(GL_TEXTURE2);
+//        glBindTexture(GL_TEXTURE_2D, m_Texture_2);
+//    }if (m_Texture_3)
+//    {
+//        glActiveTexture(GL_TEXTURE3);
+//        glBindTexture(GL_TEXTURE_2D, m_Texture_3);
+//    }
     
     glDrawArrays(GL_TRIANGLES, 0, m_VertexCount);
     
@@ -191,7 +197,6 @@ void GActor::SetColor(float color)
 void GActor::SetColor(glm::vec3 color)
 {
     m_Color = color;
-    
     m_ShaderProgram->SetUniform3fv("ObjectUniformColor", vec3(color));
 }
 void GActor::SetLightColor(float color)

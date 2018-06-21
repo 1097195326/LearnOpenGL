@@ -8,6 +8,9 @@
 
 #include "GameHeader.h"
 
+#include "Glad/glad.h"
+//#include "GameHeader.h"
+
 #include "ShaderProgram.h"
 #include <GLFW/glfw3.h>
 
@@ -83,11 +86,19 @@ int main(int argc, const char * argv[])
     
 //    return 0;
     // ----
+    
     if(!glfwInit())
     {
         printf("glfw init fail \n");
         return 0;
     }
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
+#endif
+    
     GLFWwindow * window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "HelloWindow", NULL, NULL);
     if (window == NULL)
     {
@@ -102,9 +113,15 @@ int main(int argc, const char * argv[])
     
     glfwMakeContextCurrent(window);
     
-//    int screen_width,screen_height;
-//    glfwGetFramebufferSize(window, &screen_width, &screen_height);
-    glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+        return -1;
+    }
+    
+    int screen_width,screen_height;
+    glfwGetFramebufferSize(window, &screen_width, &screen_height);
+    glViewport(0, 0, screen_width, screen_height);
     
     float vertices3[] = {
         -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
@@ -152,25 +169,39 @@ int main(int argc, const char * argv[])
     
     CameraManager::Get()->SetCamera(&camera);
     
+    unsigned int VAO;
+    glGenVertexArrays(1,&VAO);
+    glBindVertexArray(VAO);
+//
+    
     GActor * actor = new GActor();
     actor->SetData(vertices3,sizeof(vertices3), 36);
     actor->SetShader("Shaders/LightingObjectVertex.strings","Shaders/LightingObjectFrag.strings",true ,false, false);
     actor->SetPosition(vec3(0.f, 0.f, 0.f));
     actor->SetColor(vec3(1.0f, 0.5f, 0.31f));
     actor->SetLightColor(1.f);
+    actor->SetLightPosition(lightPos);
 //    actor->SetTexture("Resource/Image/wall.jpg",0);
 //    actor->SetTexture("Resource/Image/container.jpg",1);
     
     
-    GActor * lightObject = new GActor();
-    lightObject->SetData(vertices3,sizeof(vertices3), 36);
-    lightObject->SetShader("Shaders/LightVertex.strings","Shaders/LightFrag.strings",true ,false, false);
-    lightObject->SetPosition(lightPos);
-    lightObject->SetLightPosition(lightPos);
-    lightObject->SetLightColor(1.f);
+//    GActor * lightObject = new GActor();
+//    lightObject->SetData(vertices3,sizeof(vertices3), 36);
+//    lightObject->SetShader("Shaders/LightVertex.strings","Shaders/LightFrag.strings",true ,false, false);
+//    lightObject->SetPosition(lightPos);
+//    lightObject->SetLightPosition(lightPos);
+//    lightObject->SetLightColor(1.f);
     
 //    lightObject->SetTexture("Resource/Image/container.jpg",0);
     
+    
+//    unsigned int VBO;
+//    glGenBuffers(1, &VBO);
+//    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices3), vertices3, GL_STATIC_DRAW);
+//    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+//    glEnableVertexAttribArray(1);
+//    ShaderProgram * shaderProgram = new ShaderProgram("Shaders/LightingObjectVertex.strings","Shaders/LightingObjectFrag.strings");
     
     
     glEnable(GL_DEPTH_TEST);
@@ -181,8 +212,11 @@ int main(int argc, const char * argv[])
         glClearColor(0.0, 0.5, 0.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
+//        shaderProgram->UseShader();
+//        glDrawArrays(GL_TRIANGLES, 0, 36);
+        
         actor->Draw();
-        lightObject->Draw();
+//        lightObject->Draw();
         
         glfwSwapBuffers(window);
         glfwPollEvents();
