@@ -1,9 +1,10 @@
-attribute   vec3    ObjectPosition;
+#version 330 core
 
-uniform     mat4 model;
-uniform     mat4 view;
-uniform     mat4 projection;
+layout (location = 1) in   vec3    ObjectPosition;
 
+uniform     mat4    model;
+uniform     mat4    view;
+uniform     mat4    projection;
 
 void main()
 {

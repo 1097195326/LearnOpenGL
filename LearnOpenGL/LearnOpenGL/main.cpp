@@ -185,23 +185,13 @@ int main(int argc, const char * argv[])
 //    actor->SetTexture("Resource/Image/container.jpg",1);
     
     
-//    GActor * lightObject = new GActor();
-//    lightObject->SetData(vertices3,sizeof(vertices3), 36);
-//    lightObject->SetShader("Shaders/LightVertex.strings","Shaders/LightFrag.strings",true ,false, false);
-//    lightObject->SetPosition(lightPos);
-//    lightObject->SetLightPosition(lightPos);
-//    lightObject->SetLightColor(1.f);
-    
-//    lightObject->SetTexture("Resource/Image/container.jpg",0);
-    
-    
-//    unsigned int VBO;
-//    glGenBuffers(1, &VBO);
-//    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices3), vertices3, GL_STATIC_DRAW);
-//    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-//    glEnableVertexAttribArray(1);
-//    ShaderProgram * shaderProgram = new ShaderProgram("Shaders/LightingObjectVertex.strings","Shaders/LightingObjectFrag.strings");
+    GActor * lightObject = new GActor();
+    lightObject->SetData(vertices3,sizeof(vertices3), 36);
+    lightObject->SetShader("Shaders/LightVertex.strings","Shaders/LightFrag.strings",true ,false, false);
+    lightObject->SetPosition(lightPos);
+    lightObject->SetLightPosition(lightPos);
+    lightObject->SetLightColor(1.f);
+    lightObject->SetTexture("Resource/Image/container.jpg",0);
     
     
     glEnable(GL_DEPTH_TEST);
@@ -212,11 +202,8 @@ int main(int argc, const char * argv[])
         glClearColor(0.0, 0.5, 0.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-//        shaderProgram->UseShader();
-//        glDrawArrays(GL_TRIANGLES, 0, 36);
-        
         actor->Draw();
-//        lightObject->Draw();
+        lightObject->Draw();
         
         glfwSwapBuffers(window);
         glfwPollEvents();
