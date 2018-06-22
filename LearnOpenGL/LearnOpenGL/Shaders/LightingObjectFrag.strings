@@ -22,13 +22,19 @@ void main ()
     //ambient
     float ambientStrength = 0.2;
     vec3 ambient = ambientStrength * LightColor;
-
+    // diffuse
     vec3 norm = normalize(FragNormal);
     vec3 lightDir = normalize(FragLightPosition - FragPosition);
     float diff = max(dot(norm, lightDir), 0.0);
     vec3 diffuse = diff * LightColor;
-
-    vec3 ResultColor = (ambient + diffuse) * ObjectUniformColor;
+    // specular
+    float specularStrength = 0.5;
+    vec3 viewDir = normalize(-FragPosition); // the viewer is always at (0,0,0) in view-space, so viewDir is (0,0,0) - Position => -Position
+    vec3 reflectDir = reflect(-lightDir, norm);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+    vec3 specular = specularStrength * spec * LightColor;
+    
+    vec3 ResultColor = (ambient + diffuse + specular) * ObjectUniformColor;
     FragColor = vec4(ResultColor,1.f);
     
     
