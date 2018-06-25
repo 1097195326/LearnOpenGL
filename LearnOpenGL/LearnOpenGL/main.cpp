@@ -8,7 +8,7 @@
 
 #include "GameHeader.h"
 
-#include "Glad/glad.h"
+#include "glad.h"
 //#include "GameHeader.h"
 
 #include "ShaderProgram.h"
@@ -17,9 +17,9 @@
 //#define STB_IMAGE_IMPLEMENTATION
 //#include "stb_image.h"
 
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include "glm/gtc/type_ptr.hpp"
+//#include "glm.hpp"
+//#include "matrix_transform.hpp"
+//#include "type_ptr.hpp"
 
 #include "Camera.h"
 #include "GActor.h"
