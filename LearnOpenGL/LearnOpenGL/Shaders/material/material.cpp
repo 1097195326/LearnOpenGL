@@ -75,7 +75,6 @@ void Material::Draw(GLFWwindow * window)
     //    actor->SetTexture("Resource/Image/wall.jpg",0);
     //    actor->SetTexture("Resource/Image/container.jpg",1);
     
-    
     GActor * lightObject = new GActor();
     lightObject->SetData(vertices3,sizeof(vertices3), 36);
     lightObject->SetShader("Shaders/LightVertex.strings","Shaders/LightFrag.strings",true ,false, false);

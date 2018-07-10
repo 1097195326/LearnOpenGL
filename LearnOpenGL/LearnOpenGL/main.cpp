@@ -9,13 +9,10 @@
 #include "GameHeader.h"
 
 #include "glad.h"
-
 #include <GLFW/glfw3.h>
-
 
 #include "CameraManager.h"
 #include "material.hpp"
-
 
 float LastFrame = 0.f;
 float DeltaTime = 0.f;
@@ -113,7 +110,6 @@ int main(int argc, const char * argv[])
 
     //--- draw ---
     Material::Draw(window);
-    
     
     glfwTerminate();
     exit(EXIT_SUCCESS);
