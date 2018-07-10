@@ -211,3 +211,7 @@ void GActor::SetLightPosition(vec3 position)
 {
     m_ShaderProgram->SetUniform3fv("LightPosition", position);
 }
+ShaderProgram * GActor::GetShader()
+{
+    return m_ShaderProgram;
+}

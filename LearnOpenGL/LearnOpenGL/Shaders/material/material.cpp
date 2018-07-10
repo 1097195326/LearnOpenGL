@@ -67,21 +67,13 @@ void Material::Draw(GLFWwindow * window)
     
     GActor * actor = new GActor();
     actor->SetData(vertices3,sizeof(vertices3), 36);
-    actor->SetShader("Shaders/LightingObjectVertex.strings","Shaders/LightingObjectFrag.strings",true ,false, false);
+    actor->SetShader("mvs.strings","mfs.strings",true ,false, false);
     actor->SetPosition(vec3(0.f, 0.f, 0.f));
-    actor->SetColor(vec3(1.0f, 0.5f, 0.31f));
-    actor->SetLightColor(1.f);
-    actor->SetLightPosition(lightPos);
-    //    actor->SetTexture("Resource/Image/wall.jpg",0);
-    //    actor->SetTexture("Resource/Image/container.jpg",1);
     
     GActor * lightObject = new GActor();
     lightObject->SetData(vertices3,sizeof(vertices3), 36);
-    lightObject->SetShader("Shaders/LightVertex.strings","Shaders/LightFrag.strings",true ,false, false);
+    lightObject->SetShader("lvs.strings","lfs.strings",true ,false, false);
     lightObject->SetPosition(lightPos);
-    lightObject->SetLightPosition(lightPos);
-    lightObject->SetLightColor(1.f);
-    lightObject->SetTexture("Resource/Image/container.jpg",0);
     
     
     glEnable(GL_DEPTH_TEST);

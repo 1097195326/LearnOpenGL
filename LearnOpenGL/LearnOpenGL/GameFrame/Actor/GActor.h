@@ -82,6 +82,8 @@ public:
     void        SetLightPosition(vec3 position);
     
     virtual void Draw();
+    
+    ShaderProgram * GetShader();
 };
 
 #endif /* GActor_hpp */
