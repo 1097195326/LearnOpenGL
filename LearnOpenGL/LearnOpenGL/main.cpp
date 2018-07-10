@@ -9,28 +9,17 @@
 #include "GameHeader.h"
 
 #include "glad.h"
-//#include "GameHeader.h"
 
-#include "ShaderProgram.h"
 #include <GLFW/glfw3.h>
 
-//#define STB_IMAGE_IMPLEMENTATION
-//#include "stb_image.h"
 
-//#include "glm.hpp"
-//#include "matrix_transform.hpp"
-//#include "type_ptr.hpp"
-
-#include "Camera.h"
-#include "GActor.h"
 #include "CameraManager.h"
+#include "material.hpp"
 
-glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 
 float LastFrame = 0.f;
 float DeltaTime = 0.f;
-// camera
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -58,7 +47,6 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         CameraManager::Get()->GetCamera()->ProcessKeyboard(RIGHT, CameraSpeed);
 }
-
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
     if (firstMouse)
@@ -67,7 +55,6 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
         lastY = ypos;
         firstMouse = false;
     }
-    
     float xoffset = xpos - lastX;
     float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
     lastX = xpos;
@@ -79,13 +66,10 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
     CameraManager::Get()->GetCamera()->ProcessMouseScroll(yoffset);
 }
-
-
 int main(int argc, const char * argv[])
 {
     
 //    return 0;
-    // ----
     
     if(!glfwInit())
     {
@@ -123,91 +107,12 @@ int main(int argc, const char * argv[])
     glfwGetFramebufferSize(window, &screen_width, &screen_height);
     glViewport(0, 0, screen_width, screen_height);
     
-    float vertices3[] = {
-        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        
-        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-        0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-        
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-        
-        0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-        
-        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-        0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-        0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-        0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-        
-        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-        0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
-    };
-    
-    CameraManager::Get()->SetCamera(&camera);
-    
     unsigned int VAO;
     glGenVertexArrays(1,&VAO);
     glBindVertexArray(VAO);
-//
-    
-    GActor * actor = new GActor();
-    actor->SetData(vertices3,sizeof(vertices3), 36);
-    actor->SetShader("Shaders/LightingObjectVertex.strings","Shaders/LightingObjectFrag.strings",true ,false, false);
-    actor->SetPosition(vec3(0.f, 0.f, 0.f));
-    actor->SetColor(vec3(1.0f, 0.5f, 0.31f));
-    actor->SetLightColor(1.f);
-    actor->SetLightPosition(lightPos);
-//    actor->SetTexture("Resource/Image/wall.jpg",0);
-//    actor->SetTexture("Resource/Image/container.jpg",1);
-    
-    
-    GActor * lightObject = new GActor();
-    lightObject->SetData(vertices3,sizeof(vertices3), 36);
-    lightObject->SetShader("Shaders/LightVertex.strings","Shaders/LightFrag.strings",true ,false, false);
-    lightObject->SetPosition(lightPos);
-    lightObject->SetLightPosition(lightPos);
-    lightObject->SetLightColor(1.f);
-    lightObject->SetTexture("Resource/Image/container.jpg",0);
-    
-    
-    glEnable(GL_DEPTH_TEST);
-    
-    while (!glfwWindowShouldClose(window))
-    {
-        // rendering
-        glClearColor(0.0, 0.5, 0.0, 1.0);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        
-        actor->Draw();
-        lightObject->Draw();
-        
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
+
+    //--- draw ---
+    Material::Draw(window);
     
     
     glfwTerminate();

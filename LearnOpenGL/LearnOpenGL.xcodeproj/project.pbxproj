@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		115F9B3720F463DC0013E6A2 /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 115F9A2020F463DC0013E6A2 /* FileHelper.cpp */; };
 		115F9B3820F463DC0013E6A2 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 115F9A2620F463DC0013E6A2 /* glad.c */; };
+		115F9B4720F493980013E6A2 /* material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 115F9B4520F493980013E6A2 /* material.cpp */; };
 		1181FB7A20E08F86005987EF /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1181FA5120E08F85005987EF /* CameraManager.cpp */; };
 		1181FB7B20E08F86005987EF /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1181FA5220E08F85005987EF /* Camera.cpp */; };
 		1181FB7C20E08F86005987EF /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1181FA5820E08F85005987EF /* GameObject.cpp */; };
@@ -44,6 +45,12 @@
 		115F9A2620F463DC0013E6A2 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		115F9A2720F463DC0013E6A2 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
 		115F9B3B20F463F60013E6A2 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
+		115F9B4120F47EDE0013E6A2 /* lfs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = lfs.strings; sourceTree = "<group>"; };
+		115F9B4220F47EDE0013E6A2 /* mfs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mfs.strings; sourceTree = "<group>"; };
+		115F9B4320F47EDE0013E6A2 /* mvs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mvs.strings; sourceTree = "<group>"; };
+		115F9B4420F47EDE0013E6A2 /* lvs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = lvs.strings; sourceTree = "<group>"; };
+		115F9B4520F493980013E6A2 /* material.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = material.cpp; sourceTree = "<group>"; };
+		115F9B4620F493980013E6A2 /* material.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = material.hpp; sourceTree = "<group>"; };
 		117BA3B520D8F1BC0043C180 /* LightingObjectVertex.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightingObjectVertex.strings; sourceTree = "<group>"; };
 		117BA3B620D8F1BD0043C180 /* LightingObjectFrag.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightingObjectFrag.strings; sourceTree = "<group>"; };
 		1181FA4A20E08F85005987EF /* IObjectInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IObjectInterface.h; sourceTree = "<group>"; };
@@ -92,6 +99,7 @@
 		1102BDE420A198F80061B7D5 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				115F9B3C20F47E7A0013E6A2 /* material */,
 				117BA3B620D8F1BD0043C180 /* LightingObjectFrag.strings */,
 				117BA3B520D8F1BC0043C180 /* LightingObjectVertex.strings */,
 				11F7C2B020BFE987008835E7 /* LightFrag.strings */,
@@ -138,6 +146,19 @@
 				115F9A2720F463DC0013E6A2 /* khrplatform.h */,
 			);
 			path = Glad;
+			sourceTree = "<group>";
+		};
+		115F9B3C20F47E7A0013E6A2 /* material */ = {
+			isa = PBXGroup;
+			children = (
+				115F9B4120F47EDE0013E6A2 /* lfs.strings */,
+				115F9B4420F47EDE0013E6A2 /* lvs.strings */,
+				115F9B4220F47EDE0013E6A2 /* mfs.strings */,
+				115F9B4320F47EDE0013E6A2 /* mvs.strings */,
+				115F9B4520F493980013E6A2 /* material.cpp */,
+				115F9B4620F493980013E6A2 /* material.hpp */,
+			);
+			path = material;
 			sourceTree = "<group>";
 		};
 		1181FA4820E08F85005987EF /* GameFrame */ = {
@@ -336,6 +357,7 @@
 				1181FB7B20E08F86005987EF /* Camera.cpp in Sources */,
 				115F9B3720F463DC0013E6A2 /* FileHelper.cpp in Sources */,
 				1181FB7F20E08F86005987EF /* ShaderProgram.cpp in Sources */,
+				115F9B4720F493980013E6A2 /* material.cpp in Sources */,
 				1181FB7D20E08F86005987EF /* BaseObject.cpp in Sources */,
 				1181FB7E20E08F86005987EF /* ObjectManager.cpp in Sources */,
 				115F9B3820F463DC0013E6A2 /* glad.c in Sources */,
