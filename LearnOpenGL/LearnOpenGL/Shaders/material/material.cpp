@@ -67,14 +67,23 @@ void Material::Draw(GLFWwindow * window)
     
     GActor * actor = new GActor();
     actor->SetData(vertices3,sizeof(vertices3), 36);
-    actor->SetShader("mvs.strings","mfs.strings",true ,false, false);
-    actor->SetPosition(vec3(0.f, 0.f, 0.f));
+    actor->SetShader("Shaders/material/mvs.strings","Shaders/material/mfs.strings",true ,false, false);
+    actor->SetPosition(vec3(0.f, 0.f, -3.f));
+    actor->GetShader()->SetUniform3fv("ViewPos", camera.Position);
+    actor->GetShader()->SetUniform3fv("light.position", lightPos);
+    actor->GetShader()->SetUniform3fv("light.ambient", vec3(0.2f));
+    actor->GetShader()->SetUniform3fv("light.diffuse", vec3(0.5f));
+    actor->GetShader()->SetUniform3fv("light.specular", vec3(1.f));
+    actor->GetShader()->SetUniform3fv("material.ambient", vec3(1.0f, 0.5f, 0.31f));
+    actor->GetShader()->SetUniform3fv("material.diffuse", vec3(1.0f, 0.5f, 0.31f));
+    actor->GetShader()->SetUniform3fv("material.specular", vec3(0.5f, 0.5f, 0.5f));
+    actor->GetShader()->SetUniform1f("material.shininess", 32.0f);
     
     GActor * lightObject = new GActor();
     lightObject->SetData(vertices3,sizeof(vertices3), 36);
-    lightObject->SetShader("lvs.strings","lfs.strings",true ,false, false);
+    lightObject->SetShader("Shaders/material/lvs.strings","Shaders/material/lfs.strings",true ,false, false);
     lightObject->SetPosition(lightPos);
-    
+    lightObject->GetShader()->SetUniform3fv("LightColor", vec3(1.f));
     
     glEnable(GL_DEPTH_TEST);
     

@@ -9,6 +9,7 @@
 #ifndef material_hpp
 #define material_hpp
 
+#include "glad.h"
 #include <GLFW/glfw3.h>
 
 namespace Material
