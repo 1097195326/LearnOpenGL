@@ -1,0 +1,52 @@
+#version 330 core
+out     vec4    FragColor;
+
+//in     vec2    FragUVPosition;
+//in     vec3    vertexColor;
+
+in     vec3    FragNormal;
+in     vec3    FragPosition;
+
+uniform     vec3    ViewPos;
+
+struct Material
+{
+    vec3    ambient;
+    vec3    diffuse;
+    vec3    specular;
+    float   shininess;
+};
+struct Light
+{
+    vec3    position;
+    
+    vec3    ambient;
+    vec3    diffuse;
+    vec3    specular;
+};
+uniform Material    material;
+uniform Light       light;
+
+void main ()
+{
+    //ambient
+    float ambientStrength = 0.2;
+    vec3 ambient = material.ambient * light.ambient;
+    // diffuse
+    vec3 norm = normalize(FragNormal);
+    vec3 lightDir = normalize(light.position - FragPosition);
+    float diff = max(dot(norm, lightDir), 0.0);
+    vec3 diffuse = diff * material.diffuse * light.diffuse;
+    // specular
+    vec3 viewDir = normalize(ViewPos-FragPosition);
+    vec3 reflectDir = reflect(-lightDir, norm);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    vec3 specular = spec * material.specular * light.specular;
+    
+    vec3 ResultColor = (ambient + diffuse + specular);
+    FragColor = vec4(ResultColor,1.f);
+    
+    
+//    gl_FragColor = texture2D(texture1,outCooPos);
+//    gl_FragColor = mix(texture2D(texture1,outCooPos),texture2D(texture2,outCooPos),0.8);
+}

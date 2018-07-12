@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11486DEC20F73E4D00C3F4C5 /* lightmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11486DEA20F73E4D00C3F4C5 /* lightmap.cpp */; };
 		115F9B3720F463DC0013E6A2 /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 115F9A2020F463DC0013E6A2 /* FileHelper.cpp */; };
 		115F9B3820F463DC0013E6A2 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 115F9A2620F463DC0013E6A2 /* glad.c */; };
 		115F9B4720F493980013E6A2 /* material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 115F9B4520F493980013E6A2 /* material.cpp */; };
@@ -38,6 +39,12 @@
 /* Begin PBXFileReference section */
 		1102BDE520A198F80061B7D5 /* VertexShader.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = VertexShader.strings; sourceTree = "<group>"; };
 		1102BDE620A199170061B7D5 /* FragmentShader.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = FragmentShader.strings; sourceTree = "<group>"; };
+		11486DE620F73E4D00C3F4C5 /* mfs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mfs.strings; sourceTree = "<group>"; };
+		11486DE720F73E4D00C3F4C5 /* lightmap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lightmap.hpp; sourceTree = "<group>"; };
+		11486DE820F73E4D00C3F4C5 /* lfs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = lfs.strings; sourceTree = "<group>"; };
+		11486DE920F73E4D00C3F4C5 /* lvs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = lvs.strings; sourceTree = "<group>"; };
+		11486DEA20F73E4D00C3F4C5 /* lightmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lightmap.cpp; sourceTree = "<group>"; };
+		11486DEB20F73E4D00C3F4C5 /* mvs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mvs.strings; sourceTree = "<group>"; };
 		115F9A2020F463DC0013E6A2 /* FileHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelper.cpp; sourceTree = "<group>"; };
 		115F9A2220F463DC0013E6A2 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		115F9A2320F463DC0013E6A2 /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
@@ -99,6 +106,7 @@
 		1102BDE420A198F80061B7D5 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				11486DE520F73E4D00C3F4C5 /* lightmap */,
 				115F9B3C20F47E7A0013E6A2 /* material */,
 				117BA3B620D8F1BD0043C180 /* LightingObjectFrag.strings */,
 				117BA3B520D8F1BC0043C180 /* LightingObjectVertex.strings */,
@@ -108,6 +116,19 @@
 				1102BDE620A199170061B7D5 /* FragmentShader.strings */,
 			);
 			path = Shaders;
+			sourceTree = "<group>";
+		};
+		11486DE520F73E4D00C3F4C5 /* lightmap */ = {
+			isa = PBXGroup;
+			children = (
+				11486DE820F73E4D00C3F4C5 /* lfs.strings */,
+				11486DE920F73E4D00C3F4C5 /* lvs.strings */,
+				11486DE620F73E4D00C3F4C5 /* mfs.strings */,
+				11486DEB20F73E4D00C3F4C5 /* mvs.strings */,
+				11486DE720F73E4D00C3F4C5 /* lightmap.hpp */,
+				11486DEA20F73E4D00C3F4C5 /* lightmap.cpp */,
+			);
+			path = lightmap;
 			sourceTree = "<group>";
 		};
 		115F9A1E20F463DC0013E6A2 /* Includes */ = {
@@ -354,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11486DEC20F73E4D00C3F4C5 /* lightmap.cpp in Sources */,
 				1181FB7B20E08F86005987EF /* Camera.cpp in Sources */,
 				115F9B3720F463DC0013E6A2 /* FileHelper.cpp in Sources */,
 				1181FB7F20E08F86005987EF /* ShaderProgram.cpp in Sources */,
