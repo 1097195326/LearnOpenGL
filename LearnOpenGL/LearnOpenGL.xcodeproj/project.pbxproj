@@ -51,7 +51,6 @@
 		115F9A2520F463DC0013E6A2 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
 		115F9A2620F463DC0013E6A2 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		115F9A2720F463DC0013E6A2 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
-		115F9B3B20F463F60013E6A2 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
 		115F9B4120F47EDE0013E6A2 /* lfs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = lfs.strings; sourceTree = "<group>"; };
 		115F9B4220F47EDE0013E6A2 /* mfs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mfs.strings; sourceTree = "<group>"; };
 		115F9B4320F47EDE0013E6A2 /* mvs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mvs.strings; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		11AE24EE20AA888A0060B7DB /* awesomeface.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = awesomeface.jpg; sourceTree = "<group>"; };
 		11F7C2B020BFE987008835E7 /* LightFrag.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightFrag.strings; sourceTree = "<group>"; };
 		11F7C2B120BFE987008835E7 /* LightVertex.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightVertex.strings; sourceTree = "<group>"; };
+		A5074E75210823FC000C5EA2 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
 		A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		A57B70612084EB5E00404802 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		A57BB41C20A9C94E0040AEBC /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		115F9A1E20F463DC0013E6A2 /* Includes */ = {
 			isa = PBXGroup;
 			children = (
-				115F9B3B20F463F60013E6A2 /* glm */,
+				A5074E75210823FC000C5EA2 /* glm */,
 				115F9A1F20F463DC0013E6A2 /* Tools */,
 				115F9A2420F463DC0013E6A2 /* Glad */,
 			);
@@ -510,6 +510,7 @@
 					"$(glew_header)",
 					"$(glfw_header)",
 					/Users/fafa/Learn/LearnOpenGL/LearnOpenGL/LearnOpenGL/Includes,
+					/Users/zhx/work/LearnOpenGL/LearnOpenGL/LearnOpenGL/Includes,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(glew_lib)",
@@ -528,6 +529,7 @@
 					"$(glew_header)",
 					"$(glfw_header)",
 					/Users/fafa/Learn/LearnOpenGL/LearnOpenGL/LearnOpenGL/Includes,
+					/Users/zhx/work/LearnOpenGL/LearnOpenGL/LearnOpenGL/Includes,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(glew_lib)",
