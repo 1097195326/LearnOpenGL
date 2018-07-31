@@ -77,10 +77,8 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bo
     if(_haveTexture)
     {
         offset += 3;
-//        m_ShaderProgram->SetVertexAttribPointer("ObjectUVPos", 2, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
-//        m_ShaderProgram->SetVertexAttribPointer("ObjectUVPos", 2, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
-        
-//        glUniform1i(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "texture1"), 0);
+        m_ShaderProgram->SetVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, strip * sizeof(GL_FLOAT), (GLvoid*)(offset * sizeof(GL_FLOAT)));
+//        glUniform1i(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "material.diffuse"), 0);
 //        glUniform1i(glGetUniformLocation(m_ShaderProgram->GetShaderProgramId(), "texture2"), 1);
     }
     
@@ -134,25 +132,24 @@ void GActor::Draw()
     
     m_ShaderProgram->UseShader();
     
-    
     glm::mat4 model = GetModelMat();
     m_ShaderProgram->SetUniformMatrix4fv("model", model);
     glm::mat4 view = CameraManager::Get()->GetCamera()->GetViewMatrix();
     m_ShaderProgram->SetUniformMatrix4fv("view", view);
     glm::mat4 projection = glm::perspective(glm::radians(CameraManager::Get()->GetCamera()->Zoom), (float)SCR_WIDTH/(float)SCR_HEIGHT, 0.1f, 100.f);
     m_ShaderProgram->SetUniformMatrix4fv("projection", projection);
-//
-//
-//    if (m_Texture_0)
-//    {
-//        glActiveTexture(GL_TEXTURE0);
-//        glBindTexture(GL_TEXTURE_2D, m_Texture_0);
-//    }
-//    if (m_Texture_1)
-//    {
-//        glActiveTexture(GL_TEXTURE1);
-//        glBindTexture(GL_TEXTURE_2D, m_Texture_1);
-//    }if (m_Texture_2)
+
+    if (m_Texture_0)
+    {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, m_Texture_0);
+    }
+    if (m_Texture_1)
+    {
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, m_Texture_1);
+    }
+//    if (m_Texture_2)
 //    {
 //        glActiveTexture(GL_TEXTURE2);
 //        glBindTexture(GL_TEXTURE_2D, m_Texture_2);

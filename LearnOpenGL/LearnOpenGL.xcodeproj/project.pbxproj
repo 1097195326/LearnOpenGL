@@ -57,6 +57,8 @@
 		115F9B4420F47EDE0013E6A2 /* lvs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = lvs.strings; sourceTree = "<group>"; };
 		115F9B4520F493980013E6A2 /* material.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = material.cpp; sourceTree = "<group>"; };
 		115F9B4620F493980013E6A2 /* material.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = material.hpp; sourceTree = "<group>"; };
+		1164907A2110758500A11063 /* container2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2.png; sourceTree = "<group>"; };
+		1164907B2110758D00A11063 /* container2_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2_specular.png; sourceTree = "<group>"; };
 		117BA3B520D8F1BC0043C180 /* LightingObjectVertex.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightingObjectVertex.strings; sourceTree = "<group>"; };
 		117BA3B620D8F1BD0043C180 /* LightingObjectFrag.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightingObjectFrag.strings; sourceTree = "<group>"; };
 		1181FA4A20E08F85005987EF /* IObjectInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IObjectInterface.h; sourceTree = "<group>"; };
@@ -276,6 +278,8 @@
 				11AE24EE20AA888A0060B7DB /* awesomeface.jpg */,
 				A57BB41C20A9C94E0040AEBC /* container.jpg */,
 				A57BB41D20A9C94E0040AEBC /* wall.jpg */,
+				1164907A2110758500A11063 /* container2.png */,
+				1164907B2110758D00A11063 /* container2_specular.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";

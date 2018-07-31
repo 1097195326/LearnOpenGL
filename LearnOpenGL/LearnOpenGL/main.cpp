@@ -7,10 +7,8 @@
 //
 
 #include "GameHeader.h"
-
 #include "glad.h"
 #include <GLFW/glfw3.h>
-
 #include "CameraManager.h"
 #include "material.hpp"
 
