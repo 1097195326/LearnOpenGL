@@ -64,7 +64,7 @@ public:
     
     GLuint      GetVBO_Id(){return m_VBO;}
     
-    void        SetTexture(string imagePath, int index = 0);
+    void        SetTexture(string imagePath, int index = 0,bool isAlpha = false);
     
     void        SetPosition(vec3 pos);
     vec3        GetPosition();

@@ -14,9 +14,9 @@ out     vec2    FragTextureCoord;
 
 void main()
 {
-    gl_Position = projection * view * model * vec4(ObjectPosition, 1.0);
-    
     FragPosition = vec3(view * model * vec4(ObjectPosition, 1.0));
     FragNormal = mat3(transpose(inverse(view * model))) * ObjectNormal;
     FragTextureCoord = TextureCoord;
+    
+    gl_Position = projection * view * model * vec4(ObjectPosition, 1.0);
 }

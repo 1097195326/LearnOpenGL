@@ -10,7 +10,8 @@
 #include "glad.h"
 #include <GLFW/glfw3.h>
 #include "CameraManager.h"
-#include "material.hpp"
+//#include "material.hpp"
+#include "lightmap.hpp"
 
 float LastFrame = 0.f;
 float DeltaTime = 0.f;
@@ -107,7 +108,8 @@ int main(int argc, const char * argv[])
     glBindVertexArray(VAO);
 
     //--- draw ---
-    Material::Draw(window);
+//    Material::Draw(window);
+    LightMap::Draw(window);
     
     glfwTerminate();
     exit(EXIT_SUCCESS);

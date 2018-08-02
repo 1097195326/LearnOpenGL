@@ -29,7 +29,6 @@ void GActor::SetData(float vertex[],int size, int count)
     m_VertexCount = count;
     
     glGenBuffers(1, &m_VBO);
-    
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     glBufferData(GL_ARRAY_BUFFER, size, vertex, GL_STATIC_DRAW);
     
@@ -84,7 +83,7 @@ void GActor::SetShader(std::string _vertexShader, std::string _fragmentShader,bo
     
 //    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
-void GActor::SetTexture(std::string imagePath, int index)
+void GActor::SetTexture(std::string imagePath, int index, bool isAlpha)
 {
     
     switch (index) {
@@ -119,7 +118,14 @@ void GActor::SetTexture(std::string imagePath, int index)
     unsigned char * data = stbi_load(imagePath.c_str(), &i_width, &i_hight, &image_chancel, 0);
     if(data)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, i_width, i_hight, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        if (isAlpha)
+        {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, i_width, i_hight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        }else
+        {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, i_width, i_hight, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        }
+        
         stbi_image_free(data);
     }
     glBindTexture(GL_TEXTURE_2D, 0);
@@ -167,7 +173,7 @@ mat4 GActor::GetModelMat()
     mat4 model(1);
     model = glm::translate(model, m_Position);
     model = glm::scale(model, vec3(m_Scale));
-    model = glm::rotate(model, (float)glfwGetTime() * glm::radians(55.f), glm::vec3(0.5,1,0));
+//    model = glm::rotate(model, (float)glfwGetTime() * glm::radians(55.f), glm::vec3(0.5,1,0));
     return model;
 }
 void GActor::SetPosition(vec3 pos)

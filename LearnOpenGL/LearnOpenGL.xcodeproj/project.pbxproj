@@ -147,8 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				115F9A2020F463DC0013E6A2 /* FileHelper.cpp */,
-				115F9A2120F463DC0013E6A2 /* ImageTool */,
 				115F9A2320F463DC0013E6A2 /* FileHelper.h */,
+				115F9A2120F463DC0013E6A2 /* ImageTool */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
