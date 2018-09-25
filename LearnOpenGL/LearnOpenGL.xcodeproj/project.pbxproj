@@ -18,6 +18,10 @@
 		1181FB7E20E08F86005987EF /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1181FA5B20E08F85005987EF /* ObjectManager.cpp */; };
 		1181FB7F20E08F86005987EF /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1181FA6020E08F85005987EF /* ShaderProgram.cpp */; };
 		1181FB8320E08F86005987EF /* GActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1181FB7820E08F86005987EF /* GActor.cpp */; };
+		A50754FB215A20870044D222 /* TestC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A50754FA215A20870044D222 /* TestC.cpp */; };
+		A5229C062158CDFE00FAD4FE /* MsgCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5229C042158CDFE00FAD4FE /* MsgCenter.cpp */; };
+		A5229C092158CE0800FAD4FE /* MsgStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5229C072158CE0800FAD4FE /* MsgStruct.cpp */; };
+		A5229C0C2158CE2200FAD4FE /* MsgChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5229C0A2158CE2200FAD4FE /* MsgChannel.cpp */; };
 		A57B70602084EB4600404802 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */; };
 		A57B70622084EB5E00404802 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B70612084EB5E00404802 /* libglfw.3.2.dylib */; };
 		A5A3653F2084E70C00246646 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A3653E2084E70C00246646 /* main.cpp */; };
@@ -82,6 +86,14 @@
 		11F7C2B020BFE987008835E7 /* LightFrag.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightFrag.strings; sourceTree = "<group>"; };
 		11F7C2B120BFE987008835E7 /* LightVertex.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LightVertex.strings; sourceTree = "<group>"; };
 		A5074E75210823FC000C5EA2 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
+		A50754F9215A20870044D222 /* TestC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestC.h; sourceTree = "<group>"; };
+		A50754FA215A20870044D222 /* TestC.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestC.cpp; sourceTree = "<group>"; };
+		A5229C042158CDFE00FAD4FE /* MsgCenter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MsgCenter.cpp; sourceTree = "<group>"; };
+		A5229C052158CDFE00FAD4FE /* MsgCenter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MsgCenter.hpp; sourceTree = "<group>"; };
+		A5229C072158CE0800FAD4FE /* MsgStruct.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MsgStruct.cpp; sourceTree = "<group>"; };
+		A5229C082158CE0800FAD4FE /* MsgStruct.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MsgStruct.hpp; sourceTree = "<group>"; };
+		A5229C0A2158CE2200FAD4FE /* MsgChannel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MsgChannel.cpp; sourceTree = "<group>"; };
+		A5229C0B2158CE2200FAD4FE /* MsgChannel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MsgChannel.hpp; sourceTree = "<group>"; };
 		A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		A57B70612084EB5E00404802 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		A57BB41C20A9C94E0040AEBC /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
@@ -187,6 +199,7 @@
 		1181FA4820E08F85005987EF /* GameFrame */ = {
 			isa = PBXGroup;
 			children = (
+				A5229C032158CDE000FAD4FE /* Msg */,
 				1181FA4920E08F85005987EF /* Interface */,
 				1181FA5020E08F85005987EF /* Camera */,
 				1181FA5520E08F85005987EF /* BaseObject */,
@@ -264,6 +277,19 @@
 			path = Actor;
 			sourceTree = "<group>";
 		};
+		A5229C032158CDE000FAD4FE /* Msg */ = {
+			isa = PBXGroup;
+			children = (
+				A5229C042158CDFE00FAD4FE /* MsgCenter.cpp */,
+				A5229C052158CDFE00FAD4FE /* MsgCenter.hpp */,
+				A5229C072158CE0800FAD4FE /* MsgStruct.cpp */,
+				A5229C082158CE0800FAD4FE /* MsgStruct.hpp */,
+				A5229C0A2158CE2200FAD4FE /* MsgChannel.cpp */,
+				A5229C0B2158CE2200FAD4FE /* MsgChannel.hpp */,
+			);
+			path = Msg;
+			sourceTree = "<group>";
+		};
 		A57BB41920A9C8E60040AEBC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +335,8 @@
 				A57BB41920A9C8E60040AEBC /* Resource */,
 				1102BDE420A198F80061B7D5 /* Shaders */,
 				A5A3653E2084E70C00246646 /* main.cpp */,
+				A50754F9215A20870044D222 /* TestC.h */,
+				A50754FA215A20870044D222 /* TestC.cpp */,
 			);
 			path = LearnOpenGL;
 			sourceTree = "<group>";
@@ -385,9 +413,13 @@
 				1181FB7F20E08F86005987EF /* ShaderProgram.cpp in Sources */,
 				115F9B4720F493980013E6A2 /* material.cpp in Sources */,
 				1181FB7D20E08F86005987EF /* BaseObject.cpp in Sources */,
+				A5229C092158CE0800FAD4FE /* MsgStruct.cpp in Sources */,
 				1181FB7E20E08F86005987EF /* ObjectManager.cpp in Sources */,
 				115F9B3820F463DC0013E6A2 /* glad.c in Sources */,
+				A5229C062158CDFE00FAD4FE /* MsgCenter.cpp in Sources */,
 				A5A3653F2084E70C00246646 /* main.cpp in Sources */,
+				A50754FB215A20870044D222 /* TestC.cpp in Sources */,
+				A5229C0C2158CE2200FAD4FE /* MsgChannel.cpp in Sources */,
 				1181FB7A20E08F86005987EF /* CameraManager.cpp in Sources */,
 				1181FB8320E08F86005987EF /* GActor.cpp in Sources */,
 				1181FB7C20E08F86005987EF /* GameObject.cpp in Sources */,

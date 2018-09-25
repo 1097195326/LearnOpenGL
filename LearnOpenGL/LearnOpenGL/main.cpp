@@ -13,6 +13,9 @@
 //#include "material.hpp"
 #include "lightmap.hpp"
 
+#include <string>
+#include "TestC.h"
+
 float LastFrame = 0.f;
 float DeltaTime = 0.f;
 
@@ -65,7 +68,13 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 int main(int argc, const char * argv[])
 {
     
-//    return 0;
+    ReceiveMsg * r = new ReceiveMsg();
+    SendMsg * s = new SendMsg();
+    s->Send();
+    delete r;
+    delete s;
+    
+    return 0;
     
     if(!glfwInit())
     {
