@@ -22,8 +22,10 @@
 		A5229C062158CDFE00FAD4FE /* MsgCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5229C042158CDFE00FAD4FE /* MsgCenter.cpp */; };
 		A5229C092158CE0800FAD4FE /* MsgStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5229C072158CE0800FAD4FE /* MsgStruct.cpp */; };
 		A5229C0C2158CE2200FAD4FE /* MsgChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5229C0A2158CE2200FAD4FE /* MsgChannel.cpp */; };
-		A57B70602084EB4600404802 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */; };
-		A57B70622084EB5E00404802 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A57B70612084EB5E00404802 /* libglfw.3.2.dylib */; };
+		A567FAEB21636406008A8B67 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A567FAEA21636406008A8B67 /* libGLEW.2.1.0.dylib */; };
+		A567FAED21636420008A8B67 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A567FAEC21636420008A8B67 /* libglfw.3.2.dylib */; };
+		A567FAF5216482F9008A8B67 /* LoadModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A567FAF4216482F9008A8B67 /* LoadModel.cpp */; };
+		A567FAF7216489F2008A8B67 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A567FAF6216489F2008A8B67 /* libassimp.4.1.0.dylib */; };
 		A5A3653F2084E70C00246646 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A3653E2084E70C00246646 /* main.cpp */; };
 		A5A365472084E86C00246646 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A365462084E86C00246646 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
@@ -94,8 +96,49 @@
 		A5229C082158CE0800FAD4FE /* MsgStruct.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MsgStruct.hpp; sourceTree = "<group>"; };
 		A5229C0A2158CE2200FAD4FE /* MsgChannel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MsgChannel.cpp; sourceTree = "<group>"; };
 		A5229C0B2158CE2200FAD4FE /* MsgChannel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MsgChannel.hpp; sourceTree = "<group>"; };
-		A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
-		A57B70612084EB5E00404802 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
+		A567FAEA21636406008A8B67 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		A567FAEC21636420008A8B67 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
+		A567FAEF21648047008A8B67 /* model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = model.h; sourceTree = "<group>"; };
+		A567FAF021648047008A8B67 /* mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesh.h; sourceTree = "<group>"; };
+		A567FAF1216482C2008A8B67 /* model_fs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = model_fs.strings; sourceTree = "<group>"; };
+		A567FAF2216482C2008A8B67 /* model_vs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = model_vs.strings; sourceTree = "<group>"; };
+		A567FAF3216482F9008A8B67 /* LoadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadModel.h; sourceTree = "<group>"; };
+		A567FAF4216482F9008A8B67 /* LoadModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LoadModel.cpp; sourceTree = "<group>"; };
+		A567FAF6216489F2008A8B67 /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../../usr/local/Cellar/assimp/4.1.0/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
+		A567FAFB21648ABB008A8B67 /* hand_showroom_refl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand_showroom_refl.png; sourceTree = "<group>"; };
+		A567FAFC21648ABB008A8B67 /* body_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body_showroom_ddn.png; sourceTree = "<group>"; };
+		A567FAFD21648ABB008A8B67 /* helmet_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helmet_showroom_ddn.png; sourceTree = "<group>"; };
+		A567FAFE21648ABB008A8B67 /* arm_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arm_showroom_ddn.png; sourceTree = "<group>"; };
+		A567FAFF21648ABB008A8B67 /* arm_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arm_showroom_spec.png; sourceTree = "<group>"; };
+		A567FB0021648ABB008A8B67 /* leg_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leg_dif.png; sourceTree = "<group>"; };
+		A567FB0121648ABB008A8B67 /* arm_showroom_refl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arm_showroom_refl.png; sourceTree = "<group>"; };
+		A567FB0221648ABB008A8B67 /* cell_body_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_body_alpha.png; sourceTree = "<group>"; };
+		A567FB0321648ABB008A8B67 /* hand_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand_showroom_spec.png; sourceTree = "<group>"; };
+		A567FB0421648ABB008A8B67 /* glass_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glass_ddn.png; sourceTree = "<group>"; };
+		A567FB0521648ABB008A8B67 /* glass_refl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glass_refl.png; sourceTree = "<group>"; };
+		A567FB0621648ABB008A8B67 /* cell_hand_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_hand_alpha.png; sourceTree = "<group>"; };
+		A567FB0721648ABB008A8B67 /* nanosuit.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nanosuit.mtl; sourceTree = "<group>"; };
+		A567FB0821648ABB008A8B67 /* body_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body_dif.png; sourceTree = "<group>"; };
+		A567FB0921648ABB008A8B67 /* hand_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand_showroom_ddn.png; sourceTree = "<group>"; };
+		A567FB0A21648ABB008A8B67 /* body_showroom_refl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body_showroom_refl.png; sourceTree = "<group>"; };
+		A567FB0B21648ABB008A8B67 /* glass_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glass_dif.png; sourceTree = "<group>"; };
+		A567FB0C21648ABB008A8B67 /* arm_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arm_dif.png; sourceTree = "<group>"; };
+		A567FB0D21648ABB008A8B67 /* cell_leg_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_leg_alpha.png; sourceTree = "<group>"; };
+		A567FB0E21648ABB008A8B67 /* helmet_diff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helmet_diff.png; sourceTree = "<group>"; };
+		A567FB0F21648ABB008A8B67 /* nanosuit.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nanosuit.obj; sourceTree = "<group>"; };
+		A567FB1021648ABB008A8B67 /* leg_showroom_refl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leg_showroom_refl.png; sourceTree = "<group>"; };
+		A567FB1121648ABB008A8B67 /* cell_helmet_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_helmet_alpha.png; sourceTree = "<group>"; };
+		A567FB1221648ABB008A8B67 /* leg_showroom_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leg_showroom_ddn.png; sourceTree = "<group>"; };
+		A567FB1321648ABB008A8B67 /* helmet_showroom_refl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helmet_showroom_refl.png; sourceTree = "<group>"; };
+		A567FB1421648ABB008A8B67 /* cell_arm_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_arm_alpha.png; sourceTree = "<group>"; };
+		A567FB1521648ABB008A8B67 /* helmet_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helmet_showroom_spec.png; sourceTree = "<group>"; };
+		A567FB1621648ABB008A8B67 /* leg_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leg_showroom_spec.png; sourceTree = "<group>"; };
+		A567FB1721648ABB008A8B67 /* cell_ddn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_ddn.png; sourceTree = "<group>"; };
+		A567FB1821648ABB008A8B67 /* body_showroom_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body_showroom_spec.png; sourceTree = "<group>"; };
+		A567FB1921648ABB008A8B67 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
+		A567FB1A21648ABB008A8B67 /* front.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = front.jpg; sourceTree = "<group>"; };
+		A567FB1B21648ABB008A8B67 /* hand_dif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand_dif.png; sourceTree = "<group>"; };
+		A567FB1C21648E12008A8B67 /* shader_m.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shader_m.h; sourceTree = "<group>"; };
 		A57BB41C20A9C94E0040AEBC /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
 		A57BB41D20A9C94E0040AEBC /* wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall.jpg; sourceTree = "<group>"; };
 		A5A3653B2084E70C00246646 /* LearnOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,8 +151,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57B70622084EB5E00404802 /* libglfw.3.2.dylib in Frameworks */,
-				A57B70602084EB4600404802 /* libGLEW.2.1.0.dylib in Frameworks */,
+				A567FAF7216489F2008A8B67 /* libassimp.4.1.0.dylib in Frameworks */,
+				A567FAED21636420008A8B67 /* libglfw.3.2.dylib in Frameworks */,
+				A567FAEB21636406008A8B67 /* libGLEW.2.1.0.dylib in Frameworks */,
 				A5A365472084E86C00246646 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +164,7 @@
 		1102BDE420A198F80061B7D5 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				A567FAEE216478D2008A8B67 /* loadmodel */,
 				11486DE520F73E4D00C3F4C5 /* lightmap */,
 				115F9B3C20F47E7A0013E6A2 /* material */,
 				117BA3B620D8F1BD0043C180 /* LightingObjectFrag.strings */,
@@ -271,6 +316,9 @@
 		1181FB7620E08F86005987EF /* Actor */ = {
 			isa = PBXGroup;
 			children = (
+				A567FB1C21648E12008A8B67 /* shader_m.h */,
+				A567FAF021648047008A8B67 /* mesh.h */,
+				A567FAEF21648047008A8B67 /* model.h */,
 				1181FB7720E08F86005987EF /* GActor.h */,
 				1181FB7820E08F86005987EF /* GActor.cpp */,
 			);
@@ -290,9 +338,61 @@
 			path = Msg;
 			sourceTree = "<group>";
 		};
+		A567FAEE216478D2008A8B67 /* loadmodel */ = {
+			isa = PBXGroup;
+			children = (
+				A567FAF1216482C2008A8B67 /* model_fs.strings */,
+				A567FAF2216482C2008A8B67 /* model_vs.strings */,
+				A567FAF3216482F9008A8B67 /* LoadModel.h */,
+				A567FAF4216482F9008A8B67 /* LoadModel.cpp */,
+			);
+			path = loadmodel;
+			sourceTree = "<group>";
+		};
+		A567FAFA21648ABB008A8B67 /* nanosuit */ = {
+			isa = PBXGroup;
+			children = (
+				A567FAFB21648ABB008A8B67 /* hand_showroom_refl.png */,
+				A567FAFC21648ABB008A8B67 /* body_showroom_ddn.png */,
+				A567FAFD21648ABB008A8B67 /* helmet_showroom_ddn.png */,
+				A567FAFE21648ABB008A8B67 /* arm_showroom_ddn.png */,
+				A567FAFF21648ABB008A8B67 /* arm_showroom_spec.png */,
+				A567FB0021648ABB008A8B67 /* leg_dif.png */,
+				A567FB0121648ABB008A8B67 /* arm_showroom_refl.png */,
+				A567FB0221648ABB008A8B67 /* cell_body_alpha.png */,
+				A567FB0321648ABB008A8B67 /* hand_showroom_spec.png */,
+				A567FB0421648ABB008A8B67 /* glass_ddn.png */,
+				A567FB0521648ABB008A8B67 /* glass_refl.png */,
+				A567FB0621648ABB008A8B67 /* cell_hand_alpha.png */,
+				A567FB0721648ABB008A8B67 /* nanosuit.mtl */,
+				A567FB0821648ABB008A8B67 /* body_dif.png */,
+				A567FB0921648ABB008A8B67 /* hand_showroom_ddn.png */,
+				A567FB0A21648ABB008A8B67 /* body_showroom_refl.png */,
+				A567FB0B21648ABB008A8B67 /* glass_dif.png */,
+				A567FB0C21648ABB008A8B67 /* arm_dif.png */,
+				A567FB0D21648ABB008A8B67 /* cell_leg_alpha.png */,
+				A567FB0E21648ABB008A8B67 /* helmet_diff.png */,
+				A567FB0F21648ABB008A8B67 /* nanosuit.obj */,
+				A567FB1021648ABB008A8B67 /* leg_showroom_refl.png */,
+				A567FB1121648ABB008A8B67 /* cell_helmet_alpha.png */,
+				A567FB1221648ABB008A8B67 /* leg_showroom_ddn.png */,
+				A567FB1321648ABB008A8B67 /* helmet_showroom_refl.png */,
+				A567FB1421648ABB008A8B67 /* cell_arm_alpha.png */,
+				A567FB1521648ABB008A8B67 /* helmet_showroom_spec.png */,
+				A567FB1621648ABB008A8B67 /* leg_showroom_spec.png */,
+				A567FB1721648ABB008A8B67 /* cell_ddn.png */,
+				A567FB1821648ABB008A8B67 /* body_showroom_spec.png */,
+				A567FB1921648ABB008A8B67 /* back.jpg */,
+				A567FB1A21648ABB008A8B67 /* front.jpg */,
+				A567FB1B21648ABB008A8B67 /* hand_dif.png */,
+			);
+			path = nanosuit;
+			sourceTree = "<group>";
+		};
 		A57BB41920A9C8E60040AEBC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A567FAFA21648ABB008A8B67 /* nanosuit */,
 				A57BB41A20A9C9110040AEBC /* Image */,
 			);
 			path = Resource;
@@ -344,8 +444,9 @@
 		A5A365452084E86C00246646 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A57B70612084EB5E00404802 /* libglfw.3.2.dylib */,
-				A57B705F2084EB4600404802 /* libGLEW.2.1.0.dylib */,
+				A567FAF6216489F2008A8B67 /* libassimp.4.1.0.dylib */,
+				A567FAEC21636420008A8B67 /* libglfw.3.2.dylib */,
+				A567FAEA21636406008A8B67 /* libGLEW.2.1.0.dylib */,
 				A5A365462084E86C00246646 /* OpenGL.framework */,
 			);
 			name = Frameworks;
@@ -416,6 +517,7 @@
 				A5229C092158CE0800FAD4FE /* MsgStruct.cpp in Sources */,
 				1181FB7E20E08F86005987EF /* ObjectManager.cpp in Sources */,
 				115F9B3820F463DC0013E6A2 /* glad.c in Sources */,
+				A567FAF5216482F9008A8B67 /* LoadModel.cpp in Sources */,
 				A5229C062158CDFE00FAD4FE /* MsgCenter.cpp in Sources */,
 				A5A3653F2084E70C00246646 /* main.cpp in Sources */,
 				A50754FB215A20870044D222 /* TestC.cpp in Sources */,
@@ -545,13 +647,18 @@
 				HEADER_SEARCH_PATHS = (
 					"$(glew_header)",
 					"$(glfw_header)",
+					"$(assimp_header)",
 					/Users/fafa/Learn/LearnOpenGL/LearnOpenGL/LearnOpenGL/Includes,
 					/Users/zhx/work/LearnOpenGL/LearnOpenGL/LearnOpenGL/Includes,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(glew_lib)",
 					"$(glfw_lib)",
+					"$(assimp_lib)",
 					"$(SDKROOT)/usr/lib/system",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -564,13 +671,18 @@
 				HEADER_SEARCH_PATHS = (
 					"$(glew_header)",
 					"$(glfw_header)",
+					"$(assimp_header)",
 					/Users/fafa/Learn/LearnOpenGL/LearnOpenGL/LearnOpenGL/Includes,
 					/Users/zhx/work/LearnOpenGL/LearnOpenGL/LearnOpenGL/Includes,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(glew_lib)",
 					"$(glfw_lib)",
+					"$(assimp_lib)",
 					"$(SDKROOT)/usr/lib/system",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

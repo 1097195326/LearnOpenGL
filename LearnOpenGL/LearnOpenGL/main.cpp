@@ -12,9 +12,12 @@
 #include "CameraManager.h"
 //#include "material.hpp"
 #include "lightmap.hpp"
+#include "LoadModel.h"
 
 #include <string>
 #include "TestC.h"
+
+
 
 float LastFrame = 0.f;
 float DeltaTime = 0.f;
@@ -67,13 +70,17 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 }
 int main(int argc, const char * argv[])
 {
+    vector<int> ss = {1,4,5,9,2,6};
     
-    ReceiveMsg * r = new ReceiveMsg();
-    SendMsg * s = new SendMsg();
-    s->Send();
-    delete r;
-    delete s;
+    srand((unsigned)time(NULL));
+    sort(ss.begin(), ss.end());
+    random_shuffle(ss.begin(), ss.end());
     
+//    ReceiveMsg * r = new ReceiveMsg();
+//    SendMsg * s = new SendMsg();
+//    s->Send();
+//    delete r;
+//    delete s;
     return 0;
     
     if(!glfwInit())
@@ -118,7 +125,8 @@ int main(int argc, const char * argv[])
 
     //--- draw ---
 //    Material::Draw(window);
-    LightMap::Draw(window);
+//    LightMap::Draw(window);
+    LoadModel::Draw(window);
     
     glfwTerminate();
     exit(EXIT_SUCCESS);
