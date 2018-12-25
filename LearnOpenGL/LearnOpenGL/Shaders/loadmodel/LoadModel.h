@@ -9,7 +9,7 @@
 #ifndef LoadModel_h
 #define LoadModel_h
 
-#include "glad.h"
+#include "../../Glad/glad.h"
 #include <GLFW/glfw3.h>
 
 #include <assimp/Importer.hpp>

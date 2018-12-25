@@ -7,7 +7,7 @@
 //
 
 #include "LoadModel.h"
-#include "../../Includes/glm/glm.hpp"
+#include "../../glm/glm.hpp"
 #include "../../GameFrame/Actor/mesh.h"
 #include "../../GameFrame/Actor/model.h"
 #include "Camera.h"

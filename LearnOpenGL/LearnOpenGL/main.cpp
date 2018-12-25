@@ -7,15 +7,16 @@
 //
 
 #include "GameHeader.h"
-#include "glad.h"
+#include "Glad/glad.h"
+#include "ImageTool/stb_image.h"
+#include "glm/glm.hpp"
 #include <GLFW/glfw3.h>
 #include "CameraManager.h"
-//#include "material.hpp"
-#include "lightmap.hpp"
-#include "LoadModel.h"
+#include "material.h"
+//#include "lightmap.hpp"
+//#include "LoadModel.h"
 
 #include <string>
-#include "TestC.h"
 
 
 
@@ -32,10 +33,10 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     float CurrentFrame = glfwGetTime();
     DeltaTime = CurrentFrame - LastFrame;
     LastFrame = CurrentFrame;
-    
+
     printf("DeltaTime : %f \n",DeltaTime);
     float CameraSpeed = 2.5f * 0.2;
-    
+
     if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
     {
         glfwSetWindowShouldClose(window, GLFW_TRUE);
@@ -70,18 +71,18 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 }
 int main(int argc, const char * argv[])
 {
-    vector<int> ss = {1,4,5,9,2,6};
-    
-    srand((unsigned)time(NULL));
-    sort(ss.begin(), ss.end());
-    random_shuffle(ss.begin(), ss.end());
+//    vector<int> ss = {1,4,5,9,2,6};
+//
+//    srand((unsigned)time(NULL));
+//    sort(ss.begin(), ss.end());
+//    random_shuffle(ss.begin(), ss.end());
     
 //    ReceiveMsg * r = new ReceiveMsg();
 //    SendMsg * s = new SendMsg();
 //    s->Send();
 //    delete r;
 //    delete s;
-    return 0;
+//    return 0;
     
     if(!glfwInit())
     {
@@ -104,29 +105,38 @@ int main(int argc, const char * argv[])
     glfwSetKeyCallback(window, &key_callback);
     glfwSetCursorPosCallback(window, &mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
-    
+
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    
+
     glfwMakeContextCurrent(window);
-    
+
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
-    
     int screen_width,screen_height;
     glfwGetFramebufferSize(window, &screen_width, &screen_height);
     glViewport(0, 0, screen_width, screen_height);
-    
+
+//    while (!glfwWindowShouldClose(window))
+//    {
+//        // rendering
+//        glClearColor(0.0, 0.5, 0.5, 1.0);
+//        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//
+//
+//        glfwSwapBuffers(window);
+//        glfwPollEvents();
+//    }
     unsigned int VAO;
     glGenVertexArrays(1,&VAO);
     glBindVertexArray(VAO);
 
     //--- draw ---
-//    Material::Draw(window);
+    Material::Draw(window);
 //    LightMap::Draw(window);
-    LoadModel::Draw(window);
+//    LoadModel::Draw(window);
     
     glfwTerminate();
     exit(EXIT_SUCCESS);

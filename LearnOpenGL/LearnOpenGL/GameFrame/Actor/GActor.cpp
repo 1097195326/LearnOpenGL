@@ -12,7 +12,7 @@
 
 
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "../../ImageTool/stb_image.h"
 
 GActor::GActor()
 {

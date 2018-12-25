@@ -7,7 +7,7 @@
 //
 
 #include "ShaderProgram.h"
-#include "FileHelper.h"
+#include "../Tools/FileHelper.h"
 
 
 ShaderProgram::ShaderProgram(string VertexPath, string FragmentPath)
