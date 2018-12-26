@@ -6,7 +6,7 @@
 //  Copyright © 2018年 hongxing zhang. All rights reserved.
 //
 
-#include "lightmap.hpp"
+#include "lightmap.h"
 #include "Camera.h"
 #include "GActor.h"
 #include "CameraManager.h"
@@ -68,7 +68,8 @@ void LightMap::Draw(GLFWwindow * window)
     GActor * actor = new GActor();
     actor->SetData(vertices,sizeof(vertices), 36);
     actor->SetShader("Shaders/lightmap/mvs.strings","Shaders/lightmap/mfs.strings",true ,false, true);
-    actor->SetTexture("Resource/Image/container2.png",0,true);
+//    actor->SetTexture("Resource/Image/container2.png",0,true);//Resource/cyborg/cyborg_specular.png
+    actor->SetTexture("Resource/cyborg/cyborg_specular.png",0,false);
     actor->SetTexture("Resource/Image/container2_specular.png",1,true);
     actor->SetPosition(vec3(0.f, 0.f, -3.f));
     actor->GetShader()->SetUniform3fv("ViewPos", camera.Position);

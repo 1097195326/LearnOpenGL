@@ -19,6 +19,8 @@
 		B74B205021D216B200F1C234 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B1C5D21D1DD5500F1C234 /* ShaderProgram.cpp */; };
 		B74B205421D216F200F1C234 /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B205221D216F200F1C234 /* FileHelper.cpp */; };
 		B74B205521D2187900F1C234 /* material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B1C7D21D1DD5500F1C234 /* material.cpp */; };
+		B74B205621D2313B00F1C234 /* lightmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B1C7321D1DD5500F1C234 /* lightmap.cpp */; };
+		B74B205721D2380A00F1C234 /* LoadModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B1C6C21D1DD5500F1C234 /* LoadModel.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,7 +108,7 @@
 		B74B1C6E21D1DD5500F1C234 /* LoadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadModel.h; sourceTree = "<group>"; };
 		B74B1C7021D1DD5500F1C234 /* mfs.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = mfs.strings; sourceTree = "<group>"; };
 		B74B1C7121D1DD5500F1C234 /* lfs.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = lfs.strings; sourceTree = "<group>"; };
-		B74B1C7221D1DD5500F1C234 /* lightmap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = lightmap.hpp; sourceTree = "<group>"; };
+		B74B1C7221D1DD5500F1C234 /* lightmap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lightmap.h; sourceTree = "<group>"; };
 		B74B1C7321D1DD5500F1C234 /* lightmap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lightmap.cpp; sourceTree = "<group>"; };
 		B74B1C7421D1DD5500F1C234 /* lvs.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = lvs.strings; sourceTree = "<group>"; };
 		B74B1C7521D1DD5500F1C234 /* mvs.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = mvs.strings; sourceTree = "<group>"; };
@@ -363,7 +365,7 @@
 			children = (
 				B74B1C7021D1DD5500F1C234 /* mfs.strings */,
 				B74B1C7121D1DD5500F1C234 /* lfs.strings */,
-				B74B1C7221D1DD5500F1C234 /* lightmap.hpp */,
+				B74B1C7221D1DD5500F1C234 /* lightmap.h */,
 				B74B1C7321D1DD5500F1C234 /* lightmap.cpp */,
 				B74B1C7421D1DD5500F1C234 /* lvs.strings */,
 				B74B1C7521D1DD5500F1C234 /* mvs.strings */,
@@ -469,8 +471,10 @@
 				B74B204E21D2136600F1C234 /* GActor.cpp in Sources */,
 				B74B205421D216F200F1C234 /* FileHelper.cpp in Sources */,
 				B74B205521D2187900F1C234 /* material.cpp in Sources */,
+				B74B205621D2313B00F1C234 /* lightmap.cpp in Sources */,
 				B74B205021D216B200F1C234 /* ShaderProgram.cpp in Sources */,
 				A5A3653F2084E70C00246646 /* main.cpp in Sources */,
+				B74B205721D2380A00F1C234 /* LoadModel.cpp in Sources */,
 				B74B204C21D2135B00F1C234 /* CameraManager.cpp in Sources */,
 				B74B204A21D2121400F1C234 /* glad.cpp in Sources */,
 			);

@@ -6,8 +6,8 @@
 //  Copyright © 2018年 hongxing zhang. All rights reserved.
 //
 
-#ifndef material_hpp
-#define material_hpp
+#ifndef lightmap_h
+#define lightmap_h
 
 #include "glad.h"
 #include <GLFW/glfw3.h>
@@ -20,4 +20,4 @@ namespace LightMap
 
 
 
-#endif /* material_hpp */
+#endif /* lightmap_h */

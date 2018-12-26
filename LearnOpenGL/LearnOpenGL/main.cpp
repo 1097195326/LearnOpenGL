@@ -13,8 +13,8 @@
 #include <GLFW/glfw3.h>
 #include "CameraManager.h"
 #include "material.h"
-//#include "lightmap.hpp"
-//#include "LoadModel.h"
+#include "lightmap.h"
+#include "LoadModel.h"
 
 #include <string>
 
@@ -102,13 +102,15 @@ int main(int argc, const char * argv[])
         printf("windown is null \n");
         glfwTerminate();
     }
+    glfwMakeContextCurrent(window);
+    
     glfwSetKeyCallback(window, &key_callback);
     glfwSetCursorPosCallback(window, &mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
 
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-    glfwMakeContextCurrent(window);
+    
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -129,14 +131,14 @@ int main(int argc, const char * argv[])
 //        glfwSwapBuffers(window);
 //        glfwPollEvents();
 //    }
-    unsigned int VAO;
-    glGenVertexArrays(1,&VAO);
-    glBindVertexArray(VAO);
+//    unsigned int VAO;
+//    glGenVertexArrays(1,&VAO);
+//    glBindVertexArray(VAO);
 
     //--- draw ---
-    Material::Draw(window);
+//    Material::Draw(window);
 //    LightMap::Draw(window);
-//    LoadModel::Draw(window);
+    LoadModel::Draw(window);
     
     glfwTerminate();
     exit(EXIT_SUCCESS);

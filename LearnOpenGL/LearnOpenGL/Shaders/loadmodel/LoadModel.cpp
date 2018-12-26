@@ -24,12 +24,13 @@ void LoadModel::Draw(GLFWwindow *window)
     glEnable(GL_DEPTH_TEST);
     
     ShaderProgram ourShader("Shaders/loadmodel/model_vs.strings", "Shaders/loadmodel/model_fs.strings");
+    ourShader.UseShader();
     Model ourModel("Resource/cyborg/cyborg.obj");
     
     while (!glfwWindowShouldClose(window))
     {
         // rendering
-        glClearColor(0.0, 0.5, 0.0, 1.0);
+        glClearColor(0.05f, 0.5f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         ourShader.UseShader();
