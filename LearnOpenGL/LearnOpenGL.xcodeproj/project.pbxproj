@@ -12,6 +12,8 @@
 		A567FAF7216489F2008A8B67 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A567FAF6216489F2008A8B67 /* libassimp.4.1.0.dylib */; };
 		A5A3653F2084E70C00246646 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A3653E2084E70C00246646 /* main.cpp */; };
 		A5A365472084E86C00246646 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A365462084E86C00246646 /* OpenGL.framework */; };
+		B733249721E6FF8E00894C0E /* NewLoadModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B733249521E6FF8E00894C0E /* NewLoadModel.cpp */; };
+		B733249C21E71F1200894C0E /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B733249A21E71F1200894C0E /* Mesh.cpp */; };
 		B74B204421D20B5600F1C234 /* glm in Frameworks */ = {isa = PBXBuildFile; fileRef = B74B204321D20B5600F1C234 /* glm */; };
 		B74B204A21D2121400F1C234 /* glad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B204721D20EE200F1C234 /* glad.cpp */; };
 		B74B204C21D2135B00F1C234 /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B1C4E21D1DD5500F1C234 /* CameraManager.cpp */; };
@@ -80,6 +82,12 @@
 		A5A3653B2084E70C00246646 /* LearnOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A3653E2084E70C00246646 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A5A365462084E86C00246646 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		B733249521E6FF8E00894C0E /* NewLoadModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NewLoadModel.cpp; sourceTree = "<group>"; };
+		B733249621E6FF8E00894C0E /* NewLoadModel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NewLoadModel.hpp; sourceTree = "<group>"; };
+		B733249821E71DA500894C0E /* model_vs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = model_vs.strings; sourceTree = "<group>"; };
+		B733249921E71DA600894C0E /* model_fs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = model_fs.strings; sourceTree = "<group>"; };
+		B733249A21E71F1200894C0E /* Mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		B733249B21E71F1200894C0E /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
 		B74B1C4521D1DD5500F1C234 /* IObjectInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IObjectInterface.h; sourceTree = "<group>"; };
 		B74B1C4E21D1DD5500F1C234 /* CameraManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CameraManager.cpp; sourceTree = "<group>"; };
 		B74B1C4F21D1DD5500F1C234 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
@@ -229,7 +237,6 @@
 			children = (
 				B74B204521D20EE200F1C234 /* Glad */,
 				B74B204221D20AF500F1C234 /* ImageTool */,
-				B74B1D9B21D1E0B500F1C234 /* Includes */,
 				B74B1C4321D1DD5500F1C234 /* GameFrame */,
 				B74B1C6621D1DD5500F1C234 /* Shaders */,
 				A57BB41920A9C8E60040AEBC /* Resource */,
@@ -248,6 +255,19 @@
 				A5A365462084E86C00246646 /* OpenGL.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B733249421E6FF0100894C0E /* LoadModel2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				B733249921E71DA600894C0E /* model_fs.strings */,
+				B733249821E71DA500894C0E /* model_vs.strings */,
+				B733249521E6FF8E00894C0E /* NewLoadModel.cpp */,
+				B733249621E6FF8E00894C0E /* NewLoadModel.hpp */,
+				B733249A21E71F1200894C0E /* Mesh.cpp */,
+				B733249B21E71F1200894C0E /* Mesh.hpp */,
+			);
+			path = LoadModel2.0;
 			sourceTree = "<group>";
 		};
 		B74B1C4321D1DD5500F1C234 /* GameFrame */ = {
@@ -336,6 +356,7 @@
 		B74B1C6621D1DD5500F1C234 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				B733249421E6FF0100894C0E /* LoadModel2.0 */,
 				B74B1C6721D1DD5500F1C234 /* LightFrag.strings */,
 				B74B1C6821D1DD5500F1C234 /* LightVertex.strings */,
 				B74B1C6921D1DD5500F1C234 /* VertexShader.strings */,
@@ -384,13 +405,6 @@
 				B74B1C7E21D1DD5500F1C234 /* mvs.strings */,
 			);
 			path = material;
-			sourceTree = "<group>";
-		};
-		B74B1D9B21D1E0B500F1C234 /* Includes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Includes;
 			sourceTree = "<group>";
 		};
 		B74B204521D20EE200F1C234 /* Glad */ = {
@@ -476,7 +490,9 @@
 				A5A3653F2084E70C00246646 /* main.cpp in Sources */,
 				B74B205721D2380A00F1C234 /* LoadModel.cpp in Sources */,
 				B74B204C21D2135B00F1C234 /* CameraManager.cpp in Sources */,
+				B733249721E6FF8E00894C0E /* NewLoadModel.cpp in Sources */,
 				B74B204A21D2121400F1C234 /* glad.cpp in Sources */,
+				B733249C21E71F1200894C0E /* Mesh.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

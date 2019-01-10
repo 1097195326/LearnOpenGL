@@ -14,7 +14,8 @@
 #include "CameraManager.h"
 #include "material.h"
 #include "lightmap.h"
-#include "LoadModel.h"
+//#include "LoadModel.h"
+#include "NewLoadModel.hpp"
 
 #include <string>
 
@@ -71,19 +72,6 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 }
 int main(int argc, const char * argv[])
 {
-//    vector<int> ss = {1,4,5,9,2,6};
-//
-//    srand((unsigned)time(NULL));
-//    sort(ss.begin(), ss.end());
-//    random_shuffle(ss.begin(), ss.end());
-    
-//    ReceiveMsg * r = new ReceiveMsg();
-//    SendMsg * s = new SendMsg();
-//    s->Send();
-//    delete r;
-//    delete s;
-//    return 0;
-    
     if(!glfwInit())
     {
         printf("glfw init fail \n");
@@ -109,8 +97,6 @@ int main(int argc, const char * argv[])
     glfwSetScrollCallback(window, scroll_callback);
 
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-    
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -138,7 +124,8 @@ int main(int argc, const char * argv[])
     //--- draw ---
 //    Material::Draw(window);
 //    LightMap::Draw(window);
-    LoadModel::Draw(window);
+//    LoadModel::Draw(window);
+    NewLoadModel::Draw(window);
     
     glfwTerminate();
     exit(EXIT_SUCCESS);
