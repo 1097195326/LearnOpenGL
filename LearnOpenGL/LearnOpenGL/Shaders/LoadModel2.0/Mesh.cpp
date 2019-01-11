@@ -9,6 +9,48 @@
 #include "Mesh.hpp"
 
 
+
+TexId Mesh::TextureFromFile(string filename)
+{
+    TexId texId(new TextureId());
+    
+    glGenTextures(1, &texId->Id);
+    
+    int width, height, nrComponents;
+    unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
+    if (data)
+    {
+        GLenum format;
+        if (nrComponents == 1)
+            format = GL_RED;
+        else if (nrComponents == 3)
+            format = GL_RGB;
+        else if (nrComponents == 4)
+            format = GL_RGBA;
+        
+        glBindTexture(GL_TEXTURE_2D, texId->Id);
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+        
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        
+        glBindTexture(GL_TEXTURE_2D, 0);
+        stbi_image_free(data);
+    }
+    else
+    {
+        std::cout << "Texture failed to load at path: " << std::endl;
+        stbi_image_free(data);
+    }
+    return texId;
+}
+Mesh::Mesh()
+{
+    
+}
 Mesh::Mesh(vector<Vertex> & _vertices,vector<Texture> &_textures,vector<unsigned int> & _indices)
 {
     vertices.insert(vertices.end(), _vertices.begin(),_vertices.end());
@@ -17,13 +59,19 @@ Mesh::Mesh(vector<Vertex> & _vertices,vector<Texture> &_textures,vector<unsigned
     
     SetUpMesh();
 }
+void Mesh::InitTexture(string filename)
+{
+    m_texture.type = "texture_diffuse";
+    m_texture.id = TextureFromFile(filename);
+    textures.insert(textures.end(), m_texture);
+}
 void Mesh::SetUpMesh()
 {
     glGenVertexArrays(1,&VAO);
+    glBindVertexArray(VAO);
+    
     glGenBuffers(1,&VBO);
     glGenBuffers(1,&EBO);
-    
-    glBindVertexArray(VAO);
     
     glBindBuffer(GL_ARRAY_BUFFER,VBO);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
@@ -71,12 +119,11 @@ void Mesh::Draw(ShaderProgram shader)
         }
         shader.SetUniform1f((name+number).c_str(), i);
         
-        glBindTexture(GL_TEXTURE_2D, textures[i].id);
+        glBindTexture(GL_TEXTURE_2D, textures[i].id->Id);
     }
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES,(GLsizei)indices.size(), GL_UNSIGNED_INT, 0);
-//    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glBindTexture(GL_TEXTURE_2D, 0);
     glBindVertexArray(0);
     
-    glActiveTexture(GL_TEXTURE0);
 }
