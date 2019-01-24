@@ -136,7 +136,7 @@ void GActor::Draw()
 {
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
     
-    m_ShaderProgram->UseShader();
+//    m_ShaderProgram->UseShader();
     
     glm::mat4 model = GetModelMat();
     m_ShaderProgram->SetUniformMatrix4fv("model", model);

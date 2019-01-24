@@ -16,6 +16,7 @@
 #include "lightmap.h"
 //#include "LoadModel.h"
 #include "NewLoadModel.hpp"
+#include "StencilTest.hpp"
 
 #include <string>
 
@@ -125,7 +126,8 @@ int main(int argc, const char * argv[])
 //    Material::Draw(window);
 //    LightMap::Draw(window);
 //    LoadModel::Draw(window);
-    NewLoadModel::Draw(window);
+//    NewLoadModel::Draw(window);
+    StencilTest::Draw(window);
     
     glfwTerminate();
     exit(EXIT_SUCCESS);
