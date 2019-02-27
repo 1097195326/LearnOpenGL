@@ -12,6 +12,7 @@
 		A567FAF7216489F2008A8B67 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A567FAF6216489F2008A8B67 /* libassimp.4.1.0.dylib */; };
 		A5A3653F2084E70C00246646 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5A3653E2084E70C00246646 /* main.cpp */; };
 		A5A365472084E86C00246646 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A365462084E86C00246646 /* OpenGL.framework */; };
+		B72F0BA522264490009346E3 /* BlendingDiscard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B72F0BA322264490009346E3 /* BlendingDiscard.cpp */; };
 		B733249721E6FF8E00894C0E /* NewLoadModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B733249521E6FF8E00894C0E /* NewLoadModel.cpp */; };
 		B733249C21E71F1200894C0E /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B733249A21E71F1200894C0E /* Mesh.cpp */; };
 		B74B204421D20B5600F1C234 /* glm in Frameworks */ = {isa = PBXBuildFile; fileRef = B74B204321D20B5600F1C234 /* glm */; };
@@ -84,6 +85,10 @@
 		A5A3653B2084E70C00246646 /* LearnOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A3653E2084E70C00246646 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A5A365462084E86C00246646 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		B72F0BA322264490009346E3 /* BlendingDiscard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlendingDiscard.cpp; sourceTree = "<group>"; };
+		B72F0BA422264490009346E3 /* BlendingDiscard.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BlendingDiscard.hpp; sourceTree = "<group>"; };
+		B72F0BA622267B16009346E3 /* mvs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mvs.strings; sourceTree = "<group>"; };
+		B72F0BA722267B16009346E3 /* mfs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mfs.strings; sourceTree = "<group>"; };
 		B733249521E6FF8E00894C0E /* NewLoadModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NewLoadModel.cpp; sourceTree = "<group>"; };
 		B733249621E6FF8E00894C0E /* NewLoadModel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NewLoadModel.hpp; sourceTree = "<group>"; };
 		B733249821E71DA500894C0E /* model_vs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = model_vs.strings; sourceTree = "<group>"; };
@@ -264,6 +269,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B72F0BA22226443F009346E3 /* BlendingDiscard */ = {
+			isa = PBXGroup;
+			children = (
+				B72F0BA722267B16009346E3 /* mfs.strings */,
+				B72F0BA622267B16009346E3 /* mvs.strings */,
+				B72F0BA322264490009346E3 /* BlendingDiscard.cpp */,
+				B72F0BA422264490009346E3 /* BlendingDiscard.hpp */,
+			);
+			path = BlendingDiscard;
+			sourceTree = "<group>";
+		};
 		B733249421E6FF0100894C0E /* LoadModel2.0 */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +381,7 @@
 		B74B1C6621D1DD5500F1C234 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				B72F0BA22226443F009346E3 /* BlendingDiscard */,
 				B7F571FE21F6EFD5007DCF2D /* StencilTest */,
 				B733249421E6FF0100894C0E /* LoadModel2.0 */,
 				B74B1C6721D1DD5500F1C234 /* LightFrag.strings */,
@@ -504,6 +521,7 @@
 			files = (
 				B74B204E21D2136600F1C234 /* GActor.cpp in Sources */,
 				B74B205421D216F200F1C234 /* FileHelper.cpp in Sources */,
+				B72F0BA522264490009346E3 /* BlendingDiscard.cpp in Sources */,
 				B74B205521D2187900F1C234 /* material.cpp in Sources */,
 				B78E135A21E838F600D5E131 /* Model.cpp in Sources */,
 				B74B205621D2313B00F1C234 /* lightmap.cpp in Sources */,

@@ -17,6 +17,7 @@
 //#include "LoadModel.h"
 #include "NewLoadModel.hpp"
 #include "StencilTest.hpp"
+#include "BlendingDiscard.hpp"
 
 #include <string>
 
@@ -127,7 +128,8 @@ int main(int argc, const char * argv[])
 //    LightMap::Draw(window);
 //    LoadModel::Draw(window);
 //    NewLoadModel::Draw(window);
-    StencilTest::Draw(window);
+//    StencilTest::Draw(window);
+    BlendingDiscard::Draw(window);
     
     glfwTerminate();
     exit(EXIT_SUCCESS);
