@@ -24,6 +24,7 @@
 		B74B205521D2187900F1C234 /* material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B1C7D21D1DD5500F1C234 /* material.cpp */; };
 		B74B205621D2313B00F1C234 /* lightmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B1C7321D1DD5500F1C234 /* lightmap.cpp */; };
 		B74B205721D2380A00F1C234 /* LoadModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74B1C6C21D1DD5500F1C234 /* LoadModel.cpp */; };
+		B75F880C222E178C00E6E18C /* Blending.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F880A222E178C00E6E18C /* Blending.cpp */; };
 		B78E135A21E838F600D5E131 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78E135821E838F600D5E131 /* Model.cpp */; };
 		B7F5721221F6F023007DCF2D /* StencilTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7F5720B21F6F023007DCF2D /* StencilTest.cpp */; };
 /* End PBXBuildFile section */
@@ -143,6 +144,10 @@
 		B74B204821D20EE200F1C234 /* khrplatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
 		B74B205221D216F200F1C234 /* FileHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelper.cpp; sourceTree = "<group>"; };
 		B74B205321D216F200F1C234 /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
+		B75F8808222E178C00E6E18C /* mfs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mfs.strings; sourceTree = "<group>"; };
+		B75F8809222E178C00E6E18C /* Blending.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Blending.hpp; sourceTree = "<group>"; };
+		B75F880A222E178C00E6E18C /* Blending.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Blending.cpp; sourceTree = "<group>"; };
+		B75F880B222E178C00E6E18C /* mvs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = mvs.strings; sourceTree = "<group>"; };
 		B78E135821E838F600D5E131 /* Model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		B78E135921E838F600D5E131 /* Model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Model.hpp; sourceTree = "<group>"; };
 		B7F5720B21F6F023007DCF2D /* StencilTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StencilTest.cpp; sourceTree = "<group>"; };
@@ -381,6 +386,7 @@
 		B74B1C6621D1DD5500F1C234 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				B75F8807222E178C00E6E18C /* Blending */,
 				B72F0BA22226443F009346E3 /* BlendingDiscard */,
 				B7F571FE21F6EFD5007DCF2D /* StencilTest */,
 				B733249421E6FF0100894C0E /* LoadModel2.0 */,
@@ -451,6 +457,17 @@
 				B74B205321D216F200F1C234 /* FileHelper.h */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		B75F8807222E178C00E6E18C /* Blending */ = {
+			isa = PBXGroup;
+			children = (
+				B75F8808222E178C00E6E18C /* mfs.strings */,
+				B75F8809222E178C00E6E18C /* Blending.hpp */,
+				B75F880A222E178C00E6E18C /* Blending.cpp */,
+				B75F880B222E178C00E6E18C /* mvs.strings */,
+			);
+			path = Blending;
 			sourceTree = "<group>";
 		};
 		B7F571FE21F6EFD5007DCF2D /* StencilTest */ = {
@@ -532,6 +549,7 @@
 				B733249721E6FF8E00894C0E /* NewLoadModel.cpp in Sources */,
 				B74B204A21D2121400F1C234 /* glad.cpp in Sources */,
 				B733249C21E71F1200894C0E /* Mesh.cpp in Sources */,
+				B75F880C222E178C00E6E18C /* Blending.cpp in Sources */,
 				B7F5721221F6F023007DCF2D /* StencilTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
