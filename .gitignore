@@ -2,8 +2,8 @@ Binaries
 DerivedDataCache
 Intermediate
 Saved
-Project/Debug
-Project/LearnOpenGL/Debug
+Project/Debug/*
+Project/LearnOpenGL/Debug/*
 .vscode
 .vs
 *.VC.db
