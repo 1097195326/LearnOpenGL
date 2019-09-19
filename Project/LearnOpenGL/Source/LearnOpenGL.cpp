@@ -4,6 +4,10 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <stb_image.h>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -40,6 +44,9 @@ int main()
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		return -1;
 	}
+
+	Assimp::Importer importer;
+	const aiScene* scene = importer.ReadFile("", aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
 
 	while (!glfwWindowShouldClose(window))
 	{
