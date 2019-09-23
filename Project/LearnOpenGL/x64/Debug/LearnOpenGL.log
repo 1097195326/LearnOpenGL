@@ -1,6 +1,2 @@
-﻿LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
-LearnOpenGL.obj : error LNK2019: 无法解析的外部符号 "public: __cdecl Assimp::Importer::Importer(void)" (??0Importer@Assimp@@QEAA@XZ)，该符号在函数 main 中被引用
-LearnOpenGL.obj : error LNK2019: 无法解析的外部符号 "public: __cdecl Assimp::Importer::~Importer(void)" (??1Importer@Assimp@@QEAA@XZ)，该符号在函数 main 中被引用
-LearnOpenGL.obj : error LNK2019: 无法解析的外部符号 "public: struct aiScene const * __cdecl Assimp::Importer::ReadFile(char const *,unsigned int)" (?ReadFile@Importer@Assimp@@QEAAPEBUaiScene@@PEBDI@Z)，该符号在函数 main 中被引用
-G:\Work\LearnOpenGL\Project\ThirdCode\libs\assimp.lib : warning LNK4272: 库计算机类型“x86”与目标计算机类型“x64”冲突
-G:\Work\LearnOpenGL\Project\x64\Debug\LearnOpenGL.exe : fatal error LNK1120: 3 个无法解析的外部命令
+﻿  LearnOpenGL.cpp
+  LearnOpenGL.vcxproj -> G:\Work\LearnOpenGL\Project\x64\Debug\LearnOpenGL.exe
