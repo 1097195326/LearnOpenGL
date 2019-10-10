@@ -22,11 +22,17 @@
     <Filter Include="Source\Tools">
       <UniqueIdentifier>{f9afa68a-09bd-47a9-af52-2f6e4b669e28}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Render">
-      <UniqueIdentifier>{4725f95f-bb0e-43cf-be6c-6d7539a466de}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Camera">
       <UniqueIdentifier>{98994e8a-6f4d-458d-859c-62234317165c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Textures">
+      <UniqueIdentifier>{55696524-a2e1-453e-a367-336e6d3a7568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shader">
+      <UniqueIdentifier>{4725f95f-bb0e-43cf-be6c-6d7539a466de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Managers">
+      <UniqueIdentifier>{6dc39b08-7bbc-4a75-9482-a6adbb153bd2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,31 +45,43 @@
     <ClCompile Include="Source\Tools\FileHelper.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Render\ShaderProgram.cpp">
-      <Filter>Source\Render</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Camera\Camera.cpp">
       <Filter>Source\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Camera\CameraManager.cpp">
-      <Filter>Source\Camera</Filter>
+    <ClCompile Include="Source\Textures\Texture2D.cpp">
+      <Filter>Source\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Shader\Shader.cpp">
+      <Filter>Source\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Managers\CameraManager.cpp">
+      <Filter>Source\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Managers\ResourceManager.cpp">
+      <Filter>Source\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tools\FileHelper.h">
       <Filter>Source\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Render\ShaderProgram.h">
-      <Filter>Source\Render</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Camera\Camera.h">
-      <Filter>Source\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Camera\CameraManager.h">
       <Filter>Source\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Source\Headle.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Textures\Texture2D.h">
+      <Filter>Source\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shader\Shader.h">
+      <Filter>Source\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Managers\CameraManager.h">
+      <Filter>Source\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Managers\ResourceManager.h">
+      <Filter>Source\Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

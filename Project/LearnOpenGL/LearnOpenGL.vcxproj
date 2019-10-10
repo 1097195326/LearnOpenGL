@@ -133,16 +133,20 @@
   <ItemGroup>
     <ClCompile Include="..\ThirdCode\src\glad.c" />
     <ClCompile Include="Source\Camera\Camera.cpp" />
-    <ClCompile Include="Source\Camera\CameraManager.cpp" />
     <ClCompile Include="Source\LearnOpenGL.cpp" />
-    <ClCompile Include="Source\Render\ShaderProgram.cpp" />
+    <ClCompile Include="Source\Managers\CameraManager.cpp" />
+    <ClCompile Include="Source\Managers\ResourceManager.cpp" />
+    <ClCompile Include="Source\Shader\Shader.cpp" />
+    <ClCompile Include="Source\Textures\Texture2D.cpp" />
     <ClCompile Include="Source\Tools\FileHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Camera\Camera.h" />
-    <ClInclude Include="Source\Camera\CameraManager.h" />
     <ClInclude Include="Source\Headle.h" />
-    <ClInclude Include="Source\Render\ShaderProgram.h" />
+    <ClInclude Include="Source\Managers\CameraManager.h" />
+    <ClInclude Include="Source\Managers\ResourceManager.h" />
+    <ClInclude Include="Source\Shader\Shader.h" />
+    <ClInclude Include="Source\Textures\Texture2D.h" />
     <ClInclude Include="Source\Tools\FileHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
