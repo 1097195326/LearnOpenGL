@@ -9,6 +9,9 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+#include "Managers/ResourceManager.h"
+#include "GameFrame/Game.h"
+
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
@@ -45,18 +48,38 @@ int main()
 		return -1;
 	}
 
-	Assimp::Importer importer;
-	const aiScene* scene = importer.ReadFile("", aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
+	/*Assimp::Importer importer;
+	const aiScene* scene = importer.ReadFile("", aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);*/
+	
+	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	Game  BreakOut(SCR_WIDTH,SCR_HEIGHT);
+	BreakOut.Init();
+
+	GLfloat		DeltaTime = 0.f;
+	GLfloat		LastFrame = 0.f;
 
 	while (!glfwWindowShouldClose(window))
 	{
 		processInput(window);
+		glfwPollEvents();
+		GLfloat	CurrentFrame = glfwGetTime();
+		DeltaTime = CurrentFrame - LastFrame;
+		LastFrame = CurrentFrame;
+
+		BreakOut.ProcessInput(DeltaTime);
+
+		BreakOut.Update(DeltaTime);
 
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
+		
+		BreakOut.Render();
 
 		glfwSwapBuffers(window);
-		glfwPollEvents();
 	}
 
 	glfwTerminate();

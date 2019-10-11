@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="..\ThirdCode\src\glad.c" />
     <ClCompile Include="Source\Camera\Camera.cpp" />
+    <ClCompile Include="Source\GameFrame\Game.cpp" />
     <ClCompile Include="Source\LearnOpenGL.cpp" />
     <ClCompile Include="Source\Managers\CameraManager.cpp" />
     <ClCompile Include="Source\Managers\ResourceManager.cpp" />
@@ -142,12 +143,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Camera\Camera.h" />
+    <ClInclude Include="Source\GameFrame\Game.h" />
     <ClInclude Include="Source\Headle.h" />
     <ClInclude Include="Source\Managers\CameraManager.h" />
     <ClInclude Include="Source\Managers\ResourceManager.h" />
     <ClInclude Include="Source\Shader\Shader.h" />
     <ClInclude Include="Source\Textures\Texture2D.h" />
     <ClInclude Include="Source\Tools\FileHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ShaderSprite\ss.txt" />
+    <Text Include="ShaderSprite\Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

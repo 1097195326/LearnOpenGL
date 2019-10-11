@@ -2,15 +2,20 @@
 #include "Shader.h"
 
 
-Shader::Shader(string shaderName, string VertexPath, string FragmentPath)
+Shader::Shader(string shaderName)
 {
 	Name = shaderName;
+}
+Shader::~Shader()
+{
+	glDeleteProgram(ID);
+}
+bool Shader::Generate(string VertexShaderSource, string FragmentShaderSource)
+{
+	bool GenResult = true;
 
-	string vertexShaderSource = FileHelper::ReadFileToString(VertexPath);
-	string fragmentShaderSource = FileHelper::ReadFileToString(FragmentPath);
-
-	const char * vs = vertexShaderSource.c_str();
-	const char * fs = fragmentShaderSource.c_str();
+	const char * vs = VertexShaderSource.c_str();
+	const char * fs = FragmentShaderSource.c_str();
 
 	GLuint VertexShader, FragmentShader;
 	// create vertex shader
@@ -25,6 +30,7 @@ Shader::Shader(string shaderName, string VertexPath, string FragmentPath)
 	{
 		glGetShaderInfoLog(VertexShader, 512, NULL, InfoLog);
 		printf("ERROR::SHADER::VERTEX::COMPILE_FAILED : %s", InfoLog);
+		GenResult = false;
 	}
 	// create fragment shader
 	FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -36,6 +42,7 @@ Shader::Shader(string shaderName, string VertexPath, string FragmentPath)
 	{
 		glGetShaderInfoLog(FragmentShader, 512, NULL, InfoLog);
 		printf("ERROR::SHADER::FRAGMENT::COMPILE_FAILED : %s", InfoLog);
+		GenResult = false;
 	}
 	// create shader program
 	ID = glCreateProgram();
@@ -48,19 +55,13 @@ Shader::Shader(string shaderName, string VertexPath, string FragmentPath)
 	{
 		glGetProgramInfoLog(ID, 512, NULL, InfoLog);
 		printf("ERROT::SHADER::PROGRAM::LINK_FAILED : %s", InfoLog);
+		GenResult = false;
 	}
 	// delete vertexShader, fragmentShader
 	glDeleteShader(VertexShader);
 	glDeleteShader(FragmentShader);
 
-}
-Shader::~Shader()
-{
-	glDeleteProgram(ID);
-}
-void Shader::Init()
-{
-
+	return GenResult;
 }
 void Shader::Use()
 {

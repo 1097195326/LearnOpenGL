@@ -34,6 +34,12 @@
     <Filter Include="Source\Managers">
       <UniqueIdentifier>{6dc39b08-7bbc-4a75-9482-a6adbb153bd2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\ShaderSprite">
+      <UniqueIdentifier>{43e7469f-921a-4cce-8caf-d139da643ea3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\GameFrame">
+      <UniqueIdentifier>{152a251d-ed4c-4ee8-83ce-9be9cd6af19c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\LearnOpenGL.cpp">
@@ -60,6 +66,9 @@
     <ClCompile Include="Source\Managers\ResourceManager.cpp">
       <Filter>Source\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameFrame\Game.cpp">
+      <Filter>Source\GameFrame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tools\FileHelper.h">
@@ -83,5 +92,16 @@
     <ClInclude Include="Source\Managers\ResourceManager.h">
       <Filter>Source\Managers</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GameFrame\Game.h">
+      <Filter>Source\GameFrame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ShaderSprite\ss.txt">
+      <Filter>Source\ShaderSprite</Filter>
+    </Text>
+    <Text Include="ShaderSprite\Text.txt">
+      <Filter>Source\ShaderSprite</Filter>
+    </Text>
   </ItemGroup>
 </Project>

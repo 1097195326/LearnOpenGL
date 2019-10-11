@@ -17,11 +17,11 @@ private:
 	GLuint              ID;
 	string				Name;
 public:
-	Shader(string shaderName, string VertexPath, string FragmentPath);
+	Shader(string shaderName);
 
 	virtual ~Shader();
 
-	virtual void        Init();
+	virtual bool        Generate(string VertexShaderSource, string FragmentShaderSource);
 
 	void                Use();
 

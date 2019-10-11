@@ -19,7 +19,7 @@ public:
 	Shader *	GetShader(string shaderName);
 	bool		RemoveShader(string shaderName);
 
-	Texture2D * LoadTexture2D(string textureName, const GLchar * file, GLboolean alpha);
+	Texture2D * LoadTexture2D(string textureName, const GLchar * file);
 	Texture2D * GetTexture2D(string textureName);
 	bool		RemoveTexture2D(string textureName);
 
