@@ -34,11 +34,14 @@
     <Filter Include="Source\Managers">
       <UniqueIdentifier>{6dc39b08-7bbc-4a75-9482-a6adbb153bd2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\ShaderSprite">
-      <UniqueIdentifier>{43e7469f-921a-4cce-8caf-d139da643ea3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\GameFrame">
       <UniqueIdentifier>{152a251d-ed4c-4ee8-83ce-9be9cd6af19c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\ShaderScript">
+      <UniqueIdentifier>{43e7469f-921a-4cce-8caf-d139da643ea3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Sprite">
+      <UniqueIdentifier>{b113d3a6-6166-4654-aa2e-0c461ed6087b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +72,9 @@
     <ClCompile Include="Source\GameFrame\Game.cpp">
       <Filter>Source\GameFrame</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Sprite\Sprite.cpp">
+      <Filter>Source\Sprite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tools\FileHelper.h">
@@ -95,13 +101,16 @@
     <ClInclude Include="Source\GameFrame\Game.h">
       <Filter>Source\GameFrame</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Sprite\Sprite.h">
+      <Filter>Source\Sprite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ShaderSprite\ss.txt">
-      <Filter>Source\ShaderSprite</Filter>
+    <Text Include="ShaderSprite\VertexShader.txt">
+      <Filter>Source\ShaderScript</Filter>
     </Text>
-    <Text Include="ShaderSprite\Text.txt">
-      <Filter>Source\ShaderSprite</Filter>
+    <Text Include="ShaderSprite\FragmentShader.txt">
+      <Filter>Source\ShaderScript</Filter>
     </Text>
   </ItemGroup>
 </Project>

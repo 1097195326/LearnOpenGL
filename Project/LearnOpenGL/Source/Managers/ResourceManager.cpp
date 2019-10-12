@@ -1,5 +1,5 @@
 #include "ResourceManager.h"
-
+#include "../Tools/FileHelper.h"
 
 
 #define STB_IMAGE_IMPLEMENTATION

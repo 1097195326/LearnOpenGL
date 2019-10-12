@@ -2,6 +2,10 @@
 
 
 #include "../Headle.h"
+#include "../Shader/Shader.h"
+#include "../Textures/Texture2D.h"
+#include "../Sprite/Sprite.h"
+
 
 #include <map>
 

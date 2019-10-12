@@ -138,6 +138,7 @@
     <ClCompile Include="Source\Managers\CameraManager.cpp" />
     <ClCompile Include="Source\Managers\ResourceManager.cpp" />
     <ClCompile Include="Source\Shader\Shader.cpp" />
+    <ClCompile Include="Source\Sprite\Sprite.cpp" />
     <ClCompile Include="Source\Textures\Texture2D.cpp" />
     <ClCompile Include="Source\Tools\FileHelper.cpp" />
   </ItemGroup>
@@ -148,12 +149,13 @@
     <ClInclude Include="Source\Managers\CameraManager.h" />
     <ClInclude Include="Source\Managers\ResourceManager.h" />
     <ClInclude Include="Source\Shader\Shader.h" />
+    <ClInclude Include="Source\Sprite\Sprite.h" />
     <ClInclude Include="Source\Textures\Texture2D.h" />
     <ClInclude Include="Source\Tools\FileHelper.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ShaderSprite\ss.txt" />
-    <Text Include="ShaderSprite\Text.txt" />
+    <Text Include="ShaderSprite\VertexShader.txt" />
+    <Text Include="ShaderSprite\FragmentShader.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
