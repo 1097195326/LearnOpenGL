@@ -15,11 +15,21 @@
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-void processInput(GLFWwindow *window)
+Game  BreakOut(SCR_WIDTH, SCR_HEIGHT);
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, true);
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+	if (key >= 0 && key < 1024)
+	{
+		if (action == GLFW_PRESS)
+			BreakOut.Keys[key] = GL_TRUE;
+		else if (action == GLFW_RELEASE)
+			BreakOut.Keys[key] = GL_FALSE;
+	}
 }
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
@@ -47,6 +57,7 @@ int main()
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		return -1;
 	}
+	glfwSetKeyCallback(window, key_callback);
 
 	/*Assimp::Importer importer;
 	const aiScene* scene = importer.ReadFile("", aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);*/
@@ -56,7 +67,6 @@ int main()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	Game  BreakOut(SCR_WIDTH,SCR_HEIGHT);
 	BreakOut.Init();
 
 	GLfloat		DeltaTime = 0.f;
@@ -64,7 +74,6 @@ int main()
 
 	while (!glfwWindowShouldClose(window))
 	{
-		processInput(window);
 		glfwPollEvents();
 		GLfloat	CurrentFrame = glfwGetTime();
 		DeltaTime = CurrentFrame - LastFrame;

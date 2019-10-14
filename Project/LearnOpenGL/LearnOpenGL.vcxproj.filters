@@ -75,6 +75,12 @@
     <ClCompile Include="Source\Sprite\Sprite.cpp">
       <Filter>Source\Sprite</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameFrame\GameObject.cpp">
+      <Filter>Source\GameFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameFrame\GameLevel.cpp">
+      <Filter>Source\GameFrame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tools\FileHelper.h">
@@ -103,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="Source\Sprite\Sprite.h">
       <Filter>Source\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameFrame\GameObject.h">
+      <Filter>Source\GameFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameFrame\GameLevel.h">
+      <Filter>Source\GameFrame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

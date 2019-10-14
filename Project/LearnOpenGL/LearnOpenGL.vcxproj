@@ -134,6 +134,8 @@
     <ClCompile Include="..\ThirdCode\src\glad.c" />
     <ClCompile Include="Source\Camera\Camera.cpp" />
     <ClCompile Include="Source\GameFrame\Game.cpp" />
+    <ClCompile Include="Source\GameFrame\GameLevel.cpp" />
+    <ClCompile Include="Source\GameFrame\GameObject.cpp" />
     <ClCompile Include="Source\LearnOpenGL.cpp" />
     <ClCompile Include="Source\Managers\CameraManager.cpp" />
     <ClCompile Include="Source\Managers\ResourceManager.cpp" />
@@ -145,6 +147,8 @@
   <ItemGroup>
     <ClInclude Include="Source\Camera\Camera.h" />
     <ClInclude Include="Source\GameFrame\Game.h" />
+    <ClInclude Include="Source\GameFrame\GameLevel.h" />
+    <ClInclude Include="Source\GameFrame\GameObject.h" />
     <ClInclude Include="Source\Headle.h" />
     <ClInclude Include="Source\Managers\CameraManager.h" />
     <ClInclude Include="Source\Managers\ResourceManager.h" />
