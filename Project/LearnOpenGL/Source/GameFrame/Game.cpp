@@ -1,11 +1,16 @@
 #include "Game.h"
 
+#include "Box2D/Box2D.h"
+
+
 Sprite * smileSprite = nullptr;
 
 Game::Game(GLfloat width, GLfloat height)
 {
 	ScreenWidth = width;
 	ScreenHeight = height;
+
+	b2World world(b2Vec2(0, 0));
 
 }
 Game::~Game()
