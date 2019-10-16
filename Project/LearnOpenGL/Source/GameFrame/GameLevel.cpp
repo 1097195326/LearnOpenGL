@@ -1,5 +1,5 @@
 #include "GameLevel.h"
-#include "../Managers/ResourceManager.h"
+#include "Managers/ResourceManager.h"
 #include <fstream>
 #include <sstream>
 

@@ -1,9 +1,9 @@
 #pragma once
 
 
-#include "../Headle.h"
-#include "../Shader/Shader.h"
-#include "../Textures/Texture2D.h"
+#include "Headle.h"
+#include "Shader/Shader.h"
+#include "Textures/Texture2D.h"
 
 class Sprite
 {

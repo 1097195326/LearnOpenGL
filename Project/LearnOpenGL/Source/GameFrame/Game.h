@@ -1,8 +1,9 @@
 #pragma once
 
-#include "../Headle.h"
-#include "../Managers/ResourceManager.h"
+#include "Headle.h"
+#include "Managers/ResourceManager.h"
 #include "GameLevel.h"
+#include "Box2D/Box2D.h"
 
 
 const glm::vec2 PLAYER_SIZE(100, 20);
@@ -19,9 +20,13 @@ private:
 	GameObject *			Player;
 public:
 	GLboolean		Keys[1024];
+	b2World *				PhysicsWorld;
+
 
 	Game(GLfloat width, GLfloat height);
 	virtual ~Game();
+
+	static Game * Get();
 
 	void Init();
 	void ProcessInput(GLfloat dt);

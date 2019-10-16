@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "../Headle.h"
+#include "Headle.h"
 
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>

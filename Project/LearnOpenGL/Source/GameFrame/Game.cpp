@@ -1,16 +1,29 @@
 #include "Game.h"
 
-#include "Box2D/Box2D.h"
 
 
 Sprite * smileSprite = nullptr;
+static Game * GameInstance = nullptr;
 
+Game * Game::Get()
+{
+	return GameInstance;
+}
 Game::Game(GLfloat width, GLfloat height)
 {
+	GameInstance = this;
+
 	ScreenWidth = width;
 	ScreenHeight = height;
 
-	b2World world(b2Vec2(0, 0));
+	PhysicsWorld = new b2World(b2Vec2(0, 0));
+
+	b2BodyDef groundDef;
+	groundDef.position.Set(width * 0.5f * ToPhycisPer, height * 0.5f * ToPhycisPer);
+	b2Body * groundBody = PhysicsWorld->CreateBody(&groundDef);
+	b2PolygonShape groundBox;
+	groundBox.SetAsBox(width * 0.5f * ToPhycisPer, height * 0.5f * ToPhycisPer);
+	groundBody->CreateFixture(&groundBox,0.f);
 
 }
 Game::~Game()
@@ -75,11 +88,14 @@ void Game::ProcessInput(GLfloat dt)
 		if (Player->Position.x > ScreenWidth - Player->Size.x)
 		{
 			Player->Position.x = ScreenWidth - Player->Size.x;
+			
 		}
 	}
 }
 void Game::Update(GLfloat dt)
 {
+
+	Player->Update(dt);
 
 }
 void Game::Render()

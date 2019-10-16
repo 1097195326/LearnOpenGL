@@ -400,10 +400,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ShaderSprite\VertexShader.txt">
+    <Text Include="ShaderScript\VertexShader.txt">
       <Filter>Source\ShaderScript</Filter>
     </Text>
-    <Text Include="ShaderSprite\FragmentShader.txt">
+    <Text Include="ShaderScript\FragmentShader.txt">
       <Filter>Source\ShaderScript</Filter>
     </Text>
   </ItemGroup>

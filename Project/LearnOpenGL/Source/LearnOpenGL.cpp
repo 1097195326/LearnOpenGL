@@ -63,6 +63,7 @@ int main()
 	const aiScene* scene = importer.ReadFile("", aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);*/
 	
 	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
+	
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -71,9 +72,12 @@ int main()
 
 	GLfloat		DeltaTime = 0.f;
 	GLfloat		LastFrame = 0.f;
+	const float	 pertime = 1 / 60.f;
 
 	while (!glfwWindowShouldClose(window))
 	{
+		BreakOut.PhysicsWorld->Step(pertime, 6, 2);
+
 		glfwPollEvents();
 		GLfloat	CurrentFrame = glfwGetTime();
 		DeltaTime = CurrentFrame - LastFrame;

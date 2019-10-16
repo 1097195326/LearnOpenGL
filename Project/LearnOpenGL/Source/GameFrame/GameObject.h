@@ -1,9 +1,10 @@
 #pragma once
 
 
-#include "../Headle.h"
-#include "../Textures/Texture2D.h"
-#include "../Sprite/Sprite.h"
+#include "Headle.h"
+#include "Textures/Texture2D.h"
+#include "Sprite/Sprite.h"
+
 
 class GameObject
 {
@@ -16,8 +17,13 @@ public:
 
 	Texture2D *		Texture;
 
+	class b2Body * PhysicsBody;
+
 	GameObject();
 	GameObject(Texture2D * texture, vec2 position, vec2 size, vec3 color = vec3(1.f), vec2 velocity = vec2(0.f));
+
+	void Update(GLfloat dt);
+
 
 	virtual void	Draw(Sprite * sprite);
 
