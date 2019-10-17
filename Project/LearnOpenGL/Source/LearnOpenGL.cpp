@@ -63,6 +63,7 @@ int main()
 	const aiScene* scene = importer.ReadFile("", aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);*/
 	
 	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
+	//glViewport(50, 50, SCR_WIDTH - 50, SCR_HEIGHT - 50);
 	
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_BLEND);

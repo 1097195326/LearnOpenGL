@@ -18,7 +18,7 @@ void GameLevel::Init(const vector<vector<GLuint>> & tileData, GLfloat temWidth, 
 			GameObject * temObject = nullptr;
 			if (tileData[y][x] == 1)
 			{
-				glm::vec2 pos(unit_width * x, unit_height * y);
+				glm::vec2 pos(unit_width * x, temHeight + unit_height * y);
 				glm::vec2 size(unit_width, unit_height);
 				temObject = new GameObject(RS_M->LoadTexture2D("block_solid", "texture/block_solid.png"), pos, size, vec3(0.8f, 0.8f, 0.7f));
 				temObject->IsSolid = GL_TRUE;
@@ -35,7 +35,7 @@ void GameLevel::Init(const vector<vector<GLuint>> & tileData, GLfloat temWidth, 
 				else if (tileData[y][x] == 5)
 					color = glm::vec3(1.0f, 0.5f, 0.0f);
 
-				glm::vec2 pos(unit_width * x, unit_height * y);
+				glm::vec2 pos(unit_width * x, temHeight + unit_height * y);
 				glm::vec2 size(unit_width, unit_height);
 				temObject = new GameObject(RS_M->LoadTexture2D("block", "texture/block.png"), pos, size, color);
 			}

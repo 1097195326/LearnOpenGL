@@ -33,7 +33,9 @@ Game::~Game()
 void Game::Init()
 {
 	Shader * smileShader = RS_M->LoadShader("smile", "ShaderScript/VertexShader.txt", "ShaderScript/FragmentShader.txt");
-	mat4   projection = ortho(0.f, ScreenWidth, ScreenHeight, 0.f, -1.f, 1.f);
+	//mat4   projection = ortho(0.f, ScreenWidth, ScreenHeight, 0.f, -1.f, 1.f);
+	//mat4   projection = ortho(-ScreenWidth * 0.5f, ScreenWidth* 0.5f, -ScreenHeight * 0.5f, ScreenHeight* 0.5f, -10.f, 10.f);
+	mat4   projection = ortho(0.f, ScreenWidth, 0.f, ScreenHeight, -10.f, 10.f);
 	
 	smileShader->Use();
 	smileShader->SetUniform1i("image", 0);
@@ -48,7 +50,7 @@ void Game::Init()
 	RS_M->LoadTexture2D("paddle", "texture/paddle.png");
 
 
-	vec2 playerPos = glm::vec2(ScreenWidth / 2 - PLAYER_SIZE.x / 2, ScreenHeight - PLAYER_SIZE.y);
+	vec2 playerPos = glm::vec2(ScreenWidth / 2 - PLAYER_SIZE.x / 2, 0.f);
 	Player = new GameObject(RS_M->GetTexture2D("paddle"), playerPos, PLAYER_SIZE);
 
 	GameLevel * one = new GameLevel();
@@ -100,7 +102,7 @@ void Game::Update(GLfloat dt)
 }
 void Game::Render()
 {
-	smileSprite->Draw(RS_M->GetTexture2D("background"), vec2(0.f), vec2(ScreenWidth, ScreenHeight));
+	smileSprite->Draw(RS_M->GetTexture2D("background"), vec2(0.f), vec2(ScreenWidth , ScreenHeight));
 
 	Levels[Level]->Draw(smileSprite);
 
