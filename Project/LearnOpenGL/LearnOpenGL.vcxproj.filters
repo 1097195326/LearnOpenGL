@@ -222,6 +222,9 @@
     <ClCompile Include="Source\Box2D\Rope\b2Rope.cpp">
       <Filter>Source\Box2D</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameFrame\BallObject.cpp">
+      <Filter>Source\GameFrame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tools\FileHelper.h">
@@ -397,6 +400,9 @@
     </ClInclude>
     <ClInclude Include="Source\Box2D\Rope\b2Rope.h">
       <Filter>Source\Box2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameFrame\BallObject.h">
+      <Filter>Source\GameFrame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

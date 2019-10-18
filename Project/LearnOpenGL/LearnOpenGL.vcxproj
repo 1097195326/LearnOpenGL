@@ -180,6 +180,7 @@
     <ClCompile Include="Source\Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
     <ClCompile Include="Source\Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="Source\Camera\Camera.cpp" />
+    <ClCompile Include="Source\GameFrame\BallObject.cpp" />
     <ClCompile Include="Source\GameFrame\Game.cpp" />
     <ClCompile Include="Source\GameFrame\GameLevel.cpp" />
     <ClCompile Include="Source\GameFrame\GameObject.cpp" />
@@ -240,6 +241,7 @@
     <ClInclude Include="Source\Box2D\Dynamics\Joints\b2WheelJoint.h" />
     <ClInclude Include="Source\Box2D\Rope\b2Rope.h" />
     <ClInclude Include="Source\Camera\Camera.h" />
+    <ClInclude Include="Source\GameFrame\BallObject.h" />
     <ClInclude Include="Source\GameFrame\Game.h" />
     <ClInclude Include="Source\GameFrame\GameLevel.h" />
     <ClInclude Include="Source\GameFrame\GameObject.h" />

@@ -48,6 +48,11 @@ void GameLevel::Init(const vector<vector<GLuint>> & tileData, GLfloat temWidth, 
 }
 void GameLevel::Load(const GLchar * file, GLfloat width, GLfloat height)
 {
+	for (auto brick : Bricks)
+	{
+		GameObject * gameObject = brick;
+		delete gameObject;
+	}
 	Bricks.clear();
 	
 	GLuint tileCode;

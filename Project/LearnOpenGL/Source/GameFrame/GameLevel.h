@@ -10,12 +10,12 @@
 class GameLevel
 {
 private:
-	vector<GameObject * >	Bricks;
 
 	void		Init(const vector<vector<GLuint>> & tileData, GLfloat width, GLfloat height);
 
 public:
-	
+	vector<GameObject * >	Bricks;
+
 	void		Load(const GLchar * file, GLfloat width, GLfloat height);
 
 	void		Draw(Sprite * sprite);
