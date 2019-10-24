@@ -19,5 +19,6 @@ public:
 
 	void	Generate(GLuint width, GLuint height, unsigned char * data);
 	void	Bind();
+	GLuint  GetId() { return ID; }
 
 };

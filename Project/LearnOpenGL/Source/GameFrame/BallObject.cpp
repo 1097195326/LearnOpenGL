@@ -11,7 +11,7 @@ BallObject::BallObject(Texture2D * texture,vec2 pos, GLfloat radius, glm::vec2 v
 
 }
 
-vec2 BallObject::Move(GLfloat dt, GLuint window_width,GLuint window_height)
+vec2 BallObject::Move(GLfloat dt, GLfloat window_width, GLfloat window_height)
 {
 	if (!Stuck)
 	{

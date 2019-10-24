@@ -33,10 +33,16 @@ public:
 
 	void                SetUniform1i(string _name, int _parm);
 
+	void				SetUniform1iv(string _name, int count, const GLint * value);
+
 	void                SetUniform1f(string _name, float _parm);
 
-	void                SetUniform3fv(string _name, vec3 _parm);
+	void				SetUniform1fv(string _name, int count, const GLfloat * value);
 
+	void				SetUniform2fv(string _name, int count, const GLfloat * value);
+
+	void                SetUniform3fv(string _name, vec3 _parm);
+	
 	void                SetUniformMatrix4fv(string _name, mat4 _parm);
 
 	/*void                SetVertexAttribPointer(string _name, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *pointer);

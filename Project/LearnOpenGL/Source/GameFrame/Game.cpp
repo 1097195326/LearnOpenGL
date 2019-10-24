@@ -1,9 +1,12 @@
 #include "Game.h"
-
+#include "PostProcessor.h"
 
 
 Sprite * smileSprite = nullptr;
+PostProcessor * postProcessor = nullptr;
 static Game * GameInstance = nullptr;
+
+GLfloat	ShakeTime = 0.f;
 
 Game * Game::Get()
 {
@@ -42,6 +45,13 @@ void Game::Init()
 	smileShader->SetUniformMatrix4fv("projection", projection);
 	
 	smileSprite = new Sprite(smileShader);
+
+	Shader * postShader = RS_M->LoadShader("postShader", "ShaderScript/PostProcessV.txt", "ShaderScript/PostProcessF.txt");
+
+	postProcessor = new PostProcessor(postShader, ScreenWidth, ScreenHeight);
+	//postProcessor->Shake = GL_TRUE;
+	postProcessor->Confuse = GL_TRUE;
+	//postProcessor->Chaos = GL_TRUE;
 
 	RS_M->LoadTexture2D("smile", "texture/awesomeface.png");
 	RS_M->LoadTexture2D("background", "texture/background.jpg");
@@ -110,6 +120,14 @@ void Game::Update(GLfloat dt)
 	Ball->Move(dt, ScreenWidth, ScreenHeight);
 	Player->Update(dt);
 	DoCollisions();
+
+	if (ShakeTime > 0.0f)
+	{
+		ShakeTime -= dt;
+		if (ShakeTime <= 0.0f)
+			postProcessor->Shake = GL_FALSE;
+	}
+
 	if (Ball->Position.y <= 0) // Did ball reach bottom edge?
 	{
 		this->ResetLevel();
@@ -118,12 +136,15 @@ void Game::Update(GLfloat dt)
 }
 void Game::Render()
 {
+	postProcessor->BeginRender();
+
 	smileSprite->Draw(RS_M->GetTexture2D("background"), vec2(0.f), vec2(ScreenWidth , ScreenHeight));
-
 	Levels[Level]->Draw(smileSprite);
-
 	Ball->Draw(smileSprite);
 	Player->Draw(smileSprite);
+
+	postProcessor->EndRender();
+	postProcessor->Render(glfwGetTime());
 }
 
 //--------------------
@@ -176,6 +197,11 @@ void Game::DoCollisions()
 				// Destroy block if not solid
 				if (!box->IsSolid)
 					box->IsDestroyed = GL_TRUE;
+				else
+				{
+					ShakeTime = 0.05f;
+					postProcessor->Shake = GL_TRUE;
+				}
 				// Collision resolution
 				Direction dir = std::get<1>(collision);
 				glm::vec2 diff_vector = std::get<2>(collision);

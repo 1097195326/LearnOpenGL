@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -184,6 +184,7 @@
     <ClCompile Include="Source\GameFrame\Game.cpp" />
     <ClCompile Include="Source\GameFrame\GameLevel.cpp" />
     <ClCompile Include="Source\GameFrame\GameObject.cpp" />
+    <ClCompile Include="Source\GameFrame\PostProcessor.cpp" />
     <ClCompile Include="Source\LearnOpenGL.cpp" />
     <ClCompile Include="Source\Managers\CameraManager.cpp" />
     <ClCompile Include="Source\Managers\ResourceManager.cpp" />
@@ -245,6 +246,7 @@
     <ClInclude Include="Source\GameFrame\Game.h" />
     <ClInclude Include="Source\GameFrame\GameLevel.h" />
     <ClInclude Include="Source\GameFrame\GameObject.h" />
+    <ClInclude Include="Source\GameFrame\PostProcessor.h" />
     <ClInclude Include="Source\Headle.h" />
     <ClInclude Include="Source\Managers\CameraManager.h" />
     <ClInclude Include="Source\Managers\ResourceManager.h" />
@@ -255,6 +257,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ShaderScript\FragmentShader.txt" />
+    <Text Include="ShaderScript\PostProcessF.txt" />
+    <Text Include="ShaderScript\PostProcessV.txt" />
     <Text Include="ShaderScript\VertexShader.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

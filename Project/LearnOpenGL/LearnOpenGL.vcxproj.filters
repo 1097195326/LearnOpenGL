@@ -225,6 +225,9 @@
     <ClCompile Include="Source\GameFrame\BallObject.cpp">
       <Filter>Source\GameFrame</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameFrame\PostProcessor.cpp">
+      <Filter>Source\GameFrame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tools\FileHelper.h">
@@ -404,12 +407,21 @@
     <ClInclude Include="Source\GameFrame\BallObject.h">
       <Filter>Source\GameFrame</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GameFrame\PostProcessor.h">
+      <Filter>Source\GameFrame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ShaderScript\VertexShader.txt">
       <Filter>Source\ShaderScript</Filter>
     </Text>
     <Text Include="ShaderScript\FragmentShader.txt">
+      <Filter>Source\ShaderScript</Filter>
+    </Text>
+    <Text Include="ShaderScript\PostProcessF.txt">
+      <Filter>Source\ShaderScript</Filter>
+    </Text>
+    <Text Include="ShaderScript\PostProcessV.txt">
       <Filter>Source\ShaderScript</Filter>
     </Text>
   </ItemGroup>
