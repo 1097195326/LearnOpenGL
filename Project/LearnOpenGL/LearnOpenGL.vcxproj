@@ -185,6 +185,7 @@
     <ClCompile Include="Source\GameFrame\GameLevel.cpp" />
     <ClCompile Include="Source\GameFrame\GameObject.cpp" />
     <ClCompile Include="Source\GameFrame\PostProcessor.cpp" />
+    <ClCompile Include="Source\GameFrame\TextRenderer.cpp" />
     <ClCompile Include="Source\LearnOpenGL.cpp" />
     <ClCompile Include="Source\Managers\CameraManager.cpp" />
     <ClCompile Include="Source\Managers\ResourceManager.cpp" />
@@ -247,6 +248,7 @@
     <ClInclude Include="Source\GameFrame\GameLevel.h" />
     <ClInclude Include="Source\GameFrame\GameObject.h" />
     <ClInclude Include="Source\GameFrame\PostProcessor.h" />
+    <ClInclude Include="Source\GameFrame\TextRenderer.h" />
     <ClInclude Include="Source\Headle.h" />
     <ClInclude Include="Source\Managers\CameraManager.h" />
     <ClInclude Include="Source\Managers\ResourceManager.h" />
@@ -259,6 +261,8 @@
     <Text Include="ShaderScript\FragmentShader.txt" />
     <Text Include="ShaderScript\PostProcessF.txt" />
     <Text Include="ShaderScript\PostProcessV.txt" />
+    <Text Include="ShaderScript\TextShaderF.txt" />
+    <Text Include="ShaderScript\TextShaderV.txt" />
     <Text Include="ShaderScript\VertexShader.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,9 +1,10 @@
 #include "Game.h"
 #include "PostProcessor.h"
-
+#include "TextRenderer.h"
 
 Sprite * smileSprite = nullptr;
 PostProcessor * postProcessor = nullptr;
+TextRenderer * textRenderer = nullptr;
 static Game * GameInstance = nullptr;
 
 GLfloat	ShakeTime = 0.f;
@@ -35,6 +36,9 @@ Game::~Game()
 }
 void Game::Init()
 {
+	textRenderer = new TextRenderer(ScreenWidth, ScreenHeight);
+	textRenderer->Load("fonts/bttf.ttf", 24);
+
 	Shader * smileShader = RS_M->LoadShader("smile", "ShaderScript/VertexShader.txt", "ShaderScript/FragmentShader.txt");
 	//mat4   projection = ortho(0.f, ScreenWidth, ScreenHeight, 0.f, -1.f, 1.f);
 	//mat4   projection = ortho(-ScreenWidth * 0.5f, ScreenWidth* 0.5f, -ScreenHeight * 0.5f, ScreenHeight* 0.5f, -10.f, 10.f);
@@ -50,7 +54,7 @@ void Game::Init()
 
 	postProcessor = new PostProcessor(postShader, ScreenWidth, ScreenHeight);
 	//postProcessor->Shake = GL_TRUE;
-	postProcessor->Confuse = GL_TRUE;
+	//postProcessor->Confuse = GL_TRUE;
 	//postProcessor->Chaos = GL_TRUE;
 
 	RS_M->LoadTexture2D("smile", "texture/awesomeface.png");
@@ -145,6 +149,9 @@ void Game::Render()
 
 	postProcessor->EndRender();
 	postProcessor->Render(glfwGetTime());
+
+	//textRenderer->RenderText("level1", ScreenWidth * 0.5f, ScreenHeight * 0.5f, 1.f);
+	textRenderer->RenderText("zhang hong xing", 0.f, 0.f, 1.f);
 }
 
 //--------------------
