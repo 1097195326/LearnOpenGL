@@ -11,7 +11,7 @@
 const int WIDTH = 800;
 const int HEIGHT = 600;
 
-class GameInstance
+class Application
 {
 public:
 	void Run()
@@ -83,8 +83,8 @@ private:
 };
 int main() {
 	
-	GameInstance Game;
-	Game.Run();
+	Application App;
+	App.Run();
 
 	return 0;
 }
