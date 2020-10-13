@@ -2,6 +2,8 @@ Binaries
 DerivedDataCache
 Intermediate
 Saved
+x64
+LearnVulkan/x64
 .vscode
 .vs
 *.VC.db
