@@ -71,6 +71,7 @@ private:
 	{
 		CreateInstance();
 		setupDebugMessenger();
+		PickPhysicalDevice();
 	}
 	void CreateInstance()
 	{
@@ -200,10 +201,56 @@ private:
 
 		return VK_FALSE;
 	}
+	void PickPhysicalDevice()
+	{
+		uint32_t deviceCount = 0;
+		vkEnumeratePhysicalDevices(Instance, &deviceCount, nullptr);
+		if (deviceCount == 0)
+		{
+			throw std::runtime_error("zhx:Failed to Find GPU with Vulkan Support");
+		}
+		std::vector<VkPhysicalDevice>  Device(deviceCount);
+		vkEnumeratePhysicalDevices(Instance, &deviceCount, Device.data());
+		for (const auto & IterDevice : Device)
+		{
+			if (IsSuitableDevice(IterDevice))
+			{
+				PhysicalDevice = IterDevice;
+				break;
+			}
+		}
+		if (PhysicalDevice == VK_NULL_HANDLE)
+		{
+			throw std::runtime_error("zhx:Failed to find suitable GPU");
+		}
+	}
+	bool IsSuitableDevice(VkPhysicalDevice InDevice)
+	{
+		uint32_t QueueFamilyCount = 0;
+		vkGetPhysicalDeviceQueueFamilyProperties(InDevice, &QueueFamilyCount, nullptr);
+		if (QueueFamilyCount == 0)
+		{
+			return false;
+		}
+		std::vector<VkQueueFamilyProperties> QueueFamily(QueueFamilyCount);
+		vkGetPhysicalDeviceQueueFamilyProperties(InDevice, &QueueFamilyCount, QueueFamily.data());
+		bool IsSuit = false;
+		for (const auto & IterQueue : QueueFamily)
+		{
+			if (IterQueue.queueCount > 0 && IterQueue.queueFlags & VK_QUEUE_GRAPHICS_BIT)
+			{
+				IsSuit = true;
+				break;
+			}
+		}
+		return IsSuit;
+	}
 
 	VkInstance Instance;
 	GLFWwindow * Window;
 	VkDebugUtilsMessengerEXT DebugMessenger;
+	VkPhysicalDevice PhysicalDevice = VK_NULL_HANDLE;
+
 };
 int main() {
 	
